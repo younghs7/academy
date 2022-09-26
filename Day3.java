@@ -169,12 +169,14 @@ public class Day3 {
 			for(int j = 0; j < theNumberOfStar; j++)
 			{
 				System.out.print("*");
-				
-				
 			}
 			
 		System.out.println("");
 		}
+		
+		/*
+		 이전에 아쉬운 부분 수정
+		 */
 		
 	}
 	
