@@ -10,14 +10,14 @@ public class Day10Stack문제My {
 	//1. 함수 push()
 	public static void push(int[] array, int x)
 	{	
-		if( (sp >= 0) && sp <= 8)
+		if( (sp >= 0) && sp <= 9)
 		{
 			array[sp] = x;
 			sp = sp + 1;
 			
 		}
 		//overflow(sp = 9)이면 push 못함
-		else if ( sp == 9 )
+		else if ( sp == 10 )
 		{
 			System.out.println("실행할 수 없습니다. SP가 overflow 입니다.");
 		}
@@ -33,19 +33,19 @@ public class Day10Stack문제My {
 	public static void pop(int[] array)
 	{
 		
-		//underflow(sp = 0)면 pop 못함
+		//underflow(sp = -1)면 pop 못함
 		if(sp == 0) 
 		{
 			System.out.println("실행할 수 없습니다. SP가 underflow 입니다.");
-			array[sp] = 0;
+			
 		}
-		else if(sp >= 1 && sp <=9) 
+		else if(sp >= 1 && sp <=10) 
 		{	
 			sp = sp -1;
 			array[sp] = 0;
 			
 		}
-		// sp = 1~10 이외
+		// sp = -1~10 이외
 		else
 		{
 			System.out.println("SP가 0~10 사이에 있지 않습니다. 코딩 오류" );
@@ -88,21 +88,41 @@ public class Day10Stack문제My {
 		
 		
 		pop(stack);
-		
+		System.out.println("---------");
 		push(stack, 10);
-		push(stack, 20);
-		push(stack, 30);
+		pop(stack);
+		pop(stack);
+		System.out.println("---------");
 		push(stack, 10);
-		push(stack, 20);
-		push(stack, 30);
 		push(stack, 10);
-		push(stack, 20);
-		push(stack, 30);
 		push(stack, 10);
-		push(stack, 20);
-		push(stack, 30);
-	
-	
+		push(stack, 10);
+		System.out.println("---------");
+		push(stack, 10);
+		push(stack, 10);
+		push(stack, 10);
+		push(stack, 10);
+		push(stack, 10);
+		push(stack, 10);
+		push(stack, 10);
+		System.out.println("---------");
+		pop(stack);
+		pop(stack);
+		pop(stack);
+		pop(stack);
+		pop(stack);
+		pop(stack);
+		pop(stack);
+		pop(stack);
+		pop(stack);
+		pop(stack);
+		pop(stack);
+		pop(stack);
+		System.out.println("---------");
+		pop(stack);
+		pop(stack);
+		pop(stack);
+
 		
 	
 	
