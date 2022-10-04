@@ -17,6 +17,8 @@ public class Day11Array_문제2 {
 			{ {99, 33, 57}, {77, 66, 80} }  //3학년 [2][][]
 		};  //1학기[][0][]   2학기[][1][]
 		
+		//[][][0]: 국어점수 [][][1]:영어점수 [][][2]:수학점수
+		
 		
 		System.out.println("과목별 평균=====================================");
 		
@@ -43,9 +45,9 @@ public class Day11Array_문제2 {
 		
 		double 학기합계 = 0;
 		//학기 평균
-		for(int k=0; k< scores.length; k++)
+		for(int k=0; k < scores.length; k++)
 		{
-			for(int h=0; h <scores[k].length; h++)
+			for(int h=0; h < scores[k].length; h++)
 			{
 				
 				 학기합계 = scores[k][h][0] + scores[k][h][1] + scores[k][h][2];
