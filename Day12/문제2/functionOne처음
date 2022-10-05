@@ -1,0 +1,87 @@
+package 문제2;
+
+public class functionOne처음 {
+	
+	
+	private double a = 0;
+	private double b = 0;
+	private double x1 = 0;
+	private double x2 = 0;
+	private double y1 = 0;
+	private double y2 = 0;
+	
+	
+	
+/* 겟터, 셋터 자동으로 되는 줄 모르고, 오류 잡다가 한세월 걸림.
+	
+	
+// 좌표1 셋팅-----------------------------------------------------
+	public void setX1(double _x)
+	{
+		x = _x;
+	}
+	public double getX()
+	{
+		return x;
+	}
+	
+	public void setY(double _y)
+	{
+		y = _y;
+	}
+	
+	public double getY()
+	{
+		return y;
+	}
+	
+// 좌표2 셋팅-----------------------------------------------------	
+	public void setX1(double _x1)
+	{
+		x1 = _x1;
+	}
+	
+	public double getX1()
+	{
+		return x1;
+	}
+	
+	public void setY1(double _y1)
+	{
+		y1 = _y1;
+	}
+	
+	public double getY2()
+	{
+		return y2;
+	}
+	
+// 기울기 셋팅-----------------------------------------------------		
+	
+	public void setSlope(double _a )
+	{
+		a = _a;
+	}
+	
+	
+
+//	1.한점의 좌표와 기울기를 입력--------------------------------------	
+	public void functionXYA()
+	{
+	   b = y-(a*x);
+	   System.out.println("y= "+a+"x+"+b);
+	}
+	
+	
+	
+//  2. 두점의 좌표를 입력-------------------------------------------
+	public void functionXYXY()
+	{
+		a = (y-y1)/(x-x1);
+		b = y-a*x;
+		System.out.println("y= "+a+"x+"+b);
+	}
+	
+*/	
+	
+}
