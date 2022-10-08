@@ -2,22 +2,29 @@ package day13Sort_문제1;
 
 public class Sort {
 	
-	//0. 클래스 private 변수 설정
-	private int[] array = null; //생성된 배열
-	private int[] temp = new int[2]; //temp: temporary(임시공간)
+	//0. 클래스 private 변수 설정-----------------------------
+	private int[] array = null; //생성된 배열 or 등록된 배열
+	private int[] temp = new int[2]; //temp: temporary
 
-	private String err = "정상 작동";
+	private String err = "정상 작동"; //error 상태 표시
 	
 	
-	//1. 배열 생성 함수
-	public void gen배열(int input크기)
+//	--------------------------------------------------------
+	
+	//1-1. 배열 생성 함수
+	public void genArray(int Array크기)
 	{
-		array = new int[input크기];
+		array = new int[Array크기];
 
+	}
+	//1-2. 배열 등록 함수
+	public void registerArray(int[] array)
+	{
+		this.array = array;
 	}
 	
 	
-	//2. 생성된 배열에 랜덤값을 채우는 함수
+	//2. Class Sort 맴버인 array변수를 랜덤값으로 채우는 함수-----------------------------
 	public void fillArrayWithRandom()
 	{
 		for(int i = 0; i < array.length; i++)
@@ -27,22 +34,21 @@ public class Sort {
 	}
 	
 	
-	//3. 생성된 배열을 오름차순으로 정렬하는 함수
+	//3. Class Sort 맴버인 array변수를 오름차순으로 정렬하는 함수-----------------------------
 	public void setAscendingOrder()
 	{	
 		
 		
-		// HaveToRun 변수가 false가 될 때까지 while문이 실행함.
-		boolean HaveToRun = true;
-		while(HaveToRun)
+		
+		boolean needLoop = true;
+		//1. needLoop 변수가 false가 될 때까지 while문이 실행함.
+		while(needLoop)
 		{
-			HaveToRun = false;
+			needLoop = false;
 			for(int j = 0; j < array.length-1; j++)
 			{	
 				
-				//1.배열[index]끼리 크기를 비교하고 크기가 다르다면 배치를 바꾸고,
-				//HaveToRun 변수를 true 상태로 만듬.
-				
+				//2. if문: 배열[index]끼리 크기를 비교하고 크기가 다르다면 배치를 바꿈
 				if(array[j] > array[j+1])
 				{
 					temp[0] = array[j];
@@ -50,8 +56,8 @@ public class Sort {
 					array[j] = temp[1];
 					array[j+1] = temp[0];
 					
-					//2.한번도 실행되지 않는다면 HaveToRun이 false 상태로 됨.
-					HaveToRun = true;
+					//3. if문이 한번도 실행되지 않는다면 needLoop가 false 상태로 됨.
+					needLoop = true;
 						
 				}
 				
@@ -59,36 +65,31 @@ public class Sort {
 		}	
 	}
 	
-	//4. 생성된 배열을 내림차순으로 정렬하는 함수
+
+	
+	//4. Class Sort 맴버인 array변수를 내림차순으로 정렬하는 함수-----------------------------
 	public void setDescendingOrder()
 	{	
-		
-		// HaveToRun 변수가 false가 될 때까지 while문이 실행함.
-		boolean HaveToRun = true;
-		while(HaveToRun)
-		{
-			HaveToRun = false;
-			for(int j = 0; j < array.length-1; j++)
-			{	
+		//배열 갯수-1 
+		for(int i= 0; i < array.length-1; i++)
+		{	
+			//
+			for(int j = 0; j < array.length-1-i; j++)
+			{
 				
-				//1.배열[index]끼리 크기를 비교하고 크기가 다르다면 배치를 바꾸고,
-				//HaveToRun 변수를 true 상태로 만듬.
 				if(array[j] < array[j+1])
 				{
 					temp[0] = array[j];
 					temp[1] = array[j+1];
 					array[j] = temp[1];
 					array[j+1] = temp[0];
-					
-					//2.한번도 실행되지 않는다면 HaveToRun이 false 상태로 됨.
-					HaveToRun = true;
 				}
-				
 			}
-		}	
+		}
+			
 	}
 	
-	//5. 오름차순 내림차순 함수 합치기
+	//5. 오름차순 내림차순 함수 합치기-----------------------------
 	public void SortArray(int code)
 	{
 //		code == 1 이면 오름차순 정렬 실행
@@ -103,17 +104,16 @@ public class Sort {
 		}
 		else
 		{
-			err = "내림오름input에는 1또는2만 들어갈 수 있습니다. 1: 오름차순 2: 내림차순";
+			err = "SortArray() ERR: 1또는2만 들어갈 수 있습니다. 1: 오름차순 2: 내림차순";
 		}
 	}
 	
 	
 	
 	
-	//6. 생성된 배열 상태 정보를 print해주는 함수
+	//6. 생성된 배열 상태 정보를 print해주는 함수-----------------------------
 	public void printArrayInfo()
 	{	
-		System.err.println(err);
 		
 		System.out.println("array 상태 정보");
 		
