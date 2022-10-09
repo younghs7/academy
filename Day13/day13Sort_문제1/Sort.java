@@ -71,6 +71,38 @@ public class Sort {
 		}	
 	}
 	
+//	실제로 쓴다면 이렇게 쓸 거 같은데
+//	public void changeArrayInAscendingOrder(int[] array)
+//	{	
+//		this.array = array;
+//		
+//		boolean needLoop = true;
+//		//1. needLoop 변수가 false가 될 때까지 while문이 실행함.
+//		while(needLoop)
+//		{
+//			needLoop = false;
+//			for(int j = 0; j < array.length-1; j++)
+//			{	
+//				
+//				//2. if문: 배열[index]끼리 크기를 비교하고 크기가 다르다면 배치를 바꿈
+//				if(array[j] > array[j+1])
+//				{
+//					temp[0] = array[j];
+//					temp[1] = array[j+1];
+//					array[j] = temp[1];
+//					array[j+1] = temp[0];
+//					
+//					//3. if문이 한번도 실행되지 않는다면 needLoop가 false 상태로 됨.
+//					needLoop = true;
+//					
+//						
+//				}
+//				
+//			}
+//		}	
+//	}
+	
+	
 
 	
 	//4. Class Sort 맴버인 array변수를 내림차순으로 정렬하는 함수-----------------------------
@@ -94,6 +126,31 @@ public class Sort {
 		}
 			
 	}
+
+//	실제로 쓴다면 이렇게 쓸 거 같은데
+//	public void changeArrayInDescendingOrder(int[] array)
+//	{	
+//		this.array = array;
+//		
+//		//배열 갯수-1 
+//		for(int i= 0; i < array.length-1; i++)
+//		{	
+//			//
+//			for(int j = 0; j < array.length-1-i; j++)
+//			{
+//				
+//				if(array[j] < array[j+1])
+//				{
+//					temp[0] = array[j];
+//					temp[1] = array[j+1];
+//					array[j] = temp[1];
+//					array[j+1] = temp[0];
+//				}
+//			}
+//		}
+//			
+//	}
+	
 	
 	//5. 오름차순 내림차순 함수 합치기-----------------------------
 	public void SortArray(int code)
