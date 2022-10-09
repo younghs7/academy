@@ -23,6 +23,12 @@ public class Sort {
 		this.array = array;
 	}
 	
+	//1-3. array 변수 getter
+	public int[] getArayy()
+	{
+		return array;
+	}
+	
 	
 	//2. Class Sort 맴버인 array변수를 랜덤값으로 채우는 함수-----------------------------
 	public void fillArrayWithRandom()
@@ -35,7 +41,7 @@ public class Sort {
 	
 	
 	//3. Class Sort 맴버인 array변수를 오름차순으로 정렬하는 함수-----------------------------
-	public void setAscendingOrder()
+	public void changeArrayInAscendingOrder()
 	{	
 		
 		
@@ -68,7 +74,7 @@ public class Sort {
 
 	
 	//4. Class Sort 맴버인 array변수를 내림차순으로 정렬하는 함수-----------------------------
-	public void setDescendingOrder()
+	public void changeArrayInDescendingOrder()
 	{	
 		//배열 갯수-1 
 		for(int i= 0; i < array.length-1; i++)
@@ -95,12 +101,12 @@ public class Sort {
 //		code == 1 이면 오름차순 정렬 실행
 		if(code == 1)
 		{
-			setAscendingOrder();
+			changeArrayInAscendingOrder();
 		}
 //		code == 2이면 내림차순 정렬 실행
 		else if(code ==2)
 		{
-			setDescendingOrder();
+			changeArrayInDescendingOrder();
 		}
 		else
 		{
