@@ -134,10 +134,13 @@ public class MainMy3 {
 		//노드 next가 null일 때는 여기서 출력해.
 		if(nodePointer.getNext() == null)
 		{
-			tempNodeData = nodePointer.getData();
-			System.out.println(tempNodeData.getIntValue());
-			System.out.println(tempNodeData.getStrValue());
+			System.out.println( (nodePointer.getData()) .getIntValue() );
+			
+			System.out.println( (nodePointer.getData()) .getStrValue() );
+			//임시변수 안 만들고 바로 뽑는 게 훨씬 가독성 좋네.
 		}
+		
+		
 		
 		/*
 		 아 무조건 주석부터 달고 시작해야겠다.
