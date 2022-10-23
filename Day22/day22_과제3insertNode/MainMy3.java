@@ -19,7 +19,7 @@ public class MainMy3 {
 	// 노드를 추가하는 함수.
 	public static boolean InsertNode(Node head, int index, Node newNode)
 	{
-		if(index < 0)
+		if(index <= 0)
 		{
 			return false;
 		}
@@ -30,7 +30,7 @@ public class MainMy3 {
 		//인덱스가 노드 갯수보다 크면 인덱스를 마지막 인덱스로 변경해.
 		if(index > listCount)
 		{
-			index = listCount-1;
+			index = listCount;
 		}
 		
 		
@@ -41,10 +41,10 @@ public class MainMy3 {
 			frontNode = frontNode.getNext();
 		}
 		
-		//이전 노드의 pointer 참조값을 새로 삽입하는 노드의 pointer에 담는다.
+		//이전 노드의 next 참조값을 새로 삽입하는 노드의 next 변수에 담는다.
 		newNode.setNext( frontNode.getNext() );
 		
-		//이전 노드의 next변수에 새로 삽입하는 노드의 참조값으로 변강한다.
+		//이전 노드의 next변수에 새로 삽입하는 노드의 참조값으로 변경한다.
 		frontNode.setNext(newNode);
 		
 		
@@ -114,14 +114,10 @@ public class MainMy3 {
 		//nodePointer의 위치의 노드 Data객체 참조값을 담는 변수
 		NodeData tempNodeData;
 		
-		int count = 1;
 		
-		
-		
-		//노드의 next가 null이 될 때까지 실행해
+		//노드의 next가 null이 아니면 실행
 		while(nodePointer.getNext() != null)
 		{	
-			count++;
 			
 			//현재 노드의 데이터 참조값을 tempNodeData에 담아.
 			tempNodeData = nodePointer.getData();
@@ -130,7 +126,7 @@ public class MainMy3 {
 			System.out.println(tempNodeData.getIntValue());
 			System.out.println(tempNodeData.getStrValue());
 			
-			//nodePointer를 다음 노드를 참조하도록 한다.
+			//nodePointer가 다음 노드를 참조하도록 한다.
 			nodePointer = nodePointer.getNext();
 		}
 		
