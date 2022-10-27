@@ -17,10 +17,14 @@ public class Main_my {
 	www.gmail.com
 	
 	 */
-	
+//	-----------------------------------------------
 	
 
 	public static void main(String[] args) {
+		
+		
+		Email em2 = new Email();
+		System.out.println(em2.toString());
 		
 		String email = "jsh.ezen.2022@naver.com";
 		
@@ -38,14 +42,17 @@ public class Main_my {
 		System.out.println(bresult);
 		
 		
+		
 		//2. 아이디를 추출하는 함수를 만드시오
 		String result = em.extractID(email);
 		System.out.println(result);
 		
-		//3. 도메인을 추출하는 함수를 만드시오 단 도메인은 www.으로 시작해야한다. 
 		
+		
+		//3. 도메인을 추출하는 함수를 만드시오 단 도메인은 www.으로 시작해야한다. 
 		result = em.extract도메인(email);
 		System.out.println(result);
+		
 		
 		
 		int[] ar = new int[6];
