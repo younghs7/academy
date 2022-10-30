@@ -20,6 +20,8 @@ public class ListContainer {
 	
 //	---------------------------------
 	
+
+	
 	
 	
 	/*
@@ -68,17 +70,27 @@ public class ListContainer {
 				Node targetNode = head;
 				Node frontNode = head;
 				
-				//targetNode 찾기
-				for(int i = 0; i < targetIndex; i++)
-				{
-					targetNode = targetNode.getNext();
-				}
 				
 				//frontNode 찾기
 				for(int i = 0; i < targetIndex-1; i++)
 				{
 					frontNode = frontNode.getNext();
 				}
+				
+				//targetNode 찾기	
+					targetNode = frontNode.getNext();
+																//					//frontNode 찾기 여러 버젼
+																//					if(i == targetIndex-1)
+																//						frontNode = targetNode;
+					
+					
+					
+																//					if(i == targetIndex-1)
+																//						break;
+																//					
+																//					frontNode = frontNode.getNext();
+				
+				
 				
 				frontNode.setNext(newNode);              //frontNode가 newNode를 가르키게 함.
 				newNode.setNext(targetNode.getNext());   //newNode가 원래 기존 노드를 가르키게 함.
@@ -102,37 +114,41 @@ public class ListContainer {
 			
 		
 		
+		@Override
+		public String toString() {
+			return "ListContainer [head=" + head + "]";
+		}
+		
+//		@Override
+//		public String toString() {
+//			// TODO Auto-generated method stub
+//			return super.toString();
+//		}
+
+
+
+
 		//추가 구현
 		public void printList()
 		{	
-			System.out.println("현재 리스트 갯수: " + getNodeCount());
+			final int  NODE_COUNT =  getNodeCount();
 			
-			Node tempNodePointer = head;   //현재 노드 참조값을 가르킴.
+			System.out.println("현재 리스트 갯수: " + NODE_COUNT);
+			
+			Node nodeToSearch = head;   //현재 노드 참조값을 가르킴.
 			
 			int index = 0;
-			//처음부터 마지막 전 노드까지 반복 출력한다.
-			while(tempNodePointer.getNext() != null)
-			{	
-				//pointerNodeData를 참조해서 그 안에 있는 IntValue, StrValue 출력해.
-				System.out.print("[index :" +index+"]");
-				System.out.print(", [IntValue: " + tempNodePointer.getData().getIntValue()+"]");
-				System.out.println(", [StrValue: " + tempNodePointer.getData().getStrValue()+"]");
+			for(int i = 0; i < NODE_COUNT; i++)
+			{
+																				//nodeToSearch를 참조해서 그 안에 있는 IntValue, StrValue 출력해.
+																				//				System.out.print("[index :" +index+"]");
+																				//				System.out.print(", [IntValue: " + nodeToSearch.getData().getIntValue()+"]");
+																				//				System.out.println(", [StrValue: " + nodeToSearch.getData().getStrValue()+"]");
+				System.out.println("index["+i+"]: " + nodeToSearch.getData());
 				
-				
-				tempNodePointer = tempNodePointer.getNext();   //pointerNode가 다음 노드를 참조하도록 한다.
+				nodeToSearch = nodeToSearch.getNext();   //nodeToSearch가 다음 노드를 참조하도록 한다.
 				index++;
 			}
-			
-			//마지막 노드 정보 출력을 한다.
-			if(tempNodePointer.getNext() == null)
-			{
-				//pointerNodeData를 참조해서 그 안에 있는 IntValue, StrValue 출력해.
-				System.out.print("[index :" +index+"]");
-				System.out.print(", [IntValue: " + tempNodePointer.getData().getIntValue()+"]");
-				System.out.println(", [StrValue: " + tempNodePointer.getData().getStrValue()+"]");
-			}
-			
-			
 		}
 		
 		
@@ -164,32 +180,28 @@ public class ListContainer {
 			int targetIndex = 0;          //검색, 삭제할 대상 인덱스
 			int deleteCount = 0;
 			final int NODE_COUNT = getNodeCount();
-			// 노드 갯수 만큼 데이터 검색 반복
-			for(int i = 0; i < NODE_COUNT; i++)
+			
+			
+			
+			for(int i = 0; i < NODE_COUNT; i++)       // 노드 갯수 만큼 반복
 			{	
-				boolean isDeleted = false;
 				
-				
-				
-				//해당 위치에 데이터가 일치한다면 삭제 (필요 요소: 해당 위치 인덱스)
-				if(targetNode.getData().getIntValue() == intValue) // 해당 노드가 파라미터 intValue를 가졌다면
+				//해당 위치에 데이터가 일치한다면 삭제
+				if(targetNode.getData().getIntValue() == intValue)    // 해당 노드가 파라미터 intValue를 가졌다면
 				{
 					deleteNode(targetIndex);
 					deleteCount++;
-					isDeleted =true;
+					
+					targetNode = targetNode.getNext();      // 다음 노드로 위치 이동
+					
+					continue;
 					
 				}
-				
-				
-				if(isDeleted == false)         // 삭제하지 않았으면 인덱스 증가 (삭제한 경우는 줄이 땡겨져서 인덱스 증가시킬 필요가 없음)
-				{
-					targetIndex++;
-					
-				}
-				
+				//데이터가 일치하지 않는다면 
+				targetIndex++;       // 삭제하지 않았으면 인덱스 증가 (삭제한 경우는 줄이 땡겨져서 인덱스 증가시킬 필요가 없음)
 				targetNode = targetNode.getNext();      // 다음 노드로 위치 이동
 				
-				
+				continue;
 				
 			}
 			

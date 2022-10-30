@@ -23,40 +23,51 @@ public class Main_과제_my {
 	public static void main(String[] args) {
 	
 		
+		
+
+		
 		//head가 null일 때 getLastNode 정상작동하는지 보기
 		
 		ListContainer list = new ListContainer();
 		
-		boolean bResult = false; 
+		ListContainer list2 = new ListContainer();
 		
-		list.insertNode(13, new Node(10, "s"));
-		list.insertNode(13, new Node(10, "s"));
+		boolean bResult = false; 	
+	
+		System.out.println(list);
 		
-		
-		list.addNode(new Node(1, null));
-		list.addNode(new Node(1, null));
-		list.addNode(new Node(2, null));
-		list.addNode(new Node(2, null));
-		list.addNode(new Node(3, null));
-		list.addNode(new Node(3, null));
-		list.addNode(new Node(4, null));
-		list.addNode(new Node(4, null));
-		list.addNode(new Node(5, null));
-		list.addNode(new Node(5, null));
-		list.addNode(new Node(6, null));
-		list.addNode(new Node(6, null));
-		list.addNode(new Node(7, null));
-		list.addNode(new Node(7, null));
-		list.addNode(new Node(8, null));
-		list.addNode(new Node(8, null));
-		list.addNode(new Node(10, null));
-		list.addNode(new Node(10, null));
-		list.addNode(new Node(9, null));
-		list.addNode(new Node(9, null));
-		list.addNode(new Node(10, null));
-		list.addNode(new Node(10, null));
+		System.out.println(""
+				
+		+list.insertNode(99, new Node(1, null))
+		+list.insertNode(2, new Node(1, null))
+		+list.insertNode(99, new Node(1, null))
+		+list.insertNode(99, new Node(1, null))
+		+list.insertNode(99, new Node(1, null))
+		+list.insertNode(99, new Node(1, null))
+		+list.insertNode(99, new Node(1, null))
+		+list.insertNode(99, new Node(1, null))
+		+list.insertNode(99, new Node(1, null))
+		+list.insertNode(99, new Node(1, null))
+		+list.insertNode(99, new Node(1, null))
+		+list.insertNode(99, new Node(1, null))
+		+list.insertNode(99, new Node(1, null))
+		+list.insertNode(99, new Node(1, null))
+		+list.insertNode(99, new Node(1, null))
+		+list.insertNode(99, new Node(1, null))
+		+list.insertNode(99, new Node(1, null))
 		
 		
+		);
+		
+		bResult = list.insertNode(99, new Node(1, null));
+		bResult = list.insertNode(99, new Node(1, null));
+		bResult = list.insertNode(99, new Node(1, null));
+		bResult = list.insertNode(99, new Node(1, null));
+		bResult = list.insertNode(99, new Node(1, null));
+		
+		
+		
+	
 //		System.out.println(list.toString());
 		
 		bResult = list.deleteNodeByintValue(10);

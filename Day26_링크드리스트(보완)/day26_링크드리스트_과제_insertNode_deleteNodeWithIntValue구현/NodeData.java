@@ -36,10 +36,13 @@ public class NodeData {
 		this.strValue = strValue;
 	}
 
+
+
 	@Override
 	public String toString() {
 		return "NodeData [intValue=" + intValue + ", strValue=" + strValue + "]";
 	}	
+	
 	
 
 }
