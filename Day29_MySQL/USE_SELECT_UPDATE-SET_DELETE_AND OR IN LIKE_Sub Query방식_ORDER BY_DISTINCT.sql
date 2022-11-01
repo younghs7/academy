@@ -8,10 +8,20 @@ USE testdb;
 
 -- [SELECT] - WHERE -------------------------------------
 
+SELECT * FROM usertbl;
 SELECT userID, name FROM usertbl;
 
+-- WHERE 추가
 SELECT userID, mobile1, mobile2 FROM usertbl WHERE userID = 'JYP';
 SELECT name, mobile1, mobile2 FROM usertbl WHERE name = '조관우';
+
+
+-- 예제)
+-- 키가 175이상인 회원을 조회한다.
+SELECT * FROM usertbl WHERE  height >= 175;
+
+-- 1980년 이후 출생인 회원을 조회한다.
+SELECT * FROM usertbl WHERE birthYear >= 1980;
 
 
 -- [ UPDATE - SET ] - WHERE -------------------------------------
@@ -28,15 +38,6 @@ USE testdb;
 
 -- userID가 syh인 데이터를 삭제 
 DELETE FROM usertbl WHERE userID = 'syh';
-
-
-SELECT * FROM usertbl;
-
--- 키가 175이상인 회원을 조회한다.
-SELECT * FROM usertbl WHERE  height >= 175;
-
--- 1980년 이후 출생인 회원을 조회한다.
-SELECT * FROM usertbl WHERE birthYear >= 1980;
 
 
 -- [AND], [OR], [IN], [LIKE] ------------------------------------------------
