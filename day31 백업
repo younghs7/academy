@@ -1,0 +1,62 @@
+SELECT * FROM testdb.authortbl;
+SELECT * FROM booktbl;
+
+-- JOIN -------------------------------------------------------------------------
+
+-- LEFT JOIN [붙일 테이블] ON [조건]
+SELECT * FROM booktbl LEFT JOIN authortbl ON booktbl.author_id = authortbl.author_id;
+
+
+-- Q. 책 제목, 저자 아이디, 저자 이름, 저자의 직업을 갖고 오려면?
+SELECT booktbl.title, booktbl.author_id, name, job_title FROM booktbl 
+LEFT JOIN authortbl ON booktbl.author_id = authortbl.author_id;
+
+-- 1.
+-- Error Code: 1052. Column 'author_id' in field list is ambiguous
+-- ambiguous - [(booktbl.)author_id] : LEFT JOIN 하고나서는 명칭이 겹치는 게 있다면 에러난다.
+-- JOIN 하고나서는 가져오고 싶은 정보에는 booktbl. [테이블]. 을 붙여주는 게 FM이다.
+
+-- 2.
+-- FROM에 있는 테이블은 foreign key를 가지고 있어야만 한다.
+ 
+
+/* 문제1.   ------------------------------------------------------------------------- 
+홍길동이라는 이름을 가진 <책 아이디, 책 제목, 작가 아이디, 작가 이름, 작가 직업 >을 조회하시오. 
+(단 조건은 job_title을 "직업"이라고 컬럼명을 바꿔주세요.) */
+
+SELECT booktbl.book_id, booktbl.title ,  authortbl.author_id, authortbl.name, authortbl.job_title AS '직업'  FROM booktbl
+LEFT JOIN authortbl ON booktbl.author_id = authortbl.author_id 
+WHERE name = '홍길동'; 
+
+
+-- LEFT JOIN vs INNER JOIN --------------------------------------------------------
+
+SELECT * FROM authortbl;
+SELECT * FROM booktbl; 
+INSERT INTO booktbl VALUES (6, '작가 미상책', '작가 모름', NULL); 
+
+SELECT * FROM booktbl LEFT JOIN authortbl ON booktbl.author_id = authortbl.author_id;
+/* 
+LEFT JOIN은
+booktbl.author_id가 없어도  NULL로 다 채워서 가져옴. 
+(booktbl 로우 갯수만큼 가져온다. )
+*/
+
+SELECT * FROM booktbl INNER JOIN authortbl ON booktbl.author_id = authortbl.author_id;
+/* INNER JOIN은 
+booktbl.author_id(FOREIGN KEY)가 있어야만 데이터를 가져온다.
+
+외래키를 기준으로 양쪽에 데이터가 있어야 출력이 된다.
+*/
+-- INNER JOIN 
+-- 교집합과 비슷하다.
+
+-- 그래서 INNER JOIN 을 많이 쓴다.
+-- LEFT JOIN보다 속도가 빠르다.
+
+-- 궁금증 
+INSERT INTO booktbl VALUES (7, '없는 foreign 키 써도', 'LEFT JOIN 되지 않을까?', 4 );
+-- 아예 	INSERT 되지 않는다.
+
+
+-- 튜플의 원자성? 검색해보기
