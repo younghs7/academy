@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+
+
+
+    
+    <!-- 외부 <link rel="stylesheet" href="./main.css"> -->
+
+    <!-- [style]
+         color: blue;
+         background-color:wheat;
+         font-weight: bold; 
+    -->
+
+    <!-- [selector] 
+         ID는 #, CLASS는 . 을 찍는다. 
+         ex) ID : #abc {}
+             CLASS: .abc {}
+             tag: tag {} 
+    -->
+
+    <!-- [selector는 우선순위가 존재한다.]
+         우선순위는 ID > tag > CLASS 셀럭터 순서를 따른다.
+         샐럭터는 우선순위가 있구나를 기억하고 순서는 나중에 우선순위를 공부해도 된다. 
+    -->
+
+    <!-- [style 안은 HTML 엔진이 해석하지 않고 CSS 엔진이 해석한다.] 
+         그래서 주석도 style 밖이랑 다르게 /* */로 한다.  
+    -->
+
+
+
+<!-- 선택자 종류 -------------------------------------------------- -->
+    <style>
+        /*
+        전체 선택자 :        *
+        태그 선택자 :        tag
+        id 선택자 :          #
+        클래스 선택자 :       .
+        속성 선택자 :      선택자[속성="값"] ex) input[type=“text”]  
+        후손 선택자 :      (스페이스)
+        자손 선택자 :       >
+        구조 선택자 :      ex) li:nth-child(2n), li:first-child, li:last-child 등
+        */
+
+
+        /* 자손, 후손 선택자------------------------------------------------ */
+
+        /* #header > h1, #section > h1  {
+            color: red;
+        } */
+
+        /* 구조 선택자 ------------------------------------------------ */
+        
+
+        /* li:nth-child(2n+1) {
+            color: red;
+        }
+        li:first-child {
+            color:blue;
+        } */
+
+        /* --속성 선택자--------------------------------------------- */
+
+         input[type="text"] {
+            background-color: aliceblue;
+        }
+
+        
+        img[src= "test.png"] { 
+            border: 6px solid darkblue;
+        }
+        
+
+
+
+    </style>
+
+<!-- [font-size] -------------------------------------------------------------- -->
+    <style>  
+    /* px, em, rem, vw  */ 
+
+    /* * {
+        font-size: 110%;
+        font-size: 14px;
+    } */
+
+    
+    ol > li {
+        color: rgb(131, 63, 63);
+        color: #ffffff; /* 16진수로 할 때는 prefix #을 쓴다. ff = 256  */    
+    }
+
+    ul > li {
+        font-size: 2em; 
+
+    }
+
+    </style>
+
+<!-- [box medel] -------------------------------------------- -->
+    <style>
+        h1 {
+            height: 100px;
+            border-top: 10px solid blue;
+            border-bottom: 10px solid skyblue;
+            /* 위 가로 아래 */
+            padding: 5px 10px 20px;
+            margin: 50px;
+        }
+
+    </style>
+
+
+</head>
+
+<body>
+
+    <h1>hello</h1>
+    <h1>Welcome</h1>
+
+    <img src="test.png" alt="떴냐"> <!-- ./test.png 이라고 하면 border 설정 오류나네. 이유는 모름 -->
+   
+
+</body>
+</html>
