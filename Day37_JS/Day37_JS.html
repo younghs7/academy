@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+
+    <script>
+
+
+        // // sw
+
+        // let val = 5;
+
+        // switch(val)
+        // {
+        //     case "5" :
+        //         console.log('5입니다.')
+        //         break;
+        // }
+
+
+
+
+        // // for, for-in, for-of --------------------------
+
+        // const ar = [11, 22, 33, 44, 55];
+
+
+        // // for-in
+        
+        // for(const k in ar) 
+        // {
+        //     console.log(k);   // 0, 1, 2, 3, 4
+        // }
+        
+
+
+        // // for-of
+
+        // for (const z of ar)
+        // {
+        //     console.log(z);     //11, 22, 33, 44, 55
+        // }
+
+
+        // // function --------------------------------
+
+        
+        // function myfunc1(a, b)   // 선언적 함수 (ES5 방식)
+        // {
+        //     let k = a + b;
+        //     return k;
+        // }
+
+        // const myfunc2 = function(a, b) // 익명 함수 (ES6 방식)
+        // {
+        //     let k = a + b;
+        //     return k;
+        // }
+
+        // console.log(myfunc1(10,20));
+        // console.log(myfunc2(4, 9));
+
+
+        // let a = myfunc2;        // 함수 참조값을 변수에 넣어서 사용가능하다.
+        // console.log(a(10,50));
+
+        // let b = myfunc1;
+        // console.log(b(20,50));
+
+
+        // 함수의 참조값을 배열에 담는 것이 가능하다------------------------------
+
+        // const a = function()
+        // {
+        //     console.log("aaa");
+        // }
+        
+        // const b = function()
+        // {
+        //     console.log("bbb");
+        // }
+
+        // const func_ar = [a, b];
+
+        // func_ar[0]();
+        // func_ar[1]();
+
+        // /* 
+        //     마찬가지로 ES5의 경우 이렇게 쓰는 것은 안 좋다.
+        //     ES5와 ES6랑 섞어쓰는 것은 안 좋기 때문이다.
+        // */
+
+
+        // 문제1----------------------------------------------
+        // 배열의 최소값을 구하는 함수
+        // param : INT 배열
+        // return : 최소값
+        // getMinValue
+
+      
+        
+        // const getMinValue1 = 
+        // function(ar)
+        // {   
+        //     let minValue = ar[0];
+
+        //     for(let i = 0; i < ar.length; i++)
+        //     {
+        //         if(minValue > ar[i])
+        //         {
+        //            minValue = ar[i]
+        //         }
+        //    }
+
+        //     return minValue;
+        // }
+
+
+        // const arr = [11, -1, 33, 44, 55];
+
+        // console.log( getMinValue1(arr) )
+        
+
+        /* 
+            애드온을 쓰면 디버그가 가능하나
+            애드온 디버그 기능은 웹브라우저에서 가져온다.
+
+        */
+        
+
+        //  가변 파라미터 ...ar----------------------
+
+        // // rest parameter, 가변 파라미터
+        // getMinValue1([11, 22, 33, 44, 55]);
+       
+        // getMinValue2(10, 5);
+        // getMinValue2(10, 5, 344, 2);
+
+        // const getMinValue2 = function(...ar)
+        // {
+        //     console.log(ar);
+        // }
+
+
+        // 문제 2 ----------------------------------------------
+        // getMinValue(10, 2, 55, 7); // 2
+        // getMinValue([10, 2, 55]);  // 2
+        // getMinValue (54);          // 54 
+        // 뜨게 하는 함수 만들기
+        
+        
+        
+        // 내가 푼 것 -------------------------
+
+        // const getMinValue = 
+        // function(...ar)
+        // {   
+        //    console.log(ar);
+
+        //     //1. 배열의 배열을 찾아 배열의 min값으로 바꾼다
+        //     for(let i = 0; i < ar.length; i++)
+        //     {   
+        //         //배열을 배열의 최소값과 교체한다.
+        //         if( Array.isArray(ar[i]) == true)
+        //         {
+        //           let min =  getMinValue1(ar[i]);
+
+        //           ar.splice(i, 1, min);    
+        //         }
+        //     }
+
+        //     console.log(ar);
+            
+        //     //배열의 배열을 다 제거했으면 다시 기존 함수를 쓴다
+        //     let minValue = getMinValue1(ar)
+
+        //     return minValue;
+        // }
+
+
+        // console.log( getMinValue([-20, 1], 1, [11,22,33], [-3, -6], 3, -1)  );
+    
+        // // // 강사님 풀이 ---------------------
+
+        //     const getMinValue = function(first, ...ar)  // 나머지 파라미터
+        //     {
+        //         let array;
+        //         if (Array.isArray(first))
+        //         {
+        //             array = first;
+        //         }
+        //         else
+        //         {
+        //             array = ar;
+        //             array.push(first);
+
+        //             console.log(array);
+
+        //         }
+        //         // 알고리즘 데이터 프리프로세싱
+
+        //         // --------------------
+        //         let min = array[0];
+
+        //         for(const val of array)
+        //         {
+        //             if (min > val)
+        //             {
+        //                 min = val;
+        //             }
+        //         }
+
+        //         return min;
+        //     }
+
+
+        //    // console.log(getMinValue(11, 22, 33, [11, -1, -5]))
+          
+        // ----------------------------------------------------------------------------
+        // 전개연산자 (...)
+        // 나머지 파라미터 : "파라미터" ==> 여러개의 파라미터를 하나의 배열로 만들어주는 파라미터
+
+            // const ar = [10, 30, 20, 0, 9]; 
+
+            // getMinValue(...ar);    // 전개 연산자
+
+
+
+
+        // -------------------------------------------------
+        // 문제3.
+        // 로또번호를 만드는 함수를 구현하고
+        // getLottoNumber
+        // param: X 
+        // return : 번호 6개가 들어있는 배열. [2, 4, 6, 7, 9, 45]
+
+        // 로또번호 5줄를 화면에 출력하시오.
+        // (로또번호 1개당 6개의 숫자로 이루어져 있음)
+        
+        // 화면 출력은 ul, li, h1을 이용하세요.
+
+
+        const sort1 = function(ar)
+            {
+                for(let k = 0; k < ar.length-1; k++)
+                {   
+                    for(let i = 0; i < ar.length-1-k; i++)
+                    {   
+                        temp = 0;
+                        if(ar[i] > ar[i+1]);
+                        {
+                            temp = ar[i];
+                            ar[i] = ar[i+1];
+                            ar[i+1] = temp;
+                        }
+                    }
+                }
+
+                return ar;
+
+            }
+
+
+
+            const getLottoNumber = function()
+            {   
+                //로또 번호 하나를 배열에 담는다.
+                let ar = [Math.floor(Math.random()*46)];
+                
+                // 5번 반복
+                for(let i = 0; i < 5; i++)
+                {   
+    
+
+                    // 배열에 로또번호 1개 추가하기.
+                    while(true)
+                    {       
+                        // 1~45 숫자 생성
+                            let number = Math.floor(Math.random()*46);
+
+                        // 기존 숫자와 같은 게 존재하는지 확인한다.
+                        let exist = false;
+                        for(let k = 0; k < ar.length; k++)
+                        {
+                            if(number == ar[k] )
+                            {
+                                exist = true;   
+                            }
+                        }
+
+                        // 존재하지 않는다면 배열에 추가한다.
+                        if(exist == false)
+                        {
+                            ar.push(number);
+                            break;
+                        }
+
+                        
+                        
+                    }
+                }
+
+                ar = sort1(ar);
+
+
+                return ar;
+            }
+
+      
+
+
+
+            
+            
+            document.write(`<ul> <li> <h1> ${getLottoNumber().join(" ")} </h1> </li> </ul>`);
+            document.write(`<ul> <li> <h1> ${getLottoNumber()} </h1> </li> </ul>`);
+            document.write(`<ul> <li> <h1> ${getLottoNumber()} </h1> </li> </ul>`);
+            document.write(`<ul> <li> <h1> ${getLottoNumber()} </h1> </li> </ul>`);
+            document.write(`<ul> <li> <h1> ${getLottoNumber()} </h1> </li> </ul>`);
+
+
+            // document.write(`
+            //                 <ul> <li> <h1> ${getLottoNumber()} </h1> </li> </ul>
+            //                 <ul> <li> <h1> ${getLottoNumber()} </h1> </li> </ul>
+            //                 <ul> <li> <h1> ${getLottoNumber()} </h1> </li> </ul>
+            //                 <ul> <li> <h1> ${getLottoNumber()} </h1> </li> </ul>
+            //                 <ul> <li> <h1> ${getLottoNumber()} </h1> </li> </ul>
+            //                 `)
+
+
+
+            // // 강사님 풀이-----------------------------
+
+            //     const getLottoNumber = function()
+            //     {
+            //         // 6개 번호가 들어갈 배열
+            //         const lottoTable = [];
+
+            //         let randomNumber;
+
+            //         while(lottoTable.length < 6)
+            //         for (let i = 0; i < 6; i++)
+            //         {
+            //             //1. random번호를 만든다.
+            //             randomNumber = ( (Math.random()*45) +1 ).toFixed();
+            //             randomNumber = Number(randomNumber);
+
+            //             //2. random번호가 배열에 존재하는지 확인한다, 존재하지 않는다면 배열에 넣어준다.
+            //             if(-1 == lottoTable.indexOf(randomNumber))
+            //             {
+            //                 lottoTable.push(randomNumber);
+            //             }
+
+            //         }
+
+            //         lottoTable.sort(compareNumbers);
+
+
+            //         return lottoTable;
+            //     }
+
+
+            //     function compareNumbers(a, b) {
+            //          return a - b;
+            //     }
+
+
+            //     let lotto = [];
+            //     for(let i = 0; i < 5; i++)
+            //     {
+            //         lotto.push( getLottoNumber() );
+            //     }
+
+            //     console.log(lotto);
+
+
+                
+            //     let output = "";
+
+            //     output += "<ul>";
+            //         output += `<li><hi>${lotto[0][0]} ${lotto[0][1]} ${lotto[0][2]} ${lotto[0][3]} ${lotto[0][4]} ${lotto[0][5]}  </hi></li>`
+                
+            //     output += "</ul>";
+
+            //     document.body.innerHTML = output;
+
+
+
+
+        // // 내가 짠 게 아님. 시스템에 있다고 상상을 해라.    
+        // function callThreeTimes(callback)
+        // {
+        //     for(let i = 0; i < 3; i++)
+        //     {
+        //         callback(i);
+        //     }
+        // }
+
+        // function RegisterFuction(callback)
+        // {
+        //     for(let i = 0; i < 3; i++)
+        //     {
+        //         callback(i);
+        //     }
+        // }
+
+
+        // // 내가 짠 것. 이라고 상상을 해라
+        // function print(i)
+        // {
+        //     console.log(`${i} 값을 찍었습니다.`);
+        // }
+
+        // RegisterFuction(print);
+        // // 호출 당해지는 함수를 콜벡함수라고 한다.
+
+
+
+        // // 콜백함수를 forEach통하여 호출 -----------------------
+
+        // const callbackForEach = function(value, index, array)
+        // {
+        //     console.log('value = ' + value);
+        //     console.log('index = ' + index);
+        //     console.log('array = ' + array);
+        //     console.log('-----------------')
+
+        // }
+
+        // const num = [11, 22, 44, 0, 99];
+        // num.forEach(callbackForEach);
+
+
+        // // 콜백함수를 map통하여 호출 -----------------------
+
+        // const callbackMap = function(value, index, array)
+        // {
+        //     console.log("call");
+        //     return value * 2;
+        // }
+
+        //     // const num = [11, 22, 44, 0, 99];
+
+        //     const nnum = num.map(callbackMap);
+
+        //     console.log(nnum);
+
+
+
+
+        // // 콜백함수를 filter통하여 호출 -----------------------
+
+        // const callbackFilter = function(value, index, array)
+        // {
+        //     return ( value > 20 );
+        // }
+
+        //     // const num = [11, 22, 44, 0, 99];
+
+        //     const nnnum = num.filter(callbackFilter)
+        //     console.log(nnnum);
+
+        
+
+
+
+        // 문제 4. -----------------------------------
+        //arr배열에서 짝수인 요소만 추출하여 새로운 배열을 만들어보시오.
+        //단 callback 함수를 이용할 것.    
+        
+            const arr = [0, 11, 22, 33, 44, 55, 66, 77, 88, 99];
+
+            
+            const callBack짝수 = function(value, index, array)
+            {
+                return (value % 2 == 0) ;
+            }
+            
+            const arred = arr.filter(callBack짝수);
+            console.log(arred);
+           
+        
+
+
+    </script>
+
+
+   
+
+
+
+
+
+
+
+    
+</body>
+</html>
