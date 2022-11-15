@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+
+    <!-- <script src ="https://cdn.jsdelivr.net/npm/lodash@4.17.21/lodash.min.js"> -->
+    <script src ="./lodash.js"></script>
+
+
+</head>
+<body>
+
+    <script>
+
+           // JSON ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ
+
+           const books = [
+        {
+            title : '알기 쉬운 자바스크립트',
+            price : 20000,
+            type : 'paper'
+
+        },
+        {
+            title : '자바스크립트 기초',
+            price : 0,
+            type : 'ebook' 
+        },
+        {
+            title : '초초초',
+            price : 10000,
+            type : 'ebook'
+        
+        },
+        {
+            title : '어어어어',
+            price : 15000,
+            type : 'ebook'
+        
+
+        }];
+
+        // const json_text = JSON.stringify(books, null, 2);
+
+        // console.log(json_text);
+
+        // // json_test를 객체로 만들수도 있어야 한다.
+        // const json_object = JSON.parse(json_text);
+
+        // console.log(json_object);
+
+      console.log(books);
+
+      const result =  _.sortBy(books, function(o){ return o.price; });
+
+      console.log(result);        
+
+      console.log(10);
+
+
+
+
+    </script>
+    
+</body>
+</html>

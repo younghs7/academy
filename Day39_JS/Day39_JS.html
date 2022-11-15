@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+
+<body>
+
+    <!-- 
+         (자바스크립트에서 쓰는) object  : 데이터 타입과 동시에 메모리할당.
+         
+         !== (자바에서 쓰는) object : 클래스의 메모리 인스턴스
+    -->
+
+    <script>
+
+    // // 복습 ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ
+
+    (function(){
+    //     const product = {
+    //         name: 'keyboard',
+    //         color: 'black',
+    //         light: true,
+    //         'key count': 87,
+            
+    //         type: {
+    //             a : 1,
+    //             b : 2
+    //         },
+
+    //         getName : function(){
+    //             console.log(this.name)          // 나를 소유하고 있는 객체의 name
+    //             console.log(product.light)      // product의 light
+    //         },
+
+    //         getName2 : ()=>{                    // 화살표 함수 안에서 this는 product를 가르키지 않고 window를 가르킨다.
+    //             console.log(this.name)           
+    //             console.log(product.light)      
+    //         }
+    //     };
+
+
+
+    //     console.log(product['key count']);
+
+    //     for (const key in product)
+    //     {
+    //         console.log(key); 
+    //         console.log(product[key]); 
+    //     }
+
+
+
+    // 복습 끝 ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ
+
+
+    // 기본 타입 -> 객체 타입 변환 ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ
+
+        // let a = 10;
+        
+        //     console.log(typeof(a));  // number
+        //     console.log(a);          // 10
+
+        // const newa = new Number(10);
+
+        //     console.log(typeof(newa));      // object
+        //     console.log(newa.valueOf());    // 10
+
+
+
+    // 기본타입 -> 객체타입 -> 기본타입 묵시적 변환 -----------------------------------------
+
+        // const str = '안녕하세요';
+        
+        // console.log(typeof(str));
+
+        // let len = str.length;      // <--- 묵시적 형변환을 함. str --> object 로
+        // console.log(len);
+
+        // console.log(typeof(str));  // <--- string 객체를 사용한 후에 다시 object -> 기본 str로 다시 변환함.
+
+
+
+
+    // =================================================================================
+    // 스코프 ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ
+
+
+    // let a = 10;
+
+    // function myfunc()
+    // {
+    //     let a = 20;
+    //     console.log(a);
+
+    //     b = 20;    // 전역 영역에 변수를 만듬.
+    // }
+
+    // myfunc();   // 20
+    // console.log(b);      // 20  <-- 한 번 함수 호출해야 됨. 호출 안 하면 b없다고 뜸.
+
+
+
+    // var, let 스코프ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ
+
+
+    // function myfunc1()
+    // {
+    //     for ( var i = 0; i < 5; i++)  // var는 함수 레벨 스코프를 가진다.
+    //     {
+    //         console.log(i);
+    //     }
+
+    //     console.log(i);
+    // }
+
+    // myfunc1();  // 0, 1, 2, 3, 4, 5
+
+
+
+    // function myfunc2()
+    // {
+    //     for (let i = 0; i < 5; i++)     // let은 블록{} 레벨 스코프를 가진다.
+    //     {
+    //         console.log(i);
+    //     }
+
+    //     console.log(i);
+    // }
+
+    // myfunc2();   // 0, 1, 2, 3, 4, 'i is not defined'
+
+
+    // // 경고성? 견고성
+
+    
+    // var가 있는데, let, const가 새로 나온 이유 ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ
+
+    // function myfunc3()
+    // {
+    //     console.log(i);   // undefined
+    //     // 출력이 되는 이유: 스코프 --> 유효범위 내에서 접근이 가능해야 한다.
+    //     // 함수가 시작할 때, v8엔진이 미리 읽고 var로 되어 있는 변수는 다 잡아놓고나서 실행된다.
+    //     // --> 이러하게 결과를 낼 수 있기 때문에 소프트웨어 불안정성을 올린다.
+
+    //     for (var i = 0; i < 5; i++)  // var는 함수 레벨 스코프를 가진다.
+    //     {
+    //         console.log(i);
+    //     }
+   
+    // }
+
+    // myfunc3();  // undefined, 1, 2, 3, 4, 5
+
+
+    // ========================================================================
+    // 식별자 결정ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ
+
+
+    // const sc = 'global';
+
+    // function func()
+    // {
+    //     const sc = 'local';
+    //     console.log(sc);
+    // }
+
+    // func(); // local
+
+
+
+    // 스코프 체인ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ
+
+    // let a = 30;
+
+    // const func1 = function()
+    // {
+    //     let a = 20;
+    //     let k = 10;
+
+    //     const func2 = function()
+    //     {
+    //         // let a = 10;
+    //         console.log(a);
+
+    //         k = 20;
+    //         console.log(k);      //  20 
+            
+    //     }
+        
+    //     func2();
+
+    // }
+
+    // func1();   // 20
+
+    // /* 
+    //     자바스크립트는 자바와는 다르게 함수 안에 함수를 만들면 
+    //     내부 함수는 외부함수의 변수를 접근 가능하다.        
+    // */
+
+
+    // =====================================================================
+    // // 클로저 ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ
+
+    // // 내가 쓸 일은 거의 없는데, 라이브러리를 뜯어야 할 때 해석하려면 알고 있어야 한다.
+    // // 내부 - 외부 함수가 연결되어 있는 걸 클로저라고 한다.
+
+    // const makeInstance = function(title)
+    // {   
+    //     // 객체를 하나 힙에 할당하고 그 시작정보(레퍼런스)를 리턴한다.
+    //     // 1 시작 : return {}
+    //     // 2 객체에 메소드 추가 : 메소드가 접근하는 데이터가 메소드 내에 없어.
+    //     //                        상위 함수에 존재하는 데이터(파라미터)를 접근
+    //     return {
+    //         getTitle : function()
+    //         {
+    //             return title;
+    //         },
+
+    //         setTitle : function(_title)
+    //         {
+    //             title = _title;
+    //         }
+
+    //     };
+
+
+    // }
+
+    // const book1 = makeInstance('알기 쉬운 자바스크립트');
+    // console.log(book1.getTitle());
+
+    // book1.setTitle('알기 쉬운 자바');
+    // console.log(book1.getTitle());
+
+    // // let obj = makeInstance('abc');
+    // // console.log(obj);
+
+    // // obj.aaa = 5;
+    // // console.log(obj);
+
+
+    /*
+        자바에서 클래스 같은 기능을 만들기 위해 자바스크립트에서 만든 게 클로저다.
+        자바 - 클래스
+        자바스크립트 - 클로저 
+    */
+
+
+    // 클로저 문제 1ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ
+    // 클로저를 이용하여 id, 이름, 국영수 성적을 생성하는 함수를 구현하려 한다.
+    // 학번, 이름, 국영수 성적의 getter/setter를 구현하시오.
+    // 성적의 평균을 구하는 함수를 구현하시오. (단 평균은 소수점 2자리)
+
+    // const makeStudent = function(id, name, score)
+    // {
+    //     return {
+
+    //         // getter--------------------------------------
+            
+    //         getId : function()
+    //         {
+    //             return id;
+    //         },
+
+    //         getName : function()
+    //         {
+    //             return name;
+    //         },
+
+    //         getScore : function()
+    //         {
+    //             return score;
+    //         },
+
+    //         // setter--------------------------------------
+
+    //         setName : function(_name)
+    //         {
+    //             name = _name;
+    //         },
+
+    //         setKorScore : function(korScore)
+    //         {
+    //             score[0] = korScore;
+    //         },
+
+    //         setEngScore : function(engScore)
+    //         {
+    //             score[1] = engScore;
+    //         },
+
+    //         setMathScore : function(mathScore)
+    //         {
+    //             score[2] = mathScore;
+    //         }, 
+
+    //         // --------------------------------------
+
+    //         getAverage : function()
+    //         {   
+    //           let total = 0;  
+    //           for(const scoreValue of score)
+    //           {
+    //             total = total + scoreValue;
+    //           }  
+
+    //           let average = total / score.length ;
+
+    //           fixedAverage = average.toFixed(2);
+
+    //           return Number(fixedAverage);
+    //         }
+
+    //     };
+
+    // }
+
+    // const student1 = makeStudent(1, '아무개', [80, 89, 100]);
+    // console.log( student1.getAverage() );
+    // console.log( typeof(student1.getAverage()) );
+
+    // student1.setName('name');
+    // console.log(student1.getName());
+
+    // console.log();
+    // console.log();
+
+
+
+
+    // // 풀이 -------------------------------
+
+    // const makeStudent = function (id, name, score)
+    // {
+    //     return {
+
+    //         getID() 
+    //         {
+    //             return id;
+    //         },
+    //         getName()
+    //         {
+    //             return name;
+    //         },
+    //         getScore()
+    //         {
+    //             return score;
+    //         },
+
+
+
+    //         setId(_id)
+    //         {
+    //             id = _id;
+    //         },
+
+    //         setName(_name)
+    //         {
+    //             name = _name;
+    //         },
+
+    //         setId(_score)
+    //         {
+    //             score = _score;
+    //         },
+
+    //         getAverage()
+    //         {
+    //             let total = 0;
+    //             for (const sc of score)
+    //             {
+    //                 total = total + sc;
+    //             }
+
+    //             let avg = total.toFixed(2);
+
+    //             return avg;
+
+    //         }
+
+
+    //     }
+    // }
+
+    // const stu1 = makeStudent('hgd', '홍길동', [80, 90, 77]);
+
+    // console.log( stu1.getID() ); 
+    // console.log( stu1.getName() ); 
+    // console.log( stu1.getScore() ); 
+
+    // stu1.setId('lee');
+    // stu1.setName('이순신');
+
+
+    // const avg = stu1.getAverage();
+    // console.log(avg);
+
+    // // 클래스가 생기기 전까지는 클로저를 썼으나 요즘에는 잘 안 쓴다.
+    // // object가 정보은닉 기능이 없다. - private
+
+    // // 라이브러리를 공급하는 회사들은 클로저를 선호한다.
+    // // 내부적으로는 지저분하지만, 사용자 입장에서는 깔끔하기 때문이다.
+
+    // // 자바스크립트는 클래스가 나중에 생기기는 했지만,
+    // // 아직까지도 함수 지향 언어이다.
+
+
+
+
+
+     // 배열도 object를 기반으로 하는구나!  ----------
+
+        // const ar = [1, 2, 3, 4, 5];
+        // console.log(typeof(ar));
+    
+        // const ar2 = [];
+        // console.log(typeof(ar2));
+
+        // ar.jsh = '정성훈';
+
+        // console.log(ar);
+
+
+        // // function도 object의 일종일 뿐이다. ----------------------------
+        // const myFunc = function(a, b)
+        // {
+        //     return a + b ;
+        // }
+
+        // console.log(typeof(myFunc));
+        // myFunc.jsh = '정성훈';
+
+        // console.log(myFunc.jsh);
+
+
+
+        // // Prototype이란 무엇인가? -------------------------------------------
+
+        // const ar1 = [1, 2, 3, 4, 5];
+        // const ar2 = ['ab', 'cd'];
+
+        // const ar3 = [];
+        // // []이면 변수에 담기 전  Array.prototype이 따라 붙는다.
+        // // string이면 변수에 담기 전 String.prototype이 따라 붙는다.     
+        // const f = function()
+        // {
+
+        // }
+
+        // console.log(f.prototype);    // prototype은 dna과 비슷하다.
+
+        // console.log(ar1);    
+        // console.log(ar2); 
+        
+
+        // // console.log(Number,.prototype.power);
+        
+        // Number.prototype.power = function(n)
+        // {
+        //     return this.valueOf() ** n;
+        // }
+
+        // const a = 10;
+        // a.power(2)    // 일시적으로 a를 객체화해서 power함수를 호출함.
+        // console.log( a.power(2)  );
+
+
+        // // 'prototype 상속'이라고 표현을 한다.
+        // // prototype 도 객체이다.
+
+        // // sqrt() 함수
+
+        // // 자바스크립트 prototype에는 없는 기능인데, 
+        // // 그 엔지니어가 리액트에는 있으면 prototype에 추가한 것이다.
+
+
+
+        // JSON ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ
+
+        const books = [
+        {
+            title : '알기 쉬운 자바스크립트',
+            price : 20000,
+            type : 'paper'
+
+        },
+        {
+            title : '자바스크립트 기초',
+            price : 0,
+            type : 'ebook' 
+        }];
+
+        const json_text = JSON.stringify(books, null, 2);
+
+        console.log(json_text);
+
+        // json_test를 객체로 만들수도 있어야 한다.
+        const json_object = JSON.parse(json_text);
+
+        console.log(json_object);
+
+        
+
+
+
+
+
+    })();
+    </script>
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
