@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <!-- <script>
+
+        // DOM ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ
+
+
+       //   document.body.innerHTML += "<h1>hello</h1>";    <-- 오류 난다. body가 아직 생성 되기 전이기 때문이다.              
+
+
+        const OnContentLoaded = function()
+        {   
+            document.body.innerHTML += "<h1>Hello</h1>";
+
+        }
+        //                            event가 발생하면  콜벡함수를 실행해.
+        document.addEventListener('DOMContentLoaded', OnContentLoaded);       // DOM 문서를 다 읽었을 때 콜벡 함수를 실행해줘
+        //          각 파라미터는        event        event 핸들러(eventListener) 에 해당한다.         
+        
+        // ▲ 잘 실행 된다. 마지막에 Hello 찍힘.         
+
+
+    </script> -->
+
+
+    <script src="main.js"></script>        <!-- 이벤트 핸들러-->
+
+</head>
+<body>
+
+    <script>
+
+        // document.body.innerHTML += "<h1>Wellcome</h1>";
+   
+    </script>
+
+
+    <!-- querySelector('선택자')ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ -->
+
+
+    <h1 id="hello">Hello</h1>
+    <h1 style="color:blue">Hello2</h1> 
+
+
+
+    <!-- 
+        목적 : h1 element를 제어 하고 싶다.
+        1. h1 엘리먼트를 찾는다.
+        2. 찾은 엘리먼트를 설정한다.
+        3. 다시 그려준다.     <---개발자가 신경 쓸 필요 없다 브라우저가 알아서 해준다.
+        ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ
+        1. h1 엘리먼트를 찾는다
+        2. h1 엘리먼트의 색을 붉은색으로 설정한다.
+        3. 다시 그려준다.      <---개발자가 신경 쓸 필요 없다 브라우저가 알아서 해준다.
+     -->
+
+
+
+     <h1 class ="main-title"> Hello World </h1>
+
+
+     <script>
+
+        // // html, css 말고 자바스크립트로 html element를 제어하는 법 
+
+        // const h1Element = document.querySelector('h1');   // querySelector('선택자') : 내가 원하는 도큐먼트의 엘리먼트를 찾아서 엘리먼트 객체를 리턴해주는 함수
+        // console.log(h1Element);
+        // console.log(typeof(h1Element));
+
+        // h1Element.style.color = 'red';
+
+     
+
+   
+
+    // ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ
+      
+
+
+    // document.addEventListener('DOMContentLoaded', (event)=>{
+    //     })
+
+
+        // 문제
+        //main-title의
+        // 1. 글자색을 붉은색으로
+        // 2. 백그라운드색은 검정색으로
+        // 3. 글자를 Hello World => Welcome Hello World
+        // 4. Padding 을 5px
+
+
+        // const mainTitleElement = document.querySelector('.main-title');
+        // console.log(mainTitleElement);
+        // mainTitleElement.style.color = 'red';
+        // mainTitleElement.style.backgroundColor = 'black';
+
+
+
+        // 풀이 ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ
+        // const mainElem = document.querySelector('.main-title');
+        // mainElem.style.color = 'red';
+        // mainElem.style.backgroundColor = 'black';
+        // mainElem.textContent = 'Welcome Hello World';
+        // mainElem.style.padding = '5px';
+
+
+
+
+        // querySelectorAll()ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ
+
+        
+        const mainElem = document.querySelectorAll('h1');
+        // mainElem[0].style.color = 'red';
+        // mainElem[0].style.backgroundColor = 'black';
+        // mainElem[0].textContent = 'Welcome Hello World';
+        // mainElem[0].style.padding = '5px';
+
+        // mainElem.forEach(function(element)
+        // {
+        //     element.style.color = 'red';
+        // }); 
+
+
+        // // for 문
+        // for(const element of mainElem)
+        // {
+        //     element.style.color = 'red';
+        //     element.style.backgroundColor = 'black';
+        //     element.textContent = 'Welcome Hello World';
+        //     element.style.padding = '5px';
+        // }
+
+        mainElem.forEach(function(element){
+
+            element.style.color = 'red';
+            element.style.backgroundColor = 'black';
+            element.textContent = 'Welcome Hello World';
+            element.style.padding = '5px';
+
+        });
+
+
+
+
+
+
+
+     </script>
+
+     
+
+</body>
+</html>

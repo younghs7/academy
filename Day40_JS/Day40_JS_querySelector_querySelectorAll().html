@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+
+</head>
+<body>
+
+    <script>
+
+        document.body.innerHTML += "<h1>Wellcome</h1>";
+   
+    </script>
+
+
+    <!-- querySelector('선택자')ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ -->
+
+    <!-- html, css 말고 자바스크립트로 html element를 제어하는 법 
+ 
+        목적 : h1 element를 제어 하고 싶다.
+        방법 
+        1. h1 엘리먼트를 찾는다.         ->  querySelector('선택자')
+        2. 찾은 엘리먼트를 설정한다.     ->  ex) element객체.(style.color, style.backgroundColor textContent 등) 을 이용하여 설정
+        3. 다시 그려준다.     <---개발자가 신경 쓸 필요 없다 브라우저가 알아서 해준다.
+    -->
+
+
+
+    <!-- html에서 작성된 코드 -->
+
+    <h1 id="hello">Hello</h1>
+    <h1 style="color:blue">Hello2</h1> 
+    <h1 class ="main-title"> Hello World </h1>
+
+
+    <script>
+
+
+        // // querySelector('선택자') :  선택자에 해당하는 '첫번째' element를 element객체로 리턴해줌.
+
+        // const h1Element = document.querySelector('h1');   
+        // console.log(h1Element);             // <h1 id="hello">Hello</h1>
+        // console.log(typeof(h1Element));     // object
+
+        // h1Element.style.color = 'red';      // 붉은색으로 바뀜.  
+
+     
+
+   
+
+    // ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ
+      
+
+
+    // document.addEventListener('DOMContentLoaded', (event)=>{
+    //     })
+
+
+        // 문제 ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ
+
+        //main-title의
+        // 1. 글자색을 붉은색으로
+        // 2. 백그라운드색은 검정색으로
+        // 3. 글자를 Hello World => Welcome Hello World
+        // 4. Padding 을 5px
+        // 로 바꿔보시오.
+
+
+
+        // 풀이 ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ
+        // const mainElem = document.querySelector('.main-title');
+        // mainElem.style.color = 'red';
+        // mainElem.style.backgroundColor = 'black';
+        // mainElem.textContent = 'Welcome Hello World';
+        // mainElem.style.padding = '5px';
+
+
+
+
+    // querySelectorAll()ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ
+
+        
+        const mainElem = document.querySelectorAll('h1');
+
+
+        // //index로 ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ
+        
+        // mainElem[0].style.color = 'red';
+        // mainElem[0].style.backgroundColor = 'black';
+        // mainElem[0].textContent = 'Welcome Hello World';
+        // mainElem[0].style.padding = '5px';
+
+        // mainElem.forEach(function(element)
+        // {
+        //     element.style.color = 'red';
+        // }); 
+
+
+        // // for 문 ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ
+        
+        // for(const element of mainElem)
+        // {
+        //     element.style.color = 'red';
+        //     element.style.backgroundColor = 'black';
+        //     element.textContent = 'Welcome Hello World';
+        //     element.style.padding = '5px';
+        // }
+
+
+        // //forEach ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ
+        
+        // mainElem.forEach(function(element){
+
+        //     element.style.color = 'red';
+        //     element.style.backgroundColor = 'black';
+        //     element.textContent = 'Welcome Hello World';
+        //     element.style.padding = '5px';
+
+        // });
+
+
+
+
+
+
+
+     </script>
+
+     
+
+</body>
+</html>

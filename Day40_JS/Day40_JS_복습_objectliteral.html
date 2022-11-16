@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+
+
+    <script>
+        document.body.innerHTML = "<h1>Hello</h1>";
+
+    </script>
+
+
+
+</head>
+<body>
+    
+<script>
+(function(){
+
+
+    // 복습 ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ
+
+    // // 환자 정보를 저장
+    // // 환자이름, 나이, 주소, 질병정보
+    // // 질병 정보는 질병코드, 병명
+    // // 환자 정보 구조를 클로저를 이용하여 구현하시오.
+    
+    
+    // const patient = function(name, age, address, disease ){
+    //     return {
+            
+    //         getName : function(){
+    //             return name;
+    //         },
+    //         getAge : function(){
+    //             return age;
+    //         },
+    //         getAddress : function(){
+    //             return address;
+    //         },
+    //         getDisease : function(){
+    //             return disease;
+    //         },
+
+    //         setName : function(_name){
+    //             return name = _name;
+    //         },
+    //         setAge : function(_age){
+    //             return age = _age;
+    //         },
+    //         setAddress : function(_address){
+    //             return address = _address;
+    //         },
+    //         setDisease : function(_disease){
+    //             return disease = _disease;
+    //         }
+    //     }
+    // }
+
+    // const disease = function(_diseaseCode, _diseaseName) {
+    //     return {
+
+    //         diseaseCode : _diseaseCode,
+    //         diseaseName : _diseaseName
+    //     }
+    // }
+
+    // const patient1 = patient('syh', 32, '서울', disease('0001', '감기') );
+
+
+    // console.log('환자명 :' + patient1.getName() );
+    // console.log('나이 :' + patient1.getAge() );
+    // console.log('주소 :' + patient1.getAddress() );
+    // console.log('병명 :' + patient1.getDisease().diseaseCode );   // 왜 오류 생기지
+
+
+
+
+    // 풀이 ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ
+
+    // const makeInstance = function(name, age, addr, disease)
+    // {
+    //     return {
+
+    //         getName : function(){
+    //             return name;
+    //         },
+    //         getAge : function(){
+    //             return age;
+    //         },
+    //         getAddr : function(){
+    //             return addr;
+    //         },
+    //         getDisease : function(){
+    //             return disease;
+    //         },
+
+    //     };
+    // }
+
+
+    // const patient1 = makeInstance('정성훈', 50, '서울', {code:'0001', name:'감기'})
+
+    // console.log('환자명 :' + patient1.getName() );
+    // console.log('나이 :' + patient1.getAge() );
+    // console.log('주소 :' + patient1.getAddr() );
+    // console.log('병명 :' + patient1.getDisease().name );
+
+    // 복습 끝 =============================================================================
+  
+
+
+
+
+
+
+
+
+    
+
+
+
+
+})();
+</script>
+
+
+
+
+
+
+
+
+
+</body>
+</html>

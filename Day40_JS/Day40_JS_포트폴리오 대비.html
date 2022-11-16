@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', (event)=>{
+        
+
+         // 1. 데이터 넣기
+             
+        const tb = 
+        [{
+            name: '임꺽정',
+            age : 50,
+            addr : '충북'
+        },
+
+        {
+            name: '이순신',
+            age : 60,
+            addr : '전남'
+        },
+
+        {
+            name: '정성훈',
+            age : 49,
+            addr : '서울'
+        },
+
+        {
+            name: '전경민',
+            age : 27,
+            addr : '군포'
+        },
+
+        {
+            name: '박수현',
+            age : 26,
+            addr : '인천'
+        }]
+
+        console.log(tb);
+
+        // 2. 오름차순으로 소트하기 ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ
+
+        // age 기준으로 정렬
+        // tb.sort(function (a, b) {
+        // if (a.age > b.age) {
+        //     return 1;
+        // }
+        // if (a.age < b.age) {
+        //     return -1;
+        // }
+        // // a must be equal to b
+        // return 0; 
+        
+        // });
+
+        const ageSort = function (a, b) {
+        
+            if (a.age > b.age) {
+            return 1;
+            }
+        
+            if (a.age < b.age) {
+            return -1;
+            }
+        
+            // a must be equal to b
+            return 0; 
+        }
+        
+        tb.sort(ageSort);
+
+        console.log(tb);
+
+        
+
+
+        // name = 전경민, 나머지 순서로 sort ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ
+
+        // 내가 푼 것
+
+        let targetIndex = 1;
+        let tb2 = tb.splice(targetIndex,1);
+        tb.splice(0,0, tb2[0]);
+        console.log(tb);
+
+
+        // // 풀이 ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ
+
+        // //  ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ
+        // // 소트 한 후에 무엇을 하려고 하지 말고, sort()를 이용해서 해라.
+
+        const ar = [12, 44, 7, 99, 99, 233, 5];
+
+        // const compare = function(a, b)
+        // {   
+        //     if (a > b)
+        //     {
+        //         return 2;  // 양수이기만 하면 됨
+        //     }
+        //     else if ( a < b)
+        //     {
+        //         return -2;  // 음수이기만 하면 됨
+        //     }
+        //     else if (a === b)
+        //     {
+        //         return 0;   
+        //     }
+
+        //     // 위 코드는 [return a - b;]와 동일하다
+            
+        //     // console.log('a =' + a, 'b = ' + b);
+        //     // return 0;
+        // }
+
+        
+    
+
+        // ar.sort(compare);
+        // console.log(ar);
+
+        // 오름차순으로 정렬하되 99는 앞으로 보낸다.
+        const compare2 = function(a, b)
+        {   
+            // ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ
+            // if(a === 99)                  //  [5, 99, 99, 7, 12, 44, 233] 뜬다
+            // {
+            //     return -1;
+            // }
+            // ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ
+
+            if(a === 99 && b === 99)
+            {
+                return 0;
+            }
+            else if(a === 99)
+            {
+                return -1;
+            }
+            else if(b === 99)
+            {
+                return 1;
+            }
+
+            return a-b;
+        }
+
+        ar.sort(compare2);
+        console.log(ar);
+
+
+
+
+
+
+
+
+
+
+
+    });
+
+
+    </script>
+
+
+
+</head>
+<body>
+    
+
+
+
+
+</body>
+</html>
