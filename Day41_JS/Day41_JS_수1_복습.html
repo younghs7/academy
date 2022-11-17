@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+</head>
+<body>
+
+
+<!-- querySelector() ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ -->
+
+    <h1>hello</h1>
+
+    <script>
+
+        
+        // const h1Elem = document.querySelector('h1');
+
+        // h1Elem.style.color = 'red';
+
+        // console.log(h1Elem);
+
+
+    </script>
+
+<!-- ================================================================================== -->
+    
+<!-- event -addEventListener() ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ -->
+
+
+    <!-- <input type="button" value="버튼"> -->
+    <input id="id_btn" type="button" value="버튼" onclick="myfunc()">
+    
+    <script>
+
+        function myfunc()
+        {
+            alert("Hello");
+        }
+
+        function myfunc2()
+        {
+            console.log('func1');
+        }
+
+        function myfunc3()
+        {
+            console.log('func2');
+        }
+
+
+        //1. 버튼 객체를 가지고 온다.
+        const btn = document.querySelector('#id_btn');
+        
+        //2. 이 객체에 내가 만든 기능을 "추가"(add)한다.
+        btn.addEventListener('click', myfunc2);    
+        btn.addEventListener('click', myfunc3);      // 클릭 한 번 할 때마다 f1 f2 출력된다.
+
+
+
+
+        // ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ
+
+
+
+    </script>
+
+<!-- event -addEventListener() =========================================================== -->
+
+
+
+
+<!-- sort(compareFunc) ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ     -->
+
+    <script>
+
+
+        // ㅡ sort() 예제 ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ
+
+        // const data = [99, 45, 2, 90, 99, 7, 23];
+
+        // //오름차순 정렬, 단 99는 제일 앞으로 위치.
+
+        // const compare = function(a, b)
+        // {
+        //     //99인 경우
+        //     if (a === 99)
+        //     {
+        //         return -1;
+        //     }
+        //     else if (b === 99)
+        //     {
+        //         return 1;
+        //     }
+        //     //그렇지 않은 경우
+        //     else
+        //     {
+        //         return (a - b);
+
+        //         // if (a > b)
+        //         // {
+        //         //     return 1;
+        //         // }
+        //         // else if ( a < b )
+        //         // {
+        //         //     return -1;
+        //         // }
+        //         // else
+        //         // {
+        //         //     return 0;
+        //         // }
+
+        //     }
+
+        // }
+
+        // data.sort(compare);
+
+
+        // = sort() 예제 ===================================================================
+
+
+
+
+        // sort() 문제 ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ        
+        // 내림차순 정렬하되 value 99인 놈은 앞으로 보내기.
+
+        const data = [
+            {
+                id: 'abc1',
+                value : 50
+            },
+        
+            {
+                id: 'abc2',
+                value : 99
+            },
+        
+            {
+                id: 'abc3',
+                value : 99
+            },
+        
+            {
+                id: 'abc',
+                value : 37
+            },
+        
+            {
+                id: 'abc',
+                value : 17
+            }  
+        ];
+
+
+        const compareObjectF = function(a, b)
+        {
+            if( (a.value === 99) && (b.value === 99) )
+            {
+                return 0;
+            }
+            else if(a.value === 99)
+            {
+                return -1;
+            }
+            else if(b.value === 99)
+            {
+                return 1;
+            }
+
+            return (b.value - a.value);
+
+        }
+
+        data.sort(compareObjectF);
+
+        console.log(data);
+
+        // sort() 문제 =======================================================       
+
+
+          
+
+
+    </script>
+
+
+
+
+
+</body>
+</html>

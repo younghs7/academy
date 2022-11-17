@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+
+</head>
+<body>
+
+
+    <body>
+        <table id = "tbl" border=“1”>
+        </table>
+     </body>
+
+    <script>
+
+        //요구조건 1. 표를 자바스크립트 Object의 배열로 구현하시오 ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ
+
+        const tableInfoArr = [
+        {
+            id : 'jsh',
+            address : '서울',
+            sales : 100
+        },
+        
+        {
+            id : 'root1',
+            address : '경남',
+            sales : 90
+        },
+        
+        {
+            id : 'root2',
+            address : '인천',
+            sales : 1000
+        },
+        
+        {
+            id : 'lss',
+            address : '세종',
+            sales : 2000
+        },
+        
+        {
+            id : 'abk',
+            address : '경기',
+            sales : 700
+        } 
+        ];
+
+        console.log(tableInfoArr);
+
+
+        // 요구조건 2. 배열를 매출기준으로 내림차순으로 소트하시오 
+        //             (단 root로 시작되는 사용자는 가장 앞에 배치 되어야 함.) ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ
+
+        const compareF = function(a, b)
+        {
+            // root1, root2 끼리도 내림차순으로 sort하기 위해서 필요한 부분       ---> 값 바꾸며 실험한 결과 정상 작동함.
+            if( ( (a.id === 'root1') && (b.id === 'root2') )  ||
+                ( (a.id === 'root2') && (b.id === 'root1') )
+              )
+            {
+                return (b.sales - a.sales);   
+            }
+
+            // 세부조건 1. root로 시작되는 사용자는 가장 앞에 배치 되어야 함.
+            else if( (a.id === 'root1') || (a.id === 'root2') )
+            {
+                return -1;
+            }
+            else if( (b.id === 'root1') || (b.id === 'root2') )
+            {
+                return 1;
+            }
+
+            // 세부조건 2. 배열를 매출기준으로 내림차순으로 소트하시오
+            return (b.sales - a.sales);
+        }
+
+        tableInfoArr.sort(compareF);
+
+        console.log(tableInfoArr);
+
+
+        // 요구조건3. 소트된 결과를 <table>을 이용하여 출력하는 html코드를 작성하시오.ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ
+
+        // 태그 객체 찾기 
+        const tblElem = document.querySelector('#tbl');
+        console.log(tblElem);
+
+
+        // 선택된 객체를 innerHTML으로 내용 바꾸기
+        tblElem.innerHTML = `   <table border=“1”>
+                                <tr>
+                                <th>아이디</th> <th>지역</th> <th>매출</th>
+                                </tr>
+                            `
+
+        for(const arrayElem of tableInfoArr)
+        {
+            tblElem.innerHTML += `<tr>
+                                  <td>${arrayElem.id}</td> 
+                                  <td>${arrayElem.address}</td>
+                                  <td>${arrayElem.sales}</td>
+                                  </tr>
+                                 `
+        }        
+    
+                   
+        tblElem.innerHTML +=`</table>`
+
+        // ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ
+
+    </script>
+ 
+    
+
+
+
+
+
+
+
+</body>
+</html>
