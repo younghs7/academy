@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+<!-- 
+    <script>
+    // DOMContentLoaded 후에 발생하면  
+    // OnMyButtonClick is not defined at HTMLInputElement.onclick 라고 뜬다.
+    // 그니까 input 태그 안에 onclick ="[함수]" 가 실행되면서 [함수]가 읽혀져야 하는데
+    // OnMyButtonClick()는 아직 정의되어 있지 않기 때문에 함수를 참조할 수 없다고 오류가 뜨는 것이다.
+
+    document.addEventListener('DOMContentLoaded', ()=>{
+
+        const OnMyButtonClick = function()
+        {   
+     
+            
+            console.log('click~')
+            
+        }
+
+
+    });
+    </script> 
+
+-->
+
+    
+</head>
+
+<body>
+
+    <!-- 태그 아래에 스크립트가 있어야 실행된다.-->
+
+    <input type="button" value="My button" onclick="OnMyButtonClick()">
+
+
+    <script>
+        const OnMyButtonClick = function()
+        {   
+     
+            
+            console.log('click~')
+            
+        }
+    </script>
+    
+  
+</body>
+</html>

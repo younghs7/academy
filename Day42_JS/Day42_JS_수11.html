@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+
+
+
+    <!-- PPT 이벤트 수신 객체 참조
+         event.currentTarget 를 통해 tarea를 알아낼 수 있음.  this도 가능-->
+
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () =>{
+
+            const tarea = document.querySelector('textarea');
+
+            const OnKeyDownTextarea = function(event)
+            {
+                // console.log(event.currentTarget.value.length);
+                console.log(this.value.length);
+            }        
+
+            tarea.addEventListener('keydown', OnKeyDownTextarea)
+
+        });
+
+
+    </script>
+
+</head>
+<body>
+    <textarea name="" id="" cols="30" rows="10"></textarea>
+
+    <script>
+
+   
+
+    </script>
+
+  
+</body>
+</html>

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () =>{
+    
+
+
+            // // 1. h1 element를 하나 생성한다.
+            // const h1Elem = document.createElement('h1');
+        
+            // // 2. h1 element를 적당히 설정한다.(크기나 색...)
+            // h1Elem.textContent = 'Hello Element';
+            // h1Elem.style.color = 'red';
+        
+        
+            // // 3. h1 element를 body에 붙인다.
+            // document.body.appendChild(h1Elem);
+        
+
+
+
+            //   예제ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ
+
+
+
+                //1. div element를 가지고 온다.
+                const divElem = document.querySelector('#main-section');
+
+                //2. h1 element를 생성하고 설정한다.
+                const h1Elem = document.createElement('h1');
+                h1Elem.textContent = 'h1: Hello World';
+                h1Elem.style.color = 'red';
+
+
+                //3. div element 에 h1 element를 붙여 넣는다.
+                divElem.appendChild(h1Elem);
+
+
+                //4. div 에 h2 element를 붙인다.
+                const h2Elem = document.querySelector('h2');
+                divElem.appendChild(h2Elem);
+                
+                //5. div에 붙은 h1 element을 제거한다
+                h1Elem.parentNode.removeChild(h1Elem);
+
+                console.log(divElem.h1Elem);       // undefined
+
+            //  =========================================================
+               
+
+
+
+                // ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ
+                //문제
+                //버튼을 누를 때마다
+                //h1을 div에 붙였다가 떼었다가 해보세요.
+
+                const buttonElem = document.querySelector('input');
+
+                const Func = function()
+                { 
+
+                    if(buttonElem.h1Elem === undefined)
+                    {
+                        buttonElem.appendChild(h1Elem);
+                    }
+                    else if(buttonElem.h1Elem === h1Elem)
+                    {
+                        buttonElem.removeChild(h1Elem);
+                    }
+                          
+                }
+
+                // ========================================================
+                
+
+
+        });
+    </script>
+
+</head>
+<body>
+
+
+    <!-- ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ -->
+
+    <input type="button" value="붙이고떼고" onclick="Func()">
+    <div id ="main-section"> </div>
+    <h2>h2: Welcome</h2>
+
+
+
+     <!-- ================================================================= -->
+
+
+
+  
+</body>
+</html>

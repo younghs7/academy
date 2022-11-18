@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+
+
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () =>{
+        
+            const tarea = document.querySelector('textarea');
+            const h1 = document.querySelector('h1');
+
+            tarea.addEventListener('keydown', (event)=>{
+                const len = tarea.value.length;
+                h1.textContent = `글자수 : ${len}`;
+
+            })
+
+        });
+    </script>
+
+
+</head>
+<body>
+
+    <h1>글자수: 0</h1>
+    <textarea name="" id="" cols="30" rows="10"></textarea>
+  
+</body>
+</html>

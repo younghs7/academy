@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+
+
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () =>{
+
+            const [left, up, right, down] = [37, 38, 39, 40];
+
+            const star = document.querySelector('h1');
+            star.style.position = 'absolute';
+
+            let x = 0;
+            let y = 0;
+            let offset = 20; // offset은 한마디의 길이를 나타낸다.
+
+            const print = function(_x, _y)
+            {
+                star.style.left = `${_x * offset}px`;
+                star.style.top = `${_y * offset}px`;
+            }
+
+    
+
+            star.addEventListener('keydown', (evnet)=>{
+                switch(event.keyCode)
+                {
+                    case left : x = x -1; break;
+                    case rigth : x = x + 1; break;
+                    case up : y = y - 1; break;
+                    case down : y = y +1; break;
+                    default : return; break;
+
+                }
+                print(x, y);
+            })
+
+        });
+
+
+    </script>
+
+</head>
+<body>
+    <h1>★</h1>
+
+    <script>
+
+        
+
+    </script>
+
+  
+</body>
+</html>

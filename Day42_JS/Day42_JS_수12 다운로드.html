@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+
+
+
+
+</head>
+<body>
+    <input type="text" name="" id=""> inch
+    <input type="button" value="센치미터출력">
+    
+    <script>
+
+        
+        const btnElem = document.querySelector('input[type=button]');
+        const txtElem = document.querySelector('input[type=text]');
+        
+        const h1Elem = document.createElement('h1');
+        document.body.appendChild(h1Elem)
+                
+        btnElem.addEventListener('click', (event)=>{
+            
+            let cm = 0;
+            let inch = Number(txtElem.value);
+
+            if (isNaN(inch))
+            {
+                h1Elem.textContent = `숫자를 입력해주세요.`;
+                return;
+            }
+            else
+            {
+                // 입력된 값을 센치로 바꾼다.
+                cm = inch * 2.54;
+                cm = cm.toFixed(2);
+                h1Elem.textContent = `${cm} cm 입니다.`;
+        
+            }
+
+
+        });
+
+
+    </script>
+    
+</body>
+</html>
+
+

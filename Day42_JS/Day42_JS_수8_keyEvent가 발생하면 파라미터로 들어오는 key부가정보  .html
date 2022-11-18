@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+
+
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () =>{
+        
+            const h1 = document.querySelector('h1');
+
+            
+            // 파라미터로 이벤트 객체를 받음. 이벤트 객체 하위에는 code, key
+            const printKey = function(event)
+            {   
+                let output = '';
+                output += `code = ${event.code} <br>`;
+                output += `keycode = ${event.keyCode} <br>`;
+                output += `alt = ${event.altKey} <br>`;
+                output += `ctrl = ${event.ctrlKey} <br>`;
+                output += `shift = ${event.shiftKey} <br>`;
+
+                h1.innerHTML = output;
+
+            }
+
+            document.addEventListener('keydown', printKey);
+            document.addEventListener('keyup', printKey);
+
+            // 상세한 요소를 아는 게 아니라
+            // event에 msg + 부가정보로 이루어져있다는 것이다.
+
+            //addEventListener는 특정 event가 발생하면, event 객체를 callback함수 파라미터로 넣어준다.
+        
+        });
+    </script>
+
+
+</head>
+<body>
+
+    <h1>글자수: 0</h1>
+
+  
+</body>
+</html>

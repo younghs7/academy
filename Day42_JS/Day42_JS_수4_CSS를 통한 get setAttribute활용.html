@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <!-- CSS와 JS 두 가지를 이용해서 원하는 것을 만들 수 있다는 것을 느끼라고 만든 문제라고 한다. 
+         JS로만 구현하는 것보다 CSS가 더 빠르기 때문에 이러한 테크닉을 잘 쓴다. 
+        
+         JS는 커멘드만 조절하고
+         디자인적 요소는 CSS로 컨트롤하는 식으로 요즘에 많이 만든다고 한다
+        
+        -->
+
+
+    <style>
+        .title {
+            color : red;
+            background-color: aliceblue;
+        }
+
+
+    </style>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () =>{
+
+
+        
+            let bRed = false;
+            const btnToggle = document.querySelector('input');
+            const h1Elems = document.querySelectorAll('h1');
+            
+            // 클릭 이벤트를 추가한다.
+            btnToggle.addEventListener('click', ()=>{
+
+                if(bRed === false)
+                {
+                   for (const h1Elem of h1Elems)
+                   {
+                        h1Elem.setAttribute('class', 'title');
+
+                        h1Elem.style.backgroundColor = 'blue';
+                        h1Elem.style['backgroundColor'] = 'blue';
+                   } 
+                }
+                else
+                {
+                    for (const h1Elem of h1Elems)
+                   {
+                        h1Elem.setAttribute('class', '');
+                   } 
+                }
+
+                bRed = !bRed;
+
+            });
+
+
+        });
+    </script>
+
+</head>
+<body>
+    <input type="button" value="색을 변경">
+    <h1 class = "title">h1: hello</h1>
+    <h1>h1: world</h1>
+
+  
+</body>
+</html>

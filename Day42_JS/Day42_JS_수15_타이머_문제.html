@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    체크 상태면 실행됨 <input type="checkbox" name="" id="box"> 
+    <h1 id ="h1">실행 상태</h1>    
+
+
+
+    <script>
+
+        const boxElem = document.querySelector('#box');
+        const h1Elem = document.querySelector('#h1');
+        
+        let sec = 0;
+        let on = false;
+        const clickFunc = function()
+        {
+            on = !on;
+            if(on === true)
+            {
+                
+            }
+            else
+            {
+                sec++;
+                h1Elem.textContent =` ${sec} 초 `; 
+            }
+                    }
+
+        let intervalID = setInterval(clickFunc, 1000, )
+        
+
+        boxElem.addEventListener('click', setInterval(clickFunc, 1000, ) );
+
+        // const intervalID = setInterval(myCallback, 500, 'a', 'Parameter 2');
+
+
+
+
+
+
+    
+
+
+    </script>
+
+
+
+
+</body>
+</html>

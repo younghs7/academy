@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        // 우리가 준 함수를 주기적으로 호출하는 기능을 가진 객체 ==> 타이머
+        
+        const myFunc = function()
+        {
+            console.log("---");
+        }
+        
+        // let itvID = setInterval(myFunc, 1000);   // 밀리세컨드 단위로 받는다.
+        
+        // console.log(itvID);      // 1
+        
+        const killInterval = function()
+        {
+            clearInterval(itvID);
+        }
+
+        itvID = setInterval(myFunc, 500);    // 타이머 객체에 myFunc을 호출해 달라고 부탁만 하는 함수
+
+        setTimeout(killInterval, 3000);     // 타이머 객체에 killInterval을 호출해 달라고 부탁만 하는 함수
+
+        // 타이머는 독립적으로 돈다. 이런 테스크를 스레드라고 부른다.
+        // 타이머 쓰레드라고 표현한다.
+
+
+
+    </script>
+
+
+
+
+
+</body>
+</html>
