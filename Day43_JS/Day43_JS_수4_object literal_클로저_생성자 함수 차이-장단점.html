@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+</head>
+<body>
+    
+
+    <script>
+
+        // object literal, 클로저, 생성자 함수 특징, 장단점
+        
+        // ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ
+        // object literal
+
+        const st1 = {
+            name : 'jsh',
+            number : 2,
+            score : {kor: 90, eng:90, math: 99},
+            getTotal(){},
+            getAvg(){}
+
+        };
+        // 장점 : 만들기 쉽다. 단점: n개 만들어야 되면 n개 코드를 작성해야 된다.
+        // --> only one (싱글톤) 객체인 경우에는 이렇게 해도 된다.
+
+        // 정리 
+        // 생성 - 장점 : 만들기 쉽다.
+        // 생성 - 단점 : 인스턴스가 여러개가 나오는 경우는 이런 방식은 좋지 못함
+        // 활용 - 장점 : 추가/삭제/변경 등이 자유롭고 편하다.
+        // 활용 - 단점 : 정보은닉 측면에서 약하다.
+        // ==> 전역정보 또는 싱글톤 정보에 씀. (설정을 건들이지말고, getter로만 쓸 때 좋음)
+
+        //  ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ
+        // 클로저
+
+        const makeStudent = function(name, number)
+        {
+            return {
+                getName(){},
+                setName(){},
+                getNumber(){},
+                setNumber(){},
+                score : {kor :0, eng: 0, math:0},
+                getScore(){},
+                setScore(_score){},
+                getTotal(){},
+                getAvg(){}
+            };
+        }
+
+        const st2 = makeStudent('dd', 3);
+        st2.kkk = 0;  // 파라미터로 넣은 것만 보호하지. 완벽한 객체 지향은 아니다.
+
+        // 생성 - 장점 : 별로 없다.
+        // 생성 - 단점 : 만들기가 까탈스럽다. (파라미터, 내부객체를 분리해서 고려)
+        // 활용 - 장점 : 정보은닉, 여러개의 인스턴스 구현.
+        // 활용 - 단점 : 완벽한 객체 지향은 아니다.
+        // => 여러개의 인스턴스를 생성, 정보은닉이 강조되어 필요할 때
+        
+
+        //  ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ
+        //  생성자 함수
+
+        const Student = function(name, number)
+        {
+            this.name = name;
+            this.number = number;
+            this.score = { kor : 0, eng : 0, math : 0 };
+
+            this.getTotal()
+            {  }
+
+            this.getAvg() 
+            {  }
+        }
+
+        const st3 = new Student('kbs', 1);
+            console.log(st3);
+
+        st3.score.kor = 80;
+        st3.score.eng = 90
+        st3.score.math = 99;    
+
+
+        // 생성 - 장점 : 읽기 좋음. 만들기도 편하다.
+        // 생성 - 단점 : 생성자 함수로 작성했는데, 그냥 함수로도 쓸 수 있음. --> 보완코드가 필요
+        // 활용 - 장점 : 여러개의 인스턴스 구현.
+        // 활용 - 단점 : 완벽한 객체 지향은 아니다.
+        // => 여러개의 인스턴스를 생성, 편하게 그냥 쓰고 싶다.
+
+
+
+
+
+
+    </script>
+</body>
+</html>

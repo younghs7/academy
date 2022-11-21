@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+</head>
+<body>
+    
+
+    <script>
+        // // 예외처리 문제 ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ
+        // // 로또 번호가 있는 배열.(1~45 사이의 임의의 숫자가 있는 6개짜리)
+
+        // const lotto =[1, 12, 14, 22, 44, 46];
+
+        // // 로또 배열에 1~45 이외의 값이 있다면 예외를 발생시키는 코드를 작성해보세요.
+        
+        // //1. for문으로 만들어볼것
+        // //2. call-back방식으로 만들어 볼것 (forEach)
+
+
+        // // 1. for문으로 만들어볼 것
+        // const checkLotto = function(numbers)
+        // {   
+        //     if( 6 !== numbers.length)
+        //         throw 'ERR: numbers length'
+
+        //     for(const ArrElem of numbers)
+        //     {
+        //         if( (ArrElem < 1) || (45 < ArrElem) )
+        //         {
+        //             throw 'for문: 1~45 사이의 숫자로 이루어져 있지 않다.'
+        //         }
+        //     }
+        // }
+
+        // //2. call-back방식으로 만들어 볼것 (forEach)
+        // const checkLotto2 = function(number)
+        // {
+        //     if( (number < 1) || (45 < number) )
+        //     {
+        //         throw 'forEach: 1~45 사이의 숫자로 이루어져 있지 않다.'
+        //     }
+
+        // }
+
+        // try{
+        //     // checkLotto(lotto);
+        //     lotto.forEach(checkLotto2);
+        // }
+        // catch(e){
+        //     console.log(e);
+        //     console.log(e.message);
+        //     console.log(e.name);
+        // }
+        // ===========================================================
+
+        // ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ
+        // 문제 풀이
+
+        const lotto1  = [1, 12, 14, 22, 44, 45];
+        const lotto2  = [1, 12, 'a' , 22, 44, 49];
+
+        // // 1. for문으로 만들어볼 것 -------------------------
+        // const checkLotto1 = function(numbers)
+        // {   
+        //     try
+        //     {
+        //         if( 6 !== numbers.length)
+        //         throw 'ERR: numbers length'
+
+
+        //         for(let i = 0; i < numbers.length; i++)
+        //         {
+
+        //             if(isNaN(numbers[i]) == true)
+        //             {
+        //                 throw `ERR : number is NaN[${i}]`;
+        //             }
+
+
+        //             if( (numbers[i] <= 0) || (numbers[i] > 45 ) )
+        //                 throw `number range index ${i}`;
+        //         }
+
+        //         return true;
+        //     }
+        //     catch(e){
+        //         console.log(e)             // 이런 기법도 존재는 하나 잘 쓰지 않는다.
+        //          return false;
+
+        //     }
+        // }
+
+        // checkLotto1(lotto2);
+
+        // // ----------------------------------------------------
+
+
+
+        //2. call-back방식으로 만들어 볼것 (forEach) ---------------
+
+
+        const checkLotto2 = function(numbers)
+        {   
+
+            // 숫자 갯수가 6개인지
+            if( 6 !== numbers.length)
+                throw 'ERR: numbers length'
+
+
+            numbers.forEach((value, index, ar) =>{
+
+                
+            //숫자가 맞는지
+            if(isNaN(numbers[index]) == true)
+            {
+                throw `ERR : number is NaN[${index}]`;
+            }
+
+            //1~45 범위
+            if( (numbers[index] <= 0) || (numbers[index] > 45 ) )
+                throw `number range index ${index}`;
+
+            })
+        
+
+        }
+
+            lotto2.forEach(checkLotto2);
+
+        
+        //  =================================================================================
+
+
+            // // 자바스크립트는 어지간하면 오류를 발생시키지 않는다ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ
+
+            // if('a' <= 0)
+            // {
+            //     console.log('1');         
+            // }
+            // else
+            // {
+            //     console.log('2'); // 2 이 뜬다. --> 아스키 코드로 변환시키기 때문
+
+            // }
+
+            // if('' == 0)
+            // {
+            //     console.log('1'); // 1 이 뜬다. --> 문자열과 char를 구분 표기하기 위해 맨 뒤에 0x00000--- 가 붙기 때문   
+            // }
+            // else
+            // {
+            //     console.log('2'); 
+
+            // }
+
+            // // ====================================================================            
+
+    </script>
+</body>
+</html>

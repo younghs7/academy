@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+</head>
+<body>
+    
+
+    <script>
+
+        // // ㅡ생성자ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ
+        // // 자바-생성자: 객체를 초기화하는 함수
+        // // 자바스크립트-:
+
+
+        // const MyClass = function()
+        // {
+        //     this.a = 10;          // 새로 만든 임의의 객체에 a를 추가한다.
+        //     this.b = 'abc';
+
+        // }
+
+        // const my1 = new MyClass();   // --> 임의의 object를 만들고, 빈 object를 생성자 함수로 접근할 수 있게 해준다.
+
+        //     console.log(my1.a);  // 10
+        //     console.log(my1);    // MyClass {a: 10, b: 'abc'}
+
+
+        // my1.a = 30;
+        //     console.log(my1.a);  // 30
+
+
+
+        // MyClass();   // --> 윈도우에  window.a = 10; window.b = 'abc'가 생긴다.
+
+
+        // // ========================================================================
+
+
+
+
+        // // 생성자 함수 예제 2 ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ
+
+        // const myFunc = function(a, b)
+        // {
+        //     this.a = a;
+        //     this.b = b;
+        // }
+
+        //  const m1 = new myFunc(10, 20);  // 빈 object를 만들고, 생성자 함수를 호출한다. 빈 객체의 시작정보를 this로 넘긴다.
+
+        // console.log(m1, a);
+        // console.log(m1. b);
+
+        // // 자바의 생성자와 클래스를 자바스크립트가 object와 함수를 이용해서 흉내낸 것이다.
+
+        // // =============================================================================
+
+
+
+
+        // 생성자 함수 문제 ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ
+        // 학생: 학생이름, 학번, 성적[국, 영, 수]
+        // 총점, 평균
+
+        // const Student = function(_name, _number, _score)
+        // {
+        //     this.name = _name;
+        //     this.number = _number;
+        //     this.score = _score;
+
+        //     this.getScoreTotal = function()
+        //     {   
+        //         total = 0;
+        //         for(const ScoreElem of this.score)
+        //         {
+        //             total = total + ScoreElem;
+        //         }
+
+        //         return total;
+        //     }
+
+        //     this.getAvg = function()
+        //     {
+        //         total = this.getScoreTotal();
+        //         avg = total / this.score.length;
+        //         avg = avg.toFixed(2);
+        //         return avg;
+        //     }
+
+        // }
+
+        // const student1 = new Student('아무개', 1, [80, 89, 100]);
+        // console.log( student1.getScoreTotal() );
+        // console.log( student1.getAvg() );
+        
+
+        
+        //  ============================================================================
+        // // 문제 풀이 ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ
+
+        const Student = function(name, number)
+        {
+            this.name = name;
+            this.number = number;
+            this.score = {
+                kor : 0,
+                eng : 0,
+                math : 0
+            };
+
+            this.getTotal = function()
+            {
+                return this.score.kor + this.score.eng + this.score.math;
+            }
+
+            this.getAvg = function()
+            {  
+                const total = this.getTotal();
+
+                if(total === 0)
+                    return 0;
+                else
+                    return total / 3;
+            }
+
+        }
+
+        const st1 = new Student('kbs', 1);
+            console.log(st1);
+
+        st1.score.kor = 80;
+        st1.score.eng = 90
+        st1.score.math = 99;    
+
+        console.log(st1.getTotal());
+        console.log(st1.getAvg());
+
+        // // ===================================================================
+
+        // 문제2. 클로저로 만들기 (차이점 느끼기) ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ
+
+            const student = function(name, number, score)
+            {
+                return {
+
+                    getName : function()
+                    {
+                        return name;
+                    },
+                    getNumber : function()
+                    {
+                        return number;
+                    },
+                    getScore : function()
+                    {
+                        return score;
+                    },
+                
+                    setName : function(_name)
+                    {
+                        name = _name;
+                    },
+                    setNumber : function(_number)
+                    {
+                        number = _number;
+                    },
+                    setScore : function(_score)
+                    {
+                        score = _score;
+                    },
+
+                    getTotal : function()
+                    {   
+                        total = 0;
+                        for(const scoreElem of score)
+                        {
+                            total = total + scoreElem; 
+                        }
+
+                        
+
+                        return total;
+                    },
+
+                    getAvg : function()
+                    {
+                         total = this.getTotal();
+
+                         if(total === 0)
+                            return 0;
+
+                         return total / score.length; 
+
+                    }
+
+
+                };
+            }
+
+            const st2 = student('아무개', 1, [80, 90, 99])
+            console.log(st2.getTotal());
+            console.log(st2.getAvg());
+
+
+
+        //  ==================================================================
+
+
+
+    </script>
+</body>
+</html>

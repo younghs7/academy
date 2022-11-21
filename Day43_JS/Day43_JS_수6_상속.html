@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+</head>
+<body>
+    
+
+    <script>
+
+        // 상속 ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ
+
+        class Rectangle{
+
+            constructor(width, height)
+            {
+                this.width = width;
+                this.height = height;
+
+            }
+
+            getPerimeter()
+            {
+                return (this.width + this.height);
+            }
+
+            getArea()
+            {
+                return this.width * this.height;
+            }
+
+        }
+
+        const rect = new Rectangle(10, 45);
+
+        console.log(rect.width);
+        console.log(rect.height);
+        console.log(rect.getPerimeter());
+        console.log(rect.getArea());
+
+
+
+    
+
+        // 정사각형 클래스 
+        class Square extends Rectangle
+        {
+            constructor(length)
+            {   
+                // this.a = 10; // --> ★오류 생긴다.  이유: 먼저 상위 객체부터 데이터가 올라가야 다음에 추가적으로 올릴 수 있다. 
+                super(length, length);
+            }
+
+        }
+
+        const rect2 = new Square(5);
+
+        console.log(rect2.width);
+        console.log(rect2.height);
+        console.log(rect2.getPerimeter());
+        console.log(rect2.getArea());
+
+
+         //  =================================================================================
+
+
+
+        
+
+
+    </script>
+</body>
+</html>

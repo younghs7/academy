@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+       
+        // 학생이름, 학번 , 성적[국,영,수] 총점 ,평균
+
+        // 생성 - 장점 : 만들기 쉽다.
+        // 생성 - 단점 : 인스턴스가 여러개가 나오는경우는 이런방식은 좋지 못함.
+        // 활용 - 장점 : 추가/삭제/변경 등이 자유롭고 편하다.
+        // 활용 - 단점 : 정보은닉 측면에서 약하다.
+        // ==> 전역정보 또는 싱글톤 정보
+        const st1 = {
+            name : 'jsh',
+            number: 2,
+            score : {kor :90, eng:90, math:99},
+            getTotal(){},
+            getAvg(){}
+
+        };
+
+
+        // 생성 - 장점 : 별루없다.
+        // 생성 - 단점 : 만들기가 까탈스럽다.(파라미터, 내부객체를 분리해서 고려해야한다.)
+        // 활용 - 장점 : 정보은닉, 여러개의 인스턴스 구현.
+        // 활용 - 단점 : 완벽한 객체 지향은 아니다.
+        //  => 여러개의 인스턴스를 생성, 정보은닉이 강조되어 필요할때
+        const makeStudent = function(_name, _number)
+        {
+            return {
+                getName(){},
+                setName(){},
+                getNumber(){},
+                setNumber(){},
+                
+                score : {kor :0, eng:0, math:0},
+                getScore(){},
+                setScore(_score){},
+                getTotal(){},
+                getAvg(){}
+    
+            };
+
+
+
+        }
+
+
+        const st2 = makeStudent('dd', 3);
+        st2.kkk = 0;
+
+
+        // 생성 - 장점 : 읽기 좋음. 만들기도 편하다.
+        // 생성 - 단점 : 생성자함수로 사용되지 않는경우???-->보완코드가 필요.
+        // 활용 - 장점 : 여러개의 인스턴스 구현.
+        // 활용 - 단점 : 완벽한 객체 지향은 아니다.
+        //  => 여러개의 인스턴스를 생성, 편하게 그냥 쓰고싶다.
+
+
+        const Student = function(name, number)
+        {
+            this.name = name;
+            this.number = number;
+            this.score = {
+                kor : 0,
+                eng : 0,
+                math : 0
+            };
+
+            this.getTotal = function()
+            {
+                return this.score.kor + this.score.eng + this.score.math;
+            }
+
+            this.getAvg = function()
+            {
+                const total = this.getTotal();
+                if (total === 0)
+                    return 0;
+                else
+                    return total / 3;
+            }
+        }
+
+        
+
+
+        
+    </script>
+    
+</body>
+</html>

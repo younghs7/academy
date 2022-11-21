@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+</head>
+<body>
+    
+
+    <script>
+       
+       
+    //    //  ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ   
+    //    // 클래스가 존재한다고 해서 객체지향은 아니다.
+
+
+    //     class MyClass {
+    //         constructor()
+    //         {
+               
+    //         }
+    //     }
+        
+    //     const my1 = new MyClass();
+    //         console.log(typeof(my1));  // object
+
+    //     my1.a = 10;
+    //     console.log(my1);  //object의 성격을 가진다.
+
+    //     // 자바스크립트 class -> object 기반이면서 약간 확장된 형태라고 생각하면 된다.
+    //     // 자바의 class와 동일하게 생각하면 안 된다.
+
+    //     const ar = [
+    //         new MyClass(),
+    //         new MyClass(),
+    //         new MyClass(),
+    //         new MyClass(),
+    //         new MyClass()
+    //     ];
+
+    //     // ====================================================================
+
+        // ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ
+
+        // 생성자 함수는 생성자 이외로도 쓸 수 있지만,
+        // 클래스 생성자는 안 된다.
+
+        class Student {
+            constructor(name, number)
+            {
+                this.name = name;
+                this.number = number;
+                this.score = {kor:0, eng:0, math:0};
+            }
+
+            toString()
+            {
+                return `${this.name} \t ${this.number}`;
+            }
+
+            setScore(kor, eng, math)
+            {
+                this.score.kor = kor;
+                this.score.eng = eng;
+                this.score.math = math;
+            }
+                
+            getTotal()
+            {
+                return this.score.kor + this.score.eng + this.score.math;    
+            }
+
+        }
+
+        const st1 = new Student('이수현', 1);
+        const st2 = new Student('김경민', 2);
+
+       
+
+        console.log(st1);
+        console.log(st2.toString());
+
+        st1.setScore(80,90,99);
+        console.log(getTotal());
+
+        // ====================================================================
+
+    </script>
+</body>
+</html>
