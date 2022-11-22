@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+</head>
+<body>
+    
+    <script>
+
+        // // 문제 ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ
+
+        // // 원의 정보를 저장하는 클래스를 구현
+        // // 원의 반지름, 원주율
+        // // 둘레길이, 원의 넓이를 구할 수 있어야 한다.
+        // // constructor
+        // // getter // setter (get, set)
+        // // 둘레길이를 구하는 메소드
+        // // 원의 넓이를 구하는 메소드
+
+        // class Circle 
+        // {
+        //     #radius;
+
+        //     constructor(radius)
+        //     {
+        //         this.radius = radius;
+        //     }
+
+        //     get radius()
+        //     {
+        //         return this.#radius;
+        //     }
+
+        //     set radius(radius)
+        //     {
+        //         this.#radius = radius;
+        //     }
+
+        //     getCircumference()
+        //     {
+        //         return (Math.PI * 2 * this.#radius);
+        //     }
+
+        //     getCircleWidth()
+        //     {
+        //         return (Math.PI * this.radius * this.radius);
+        //     }
+
+        // }
+
+
+        // const circ1 = new Circle(7);
+       
+        // circ1.radius = 17;
+
+        // console.log(circ1);
+        // console.log(circ1.radius);
+        // console.log('면적: '+ circ1.getCircleWidth());
+        // console.log('둘레: '+ circ1.getCircumference());
+
+
+        // // ===================================================================================
+
+
+        // 문제 풀이 ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ
+            
+        class Circle
+        {
+            #radius;
+            #PI;
+
+            constructor(radius)
+            {
+                if( (radius <= 0) || (radius == isNaN(radius)) )
+                {
+                    throw '[Circle] constructor error';
+                }
+
+                this.#radius = radius;
+                this.#PI = 3.14;
+            }
+
+            getCircum()
+            {
+                return (2 * this.#radius * this.#PI);
+            }
+
+            getArea()
+            {
+                return (this.#radius * this.#radius * this.#PI);
+            }
+
+            get radius()
+            {
+                return this.#radius;
+            }
+
+            set radius(_radius)
+            {   
+                if(_radius < 0)
+                    throw '[Circle] setter error';
+
+                this.#radius = _radius;
+            }
+        }
+
+        
+        const c1 = new Circle(a);
+
+
+        console.log(c1.getCircum());
+        console.log(c1.getArea());
+        console.log('radius ='+ c1.radius);
+        
+
+        c1.radius = 10;
+        console.log(c1.getCircum());
+        console.log(c1.getArea());
+        console.log('radius ='+ c1.radius);
+        
+
+
+
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+</head>
+<body>
+    
+    <script>
+
+        // static ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ
+
+        class Circle
+        {
+            #radius;
+            static #PI = 3.14;
+            static #count = 0;
+
+
+            static get count()
+            {
+                return Circle.#count;
+            }
+
+            static get PI()
+            {
+                return Circle.#PI;
+            }
+
+            constructor(radius)
+            {
+                if( (radius <= 0) || (radius == isNaN(radius)) )
+                {
+                    throw '[Circle] constructor error';
+                }
+
+                this.#radius = radius;            
+                Circle.#count++;
+            }
+
+            getCircum()
+            {
+                return (2 * this.#radius * Circle.#PI);
+            }
+
+            getArea()
+            {
+                return (this.#radius * this.#radius * Circle.#PI);
+            }
+
+            get radius()
+            {
+                return this.#radius;
+            }
+
+            set radius(_radius)
+            {   
+                if(_radius < 0)
+                    throw '[Circle] setter error';
+
+                this.#radius = _radius;
+            }
+        }
+
+        
+        const c1 = new Circle(7);
+
+        console.log(Circle.count);
+
+        const ar = [new Circle(10), new Circle(10), new Circle(10)];
+        console.log(Circle.count);
+        console.log(Circle.PI);
+
+
+
+
+    </script>
+</body>
+</html>

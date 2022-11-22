@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+</head>
+<body>
+    
+    <script>
+
+        const Circle = function(length)
+        {   
+
+            // 그냥 호출하면 window에 박는다. 이걸 예방하기 위한 식
+
+            // // 1번째 방법 --> new를 안 쓰면 예외처리함.
+            // if(new.target === undefined) // new로 할당한 게 아니면
+            // {
+            //     throw 'you must to call constructor function';
+            // }
+            // 2번째 방법 --> new를 안 쓴 경우에도 돌아가게끔 하고 싶다.
+            if(new.target === undefined) 
+            {
+                return new Circle(length);   
+            }
+
+            this.length = length;
+            this.pi = 3.14;
+
+            this.getCircum = function()
+            {
+                return (2*this.length * this.pi);
+            }
+
+            this.getCircum = function()
+            {
+                return (2 * this.length * this.pi);
+            }
+        }
+
+        
+
+        const c1 = new Circle(10);
+        console.log(c1.getCircum());
+
+        const c2 = Circle(5);
+        console.log(c2);
+
+
+
+
+
+
+
+    </script>
+</body>
+</html>

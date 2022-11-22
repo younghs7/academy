@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+</head>
+<body>
+    
+
+    <script>
+
+        // private 설정: #변수 ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ
+
+        // 정사각형 클래스 
+        class Square 
+        {   
+            // length는 이제부터 private이야. 라고 선언하는 코드. #length 를 통짜로 하나의 변수라고 생각해야한다.
+            #length;
+
+            constructor(length)
+            {   
+                if(length < 0)
+                    throw '잘못된 생성자 파라미터 입력' 
+
+                this.#length = length;   
+            }
+
+            getLength()
+            {
+                return this.#length;
+            }
+
+            getPerimeter()
+            {
+                return (this.#length)*4;
+            }
+
+            getArea()
+            {
+                return this.#length * this.#length;
+            }
+
+            setLength(length)
+            {
+                this.#length = length;
+            }
+
+            // ES6
+            // get attribute_name () {return value}
+            get length()
+            {
+                return this.#length;
+            }
+
+            get abc()
+            {
+                return this.#length;
+            }
+
+
+            set length(len)       // #length 에서 #만 빼놓고 작명하는 게 관례다.
+            {
+                this.#length = len;
+            }
+
+        }
+
+        const rect2 = new Square(7);
+
+        console.log(undefined+1);
+
+        rect2.length = -5;
+        console.log(rect2)   //  length는 가지고 있지 않다. 추가된 것이다.
+        // rect2.#length = -1;  // 안 넣어짐.
+        // console.log(rect2.#length);
+
+        rect2.length = 8;
+
+        console.log('length = ' + rect2.length);
+        console.log('length = ' + rect2.getLength());
+        console.log('둘레 = ' + rect2.getPerimeter());
+        console.log('면적 = ' + rect2.getArea());
+
+        
+
+         //  =================================================================================
+
+
+
+        
+
+
+    </script>
+</body>
+</html>
