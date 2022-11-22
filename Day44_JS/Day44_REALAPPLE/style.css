@@ -1,0 +1,41 @@
+@charset 'utf-8';
+
+/* 일반적으로 class로 먼저 작성하고, 변경 사항이 있으면 id로 작성한다. */
+
+/* 제일 먼저 태그부터 설정한다 */
+
+html {
+    /*
+        웹폰트
+            1. 구글 폰트에서 Noto Sans 검색
+            2. 적당한 폰트 선택 (R400, R600)
+            3. 폰트를 html에서 link태그를 통해 포함시킴.
+            4. 포함된 폰트를 CSS의 html 태그에서 설정.
+     */
+
+    font-size: 14px;          /*폰트 사이즈를 지정하면 웹 폰트 설정을 무시한다. 애플 기본이 14px */
+
+    font-family: 'Noto Sans KR', sans-serif; /* 장점: 사용자 글꼴을 통일시킬 수 있다.  단점: 용량이 되는 폰트같은 경우는 로딩이 느리다. */
+                                             /* https://fonts.google.com/  */
+    
+}
+
+body {
+    /* 수평 스크롤을 없앤다. */
+    overflow-x: hidden;
+
+    /* 글 간격(가로)을 5%정도 좁힌다. */
+    letter-spacing: -0.05em;
+
+    
+
+}
+
+
+
+
+a {
+    
+    text-decoration:none      /* 언더라인을 없앤다. */ 
+
+}
