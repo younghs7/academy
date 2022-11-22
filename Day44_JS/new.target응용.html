@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>    
+    <script>
+        const Circle = function(length)
+        {
+            if (new.target === undefined)
+            {
+                return new Circle(length);
+            }
+
+            this.length = length;
+            this.pi = 3.14;
+
+            this.getCircum = function ()
+            {
+                return (2 * this.length * this.pi);
+            }
+
+
+        }
+       
+        const c1 = new Circle(10);
+        const c2 = Circle(10);
+        
+        console.log(c2.getCircum());
+
+        
+         
+    </script>
+    
+</body>
+</html>

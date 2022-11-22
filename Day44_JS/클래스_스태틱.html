@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>    
+    <script>
+        // 원의 정보를 저장하는 클래스를 구현
+        //      원의 반지름, 원주율
+        //      둘레길이, 원의 넓이를 구할수 있어야 한다.
+        // constructor, 
+        // getter//setter (get, set)
+        // 둘레길이를 구하는 메소드
+        // 원의 넓이를 구하는 메소드.
+        class Circle
+        {
+            #radius;
+            static #PI = 3.14;
+            static #count = 0;
+
+
+            static get count()
+            {
+                return Circle.#count;
+            }
+            
+            static get PI()
+            {
+                return Circle.#PI;
+            }
+
+            constructor(radius)
+            {
+
+                if ((radius <= 0) || (true === isNaN(radius)))
+                {
+                    throw '[Circle] constructor error';
+
+                }
+
+                this.#radius = radius;
+                Circle.#count++;                
+
+            }
+
+            
+
+            getCircum()
+            {
+                return (2 * this.#radius) * Circle.PI;
+            }
+
+            getArea()
+            {
+                return this.#radius * this.#radius * Circle.PI;
+
+            }
+
+            get radius()
+            {
+                return this.#radius;
+
+            }
+
+            set radius(radius)
+            {
+                if ((radius <= 0) || (true === isNaN(radius)))
+                {
+                    throw '[Circle] setter error';
+
+                }
+
+                this.#radius = radius;
+            }
+
+        }
+
+        const c1 = new Circle(9);
+        console.log(c1.getCircum());
+        console.log(c1.getArea());
+
+       
+         
+    </script>
+    
+</body>
+</html>
