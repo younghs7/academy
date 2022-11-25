@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+
+        /* ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ */
+    
+        /* 
+        div {
+            border : 3px solid blue;
+        }
+
+        #parent{
+
+            position: relative;
+
+            border: 3px solid red;
+            left : 50px;     /* 이동 안함. relative 없으면 */
+        /* }
+
+        #child{
+            position: relative;
+            
+            left: 20px;
+            top: 30px;
+        }  */
+
+        /* ===================================================== */
+
+        /* 
+            조상 중 가장 처음으로 만나는 static이 아닌 태그
+        */
+
+        div {
+            border :  10px solid blue;
+        }
+
+        #grandparent {
+            /* position: relative; */
+        }
+
+        #parent{
+            /* position: relative; */
+            height: 3000px;
+        }
+
+        #child {
+            border: 10px solid red;
+            position: absolute;  /* 1. 크기 정보와 2. 좌표를 설정해줘야 한다. */
+            
+
+            /* absolute 를 지정하면 크기 정보를 잃어버리고 자신의 크기만큼을 가지기 때문에 크기를 지정해야한다. */
+            width: 200px;
+            height: 6000px;
+
+            /* 좌표 또한 설명해줘야한다.
+             */
+            /* left : 0px;
+            top : 0px; */
+        }
+
+
+        #child2 {
+            border: 10px solid red;
+            position: fixed;  /* absolute와 달리 스크롤을 움직임에 상관없이 고정된다.  */
+            
+
+            /* absolute와 마찬가지로 크기와 좌표를 지정해줘야함. */
+            width: 200px;
+            height: 6000px;
+
+            /* left : 0px;
+            top : 0px; */
+        }
+
+
+
+
+
+    </style>
+
+</head>
+<body>
+    
+    <!-- <div id="parent">
+        PARENT
+        <div id="child">
+            CHILD
+        </div>
+
+    </div> -->
+
+    <!-- ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ -->
+    
+    <div id="grandparent">
+        GRANDPARENT
+        
+        <div id="parent">
+            PARENT
+
+            <div id="child2">
+                CHILD
+            </div>
+        </div>
+
+    </div>
+
+
+
+</body>
+</html>

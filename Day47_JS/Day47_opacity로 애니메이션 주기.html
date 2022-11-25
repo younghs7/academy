@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+    <style>
+        h1 {
+
+            opacity: 0.5;
+        }
+
+        h2 {
+            opacity: 0.1;
+        }
+
+        h3 {
+            opacity: 0;
+        }
+
+        /*  display: none 과 
+            opactiy: 0는 다르다. 디스플레이와 달리 사라지지 않는다. 
+        */
+
+
+    </style>
+
+
+    <h1> 안녕하세요. </h1>
+    <h2> 안녕하세요. </h2>
+    <h3> 안녕하세요. </h3>
+   
+    <input type="button" value="AAAAA">
+
+    <script>
+
+
+        // 문제. opacity를 이용해서 투명도 애니메이션 만들기 ㅡㅡㅡㅡㅡㅡㅡㅡㅡ 
+
+        let opacityValue = 1;
+        const h1 = document.querySelector('h1');
+        const button = document.querySelector('input');
+
+        button.addEventListener('click', ()=>{ 
+
+            id = setInterval( ()=>{
+               
+                opacityValue = opacityValue - 0.02;
+                h1.style.opacity = opacityValue;
+
+                
+                
+                if (opacityValue <= 0)
+                {    
+                    opacityValue = 1;
+                    h1.style.opacity = opacityValue;
+                    clearInterval(id);
+                }
+
+                
+
+
+            }, 30);
+
+        });
+
+        // =======================================================================
+                        
+                              
+    </script>
+
+
+
+
+
+</body>
+</html>
