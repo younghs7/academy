@@ -1,0 +1,91 @@
+ <!DOCTYPE html>
+ <html lang="ko">
+ <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        #main-canvas {
+            border: 1px solid black;
+            position: fixed;
+
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            border: 0;
+            height: 4000px;
+         }
+    
+    </style>
+ </head>
+ <body>
+    <canvas id="main-canvas" width="1920" height="1080"></canvas><br>
+    
+    
+
+    <script>
+
+        let yOffset = 0;
+    
+        const mainCanvas = document.querySelector('#main-canvas');
+
+        const calcValue = function(values)
+        {
+            let result = 0;
+            let rate = 0;
+
+            const height = document.body.scrollHeight - window.innerHeight;
+
+            // 1. 스크롤 비율 구한다.        
+            rate = yOffset / height;
+
+            // 2. 비율에 따른 실제 적용할 CSS값을 계산한다.
+            result = (rate * (values[1] - values[0])) + values[0];
+
+            return result;      
+
+
+        }
+
+        // canvas element를 가지고 온다고 해서 직접 사용할 수 없다.
+        // 왜냐하면 드로잉을 하기 위해서는 많은 설정을 해주어야 한다. (좌표, 색, 크기, 메모리설정, 용도...)
+        // 이러한 설정값의 집합을 graphic context라고 하고 gc는 일일히 할수도 있지만
+        // 기본적인 설정으로 처리 할 수 있다.
+        const gc = mainCanvas.getContext('2d');
+
+        let imgElement;
+        let canvasImages = [];
+
+        for (let i = 0; i < 500; i++)
+        {
+            imgElement = new Image();
+            imgElement.src = `./image/apple_${i}.png`;
+
+            canvasImages.push(imgElement);
+
+        }
+        
+        imgElement.addEventListener('load', ()=>{
+            gc.drawImage(canvasImages[0], 0, 0);
+
+
+        })
+
+        window.addEventListener('scroll', ()=>{
+            let imageIndex = 0;
+            yOffset = window.scrollY;
+            imageIndex = Math.floor(calcValue([0, 499])) ;
+
+            gc.drawImage(canvasImages[imageIndex], 0, 0);
+
+        });
+
+    </script>
+
+
+ </body>
+ </html>

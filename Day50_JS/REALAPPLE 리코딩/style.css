@@ -1,0 +1,105 @@
+
+@charset 'utf-8';
+
+html {
+    
+    font-size: 16px;
+    font-family: 'Noto Sans KR', sans-serif;
+
+}
+
+body {
+    position: relative;
+    height: 3000px;
+
+}
+
+
+a {
+    text-decoration: none;
+
+}
+
+
+footer {
+    position: absolute;  /* 상위가 다 static 포지션이면 창 테두리 기준으로 top, bottom, left, right가 정해지더라. */
+    bottom: 0;
+    background-color: darkgray;
+    width: 100%;
+    text-align: center;  
+}
+
+
+/* Home History Store Contact ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ */
+
+.nav0 {
+    position: absolute;   /* 이유는 모르겠는데 absolute랑 flex 같은 곳에 쓰면 정상작동 안 한다. 그래서 texts로 내림 */
+    width: 100%;
+
+    background-color: antiquewhite;
+
+}
+
+
+.nav0-div {
+
+    display: flex;
+    justify-content: space-between;
+
+    max-width: 1000px;
+    margin: auto;
+   
+
+   
+    
+}
+
+
+/* Real Apple Pro Overview Compare Buy  ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ */
+
+.nav1{
+    position: absolute;
+    width: 100%;
+   
+    background-color: aqua;
+
+    top: 24px;
+}
+
+.nav1-div {
+    display: flex;
+    justify-content: right;
+    
+} 
+
+.nav1-div-product {
+
+    margin-right: auto;
+
+}
+
+.nav1-div-links {
+    margin-left: 1em;
+}
+
+/* ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ */
+
+
+.section0{
+    position: fixed;         
+
+
+    width: 100%;
+    text-align: center;
+
+    top: 1000px;
+   
+    /* section0 영역에 nav 영역이 가려져서 a링크 안 눌려지더라. */
+    
+}
+
+.section1 {
+
+    display: none;
+    
+}

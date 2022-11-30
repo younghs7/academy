@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+
+        /* 이미지 파일 다운로드 https://pixabay.com/ko/videos/%EC%82%AC%EA%B3%BC-%EA%B3%BC%EC%9D%BC-%EB%8B%AC%EC%BD%A4%ED%95%9C-65426/ */
+
+        #main-canvas {
+            border: 1px solid red;
+            position: fixed;
+        }
+
+        body {
+            height: 4000px;
+        }
+
+        input {
+            position: fixed;
+        }
+
+    </style>
+
+</head>
+<body>
+    
+
+    <canvas id="main-canvas" width="1920" height="1080"></canvas> <br>
+    <input id="a" type="button" value="Next image">
+
+
+
+    <script>
+
+        const mainCanvas = document.querySelector('#main-canvas');
+
+        // canvas element를 가지고 온다고 해서 직접 사용할 수 없다.
+        // 왜냐하면 드로잉을 하기 위해서는 많은 설정을 해주어야 한다. (좌표, 색, 크기, 메모리 설정, 용도... 등)
+        // 이러한 설정값을 집합을 graphic context라고 하고 gc는 일일이 할 수도 있지만
+        // 기본적인 설정으로 처리 할 수 있다.
+
+        const gc = mainCanvas.getContext('2d');
+
+        // gc.moveTo(600, 300);
+        // gc.lineTo(1200, 600);
+        // gc.stroke();
+
+        let imgElement;
+        let canvasImages = [];
+
+        for (let i= 0; i < 500; i++)
+        {
+            imgElement = new Image();
+            imgElement.src = `./image/apple_${i}.png`;        // 이미지 경로만 가져오는 게 아니라 이미지를 디코딩해서 메모리를 들고 있음.
+//                                                               for문 따로 돌고, 백그라운드에서 이미지 디코딩하는 것이 따로 돈다.
+//                                                               문제는 디코딩이 오래걸리는 작업이기 때문에 디코딩이 안 됬는데 for문만 완료될 수 있다. 
+            canvasImages.push(imgElement);
+        }
+        
+
+
+
+
+        // 스크롤값을 가져온다.
+        // 스크롤값을 비율로 바꾼다.
+        // 비율 가져온 것을 0~499 이미지로 변환한다.
+
+
+
+
+
+    // 일반 함수 ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ ㅡㅡ
+
+    const calcValueByScrollY = function(first, end)
+    {   
+
+        const height = document.body.scrollHeight - window.innerHeight;
+        
+        
+
+        let scrollY = window.scrollY
+        let scrollRate;
+        console.log('scrollY prev: ', scrollY);
+        if(scrollY < 0)
+            scrollY = 0;
+        else if(height < scrollY)    
+            scrollY = height;
+
+        console.log('scrollY:',scrollY)    
+
+        scrollRate = scrollY / height;
+ 
+        let value = first + scrollRate * (end - first);
+
+        return value;
+    }
+
+    
+
+
+
+
+
+
+
+    ///////////////////////////////////////////////////////////////////////////////////////
+    // 이벤트 핸들러
+
+        imgElement.addEventListener('load', ()=>{
+            
+            gc.drawImage(canvasImages[0], 0, 0);
+
+        });
+        const buttonElem = document.querySelector('input');
+
+
+        let count = 0;
+        window.addEventListener('scroll', ()=>{
+
+            count = Math.floor(calcValueByScrollY(0, 499));
+            console.log(count);
+            
+            gc.drawImage(canvasImages[count], 0, 0);
+
+        });
+
+
+
+
+    </script>
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

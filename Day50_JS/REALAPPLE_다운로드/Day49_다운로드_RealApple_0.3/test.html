@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        .title {
+            opacity: 1;
+
+        }
+        
+    </style>
+
+    
+
+</head>
+<body>
+    <h1 class="title">안녕하세요</h1>
+    <input type="button" value="AAAAAAA">
+    
+    
+
+    <script>
+        let id;
+        let opacityValue = 1;
+        let count = 0;
+        
+        const h1 = document.querySelector('.title');
+        const button = document.querySelector('input');
+
+        button.addEventListener('click', ()=>{
+
+            id = setInterval(()=>{
+
+                h1.style.opacity = opacityValue;
+                console.log(opacityValue);
+                opacityValue = opacityValue - 0.02;
+
+                count++;
+                console.log(count);
+
+
+                if (opacityValue <= 0)
+                {
+                    opacityValue = 1;
+                    count = 0;
+                    h1.style.opacity = opacityValue;
+                    clearInterval(id);
+
+                }
+
+            }, 30)
+
+            
+
+            
+            
+        });
+
+        
+
+    </script>
+
+</body>
+</html>

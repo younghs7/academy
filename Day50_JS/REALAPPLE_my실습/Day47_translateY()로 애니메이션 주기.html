@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+
+        h1 {
+            font-size: 5em;
+            position: fixed;
+            width: 100%;
+            top : 100px;
+            text-align: center;
+        }
+
+        input {
+            position: fixed;
+        }
+
+
+        /* top 100% 테스트 ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ */
+
+        body {
+            height: 3000px;
+            border: 1px solid red;
+        }
+
+        h2 {
+            position: relative;
+            text-align: center;
+            top : 200%;
+        }
+
+        /* ============================================= */
+
+    </style>
+
+</head>
+<body>
+
+
+    
+
+    <input type="button" value="버튼">
+    <h1 class ="title">안녕하세요</h1>
+    <!-- <h2>top 100% 테스트</h2>   -->    <!-- body 뒤로 넘어간다. -->
+
+
+
+    <script>
+
+        //  translateY() 예제 ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ
+
+
+        const h1 = document.querySelector('.title');
+        const button = document.querySelector('input');
+
+        document.body.style.height = '3000px';
+
+
+
+        button.addEventListener('click', ()=>{
+
+            // h1.style.top = '50%';
+            h1.style.transform = 'translateY(200%)';
+
+            
+            // 나중에 right left top bottom 이랑 비교해보기.
+
+
+        });
+
+
+
+        // ========================================================================
+
+
+        //문제. translateY() 으로 애니메이션 만들기 ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ 
+        //  페이지 최상단일 때는 translateY(0%)
+        //  페이지 최하단일 때는 translateY(-50%)으로 처리하기.
+
+        // document.body.style.height 값 --> 숫자로 추출하기
+        const str = document.body.style.height;
+            console.log('document.body.style.height: ' + document.body.style.height);
+        
+        const regex = /[^0-9]/g;
+        const result = str.replace(regex, "");
+        const DocuHeight = parseInt(result);
+             console.log('DocuHeight: ' + DocuHeight);
+
+        
+        // 최하단 스크롤 위치 찾기 
+        let LastScrollY = DocuHeight - window.innerHeight;
+          console.log('window.innerHeight: ' + window.innerHeight);
+       
+          
+
+        // 스크롤할 때마다 문자 애니메이션 효과 주기
+        window.addEventListener('scroll', ()=>{
+            
+
+            let currentScrollY = window.scrollY; 
+            let rate = (currentScrollY / LastScrollY) *50 ;
+
+            console.log(rate);
+
+            h1.style.transform = `translateY(-${rate}%)`;
+
+
+        });
+
+        // ==========================================================
+
+        //  문제 풀이 --> 문제 풀이 파일에서 볼 것
+
+
+
+
+
+    </script>
+    
+</body>
+</html>
