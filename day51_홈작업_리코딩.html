@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="reset.css">
+    <link rel="stylesheet" href="myStyle.css">
+
+   
+
+</head>
+<body>
+   
+    
+
+    <nav class="nav0">
+        <div class="nav0-div">
+            <a href="#" class="nav0-div-links">Home</a>
+            <a href="#" class="nav0-div-links">History</a>
+            <a href="#" class="nav0-div-links">Store</a>
+            <a href="#" class="nav0-div-links">Contact</a>
+        </div>
+    </nav>
+
+    <nav class="nav1">
+        <div class="nav1-div">
+            <a href="#" class="nav1-div-product">Real Apple Pro</a>
+            <a href="#" class="nav1-div-links">Overview</a>
+            <a href="#" class="nav1-div-links">Compare</a>
+            <a href="#" class="nav1-div-links">Buy</a>
+            
+        </div>
+    </nav>
+  
+
+   
+
+    
+
+
+    <section class="section0">
+        <div class="stickyElement text0">
+            <h1 class="textA2">Real Apple Pro</h1>
+        </div>
+
+        <div class="stickyElement text1">
+            <p class="textB2">온전히 빠져들게 하는 빛깔</p>
+        </div>
+
+        <div class="stickyElement text2">
+            <p class="textC2">나의 건강을 채워주는 향기</p>
+        </div>
+
+        <div class="stickyElement text3">
+            <p class="textD2">깨끗한 자연의 신선함</p>
+        </div>
+
+        <div class="stickyElement text4">
+            <p class="textE2">새롭게 입가를 찾아온 매혹</p>
+        </div>
+
+    </section>
+
+
+    <p class="p">adasdsaasd</p>
+
+    <section class="section1">
+        <div>
+            <p>
+                <strong>진짜 사과 이야기</strong>
+
+                사과를 매일 하나씩 먹으면 의사 볼 일이 없다 
+                (an apple a day keeps the doctor away)란 속담이 있을 정도로 유명한 가을 과일 중 하나다. 비슷한 속담이 토마토에도 있다. 
+                그만큼 비타민C와 무기질이 많아 간식 대용으로 사과를 한 알 먹는다면 비타민C 부족에 시달릴 일은 없다. 
+                다만 과당이 많아서 통상적인 이미지와는 달리 다이어트 식품으로서는 그다지 효능이 좋지 않은데, 
+                단위 중량 당 열량은 아보카도나 바나나 등과 함께 제법 높은 편에 속한다. 
+                당연히 사과의 크기와 영양상태에 따라 다르지만 300g 정도 나가는 한 알이 200kcal는 넘을 수 있다고 생각하면 된다. 
+                비타민 C가 풍부한 만큼 감기 예방에 효과적이나, 
+                한의학적으로 사과는 차가운 성질을 가지고 있기 때문에 목감기나 기침에 좋지 않다고 한다. 
+                감기에 좋다고 하는 과일은 배, 그리고 귤도 좋다고 한다. 배는 과일 중에서도 특히 수분, 
+                무기질이 많은 과일 중 하나이기 때문에 감기에 걸렸을 때 수분 보충에 아주 적절한 식품이다.
+            </p>
+        </div>
+    </section>
+
+
+    <footer class="copyleft">
+        <div class="copyleft-div">
+           <p>Copyleft 2022 Jeong Sung Hoon Allright reserved.</p>
+        </div>
+    </footer>
+
+
+
+<!-- 나중에 옮길 예정 -->
+
+    <script>
+
+(()=>{
+
+
+    let currentSection = 0;
+    let sectionScrollY = 0;
+    let currentSectionScrollRate = 0; 
+
+    const sections = [
+
+        // text0
+
+        // section 0 정보
+        {
+            reference : document.body.querySelector('.section0'),
+            height : 0,
+            innerHeightMultiple : 9,
+            bottomScrollY : 0,
+            topScrollY : 0,    
+
+            stickyElements : document.body.querySelectorAll('.stickyElement'),
+            
+
+            //나중에 text 배열로 만들자. 이렇게 만들면 일일히 하나하나 지정해줘야되서 피곤하네.
+            text0 : {
+                reference : document.body.querySelector('.text0'),
+                fadeInOpacity : [0, 1, {startRate:0.00, endRate:0.08}],
+                fadeOutOpacity : [1, 0, {startRate:0.08, endRate:0.16}],
+                fadeOut_translateY : [0, -300, {startRate:0.08, endRate:0.16}]
+            },
+            text1 : {
+                reference : document.body.querySelector('.text1'),
+                fadeInOpacity : [0, 1, {startRate:0.16, endRate:0.24}],
+                fadeOutOpacity : [1, 0, {startRate:0.24, endRate:0.32}],
+                fadeOut_translateY : [0, -300, {startRate:0.24, endRate:0.32}]
+            },
+            text2 : {
+                reference : document.body.querySelector('.text2'),
+                fadeInOpacity : [0, 1, {startRate:0.32, endRate:0.40}],
+                fadeOutOpacity : [1, 0, {startRate:0.40, endRate:0.48}],
+                fadeOut_translateY : [0, -300, {startRate:0.40, endRate:0.48}]
+            },
+            text3 : {
+                reference : document.body.querySelector('.text3'),
+                fadeInOpacity : [0, 1, {startRate:0.48, endRate:0.56}],
+                fadeOutOpacity : [1, 0, {startRate:0.56, endRate:0.64}],
+                fadeOut_translateY : [0, -300, {startRate:0.56, endRate:0.64}]
+            },
+            text4 : {
+                reference : document.body.querySelector('.text4'),
+                fadeInOpacity : [0, 1, {startRate:0.64, endRate:0.72}],
+                fadeOutOpacity : [1, 0, {startRate:0.72, endRate:0.9}],
+                fadeOut_translateY : [0, -300, {startRate:0.72, endRate:0.9}]
+            },
+
+            images : {
+                count : 500,
+                references : []
+            }
+
+        },
+        // section1 정보
+        {
+            reference : document.body.querySelector('.section1'),
+            height : 0,
+            innerHeightMultiple : 5,
+            bottomScrollY : 0,
+            topScrollY : 0,   
+        },
+
+    ];
+
+    
+
+
+    console.log(sections[0].text0)
+
+
+
+    // 일반함수 ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ
+
+
+
+    const setSectionHeight = function()
+    {   
+        //section 높이 설정
+        for(let i = 0; i < sections.length; i++)
+        {
+            //js 설정
+            sections[i].height =  window.innerHeight * sections[i].innerHeightMultiple;
+            //css 설정
+            sections[i].reference.style.height = `${sections[i].height}px`;
+        }
+
+        //section0 stickyElement 위치 설정
+        const stickys = sections[0].stickyElements;
+        for(const Elem of stickys)
+        {
+            Elem.style.top = `${window.innerHeight / 2}px`;
+        }
+        
+    }
+
+
+
+
+    const getCurrentSection = function()
+    {
+        let section = 0;
+        let sectionEndLocation = [];
+        let total = 0;
+
+        // 각 section 하단 스크롤 위치를 배열로 저장함.
+        for(let i = 0; i < sections.length; i++)
+        {   
+            total = total + sections[i].height;
+            sectionEndLocation.push(total);
+        }
+            // console.log('sectionEndLocation', sectionEndLocation);
+        
+        section = 0;
+        for(let i = 0; i < sections.length; i++)
+        {   
+            if(window.scrollY <= sectionEndLocation[i])
+            {
+                return section;
+            }
+            section++;
+        }
+
+        // 무언가 로직이 잘못되었다면
+        return -1;
+
+    }
+
+    const setSectionBottomTopScrollY = function()
+    {
+        let SectionBottomScrollY = 0;
+        let SectionTopScrollY = 0;
+        for(let i = 0; i < sections.length; i++)
+        {   
+            sections[i].topScrollY = SectionBottomScrollY;
+            SectionBottomScrollY = SectionBottomScrollY + sections[i].height;
+            sections[i].bottomScrollY = SectionBottomScrollY;
+        }
+    }
+
+
+
+
+    // 현재 section top부분을 SectionScrollY = 0 으로 둠.
+    const setSectionScrollY = function()
+    {   
+        let currentSectionTopScrollY = sections[currentSection].topScrollY;
+
+        // 현재 섹션에서의 top을 0으로 하는 scrollY값으로 변환함.
+        sectionScrollY = window.scrollY - currentSectionTopScrollY; 
+
+    }
+
+
+    // 현재 section 위치에 따라 Body 아이디 변경
+    const setBodyID = function()
+    {
+    document.body.setAttribute('id', `show-section${currentSection}`) 
+    }
+
+
+
+    const calcValueBySectionScrollY = function(range)
+    {   
+        let CalculatedValue = 0;
+        currentSectionScrollRate = sectionScrollY / sections[currentSection].height;        
+        
+        if(range.length === 2)
+        {
+            CalculatedValue = range[0] + ( range[1] - range[0] ) * currentSectionScrollRate;
+            
+            return CalculatedValue;
+        }
+        else if(range.length === 3)
+        {   
+            // 필요 요소: 시작 위치, 끝 위치, 시작-끝 길이 
+            
+            let currentSectionHeight = sections[currentSection].height;
+
+            // start-end scrollY값 위치를 찾는다.
+            let startY = range[2].startRate * currentSectionHeight;
+            let endY = range[2].endRate * currentSectionHeight;
+
+            
+            let height = endY - startY;  
+            let localY = sectionScrollY - startY;
+            let rate = localY / height;
+
+            if(rate < 0)
+                rate = 0;
+            if(rate > 1)
+                rate = 1;   
+
+            console.log('rate:', rate);
+
+            CalculatedValue =  range[0] + ( range[1] - range[0] ) * rate;
+                console.log('CalculatedValue:', CalculatedValue)
+            
+
+            return CalculatedValue;
+        }
+
+        
+        
+    }
+
+
+
+    const playAnimation = function()
+    {
+        let value = 0;
+        switch(currentSection)
+        {
+            case 0:
+
+                sections[0].text0.reference.style.opacity = 0;
+                sections[0].text1.reference.style.opacity = 0;
+                sections[0].text2.reference.style.opacity = 0;
+                sections[0].text3.reference.style.opacity = 0;
+                sections[0].text4.reference.style.opacity = 0;
+
+                currentSectionScrollRate = sectionScrollY / sections[0].height;
+                        // console.log('currentSectionScrollRate', currentSectionScrollRate)
+
+
+                
+                // text0
+                if(currentSectionScrollRate <= 0.08)
+                {
+                    value = calcValueBySectionScrollY(sections[0].text0.fadeInOpacity);
+                    sections[0].text0.reference.style.opacity = value;
+
+                }
+                else if( (0.08 < currentSectionScrollRate) && (currentSectionScrollRate <= 0.16))    
+                {
+                    value = calcValueBySectionScrollY(sections[0].text0.fadeOutOpacity);
+                    sections[0].text0.reference.style.opacity = value;
+                    
+                    value = calcValueBySectionScrollY(sections[0].text0.fadeOut_translateY);
+                        console.log('transform:', value);
+                    sections[0].text0.reference.style.transform = `translateY(${value}%)`
+                }
+                // text1
+                else if( (0.16 < currentSectionScrollRate) && (currentSectionScrollRate <= 0.24))    
+                {
+                    value = calcValueBySectionScrollY(sections[0].text1.fadeInOpacity);
+                    sections[0].text1.reference.style.opacity = value;
+                    
+                }
+                else if( (0.24 < currentSectionScrollRate) && (currentSectionScrollRate <= 0.32))    
+                {
+                    value = calcValueBySectionScrollY(sections[0].text1.fadeOutOpacity);
+                    sections[0].text1.reference.style.opacity = value;
+
+                    value = calcValueBySectionScrollY(sections[0].text1.fadeOut_translateY);
+                    sections[0].text1.reference.style.transform = `translateY(${value}%)`
+                    
+                }
+
+                //text2
+                else if( (0.32 < currentSectionScrollRate) && (currentSectionScrollRate <= 0.4))    
+                {
+                    value = calcValueBySectionScrollY(sections[0].text2.fadeInOpacity);
+                    sections[0].text2.reference.style.opacity = value;
+
+                }
+                else if( (0.4 < currentSectionScrollRate) && (currentSectionScrollRate <= 0.48))    
+                {
+                    value = calcValueBySectionScrollY(sections[0].text2.fadeOutOpacity);
+                    sections[0].text2.reference.style.opacity = value;
+                    
+                    value = calcValueBySectionScrollY(sections[0].text2.fadeOut_translateY);
+                    sections[0].text2.reference.style.transform = `translateY(${value}%)`
+
+                }
+                // text3
+                else if( (0.48 < currentSectionScrollRate) && (currentSectionScrollRate <= 0.56))    
+                {
+                    value = calcValueBySectionScrollY(sections[0].text3.fadeInOpacity);
+                    sections[0].text3.reference.style.opacity = value;
+                    
+                }
+                else if( (0.56 < currentSectionScrollRate) && (currentSectionScrollRate <= 0.64))    
+                {
+                    value = calcValueBySectionScrollY(sections[0].text3.fadeOutOpacity);
+                    sections[0].text3.reference.style.opacity = value;
+
+                    value = calcValueBySectionScrollY(sections[0].text3.fadeOut_translateY);
+                    sections[0].text3.reference.style.transform = `translateY(${value}%)`
+                    
+                }
+
+                //text4
+                else if( (0.64 < currentSectionScrollRate) && (currentSectionScrollRate <= 0.72))    
+                {
+                    value = calcValueBySectionScrollY(sections[0].text4.fadeInOpacity);
+                    sections[0].text4.reference.style.opacity = value;
+                    
+                }
+                else if( (0.72 < currentSectionScrollRate) && (currentSectionScrollRate <= 0.9))    
+                {
+                    value = calcValueBySectionScrollY(sections[0].text4.fadeOutOpacity);
+                    sections[0].text4.reference.style.opacity = value;
+
+                    value = calcValueBySectionScrollY(sections[0].text4.fadeOut_translateY);
+                    sections[0].text4.reference.style.transform = `translateY(${value}%)`
+                    
+                }
+                
+                    console.log('opacity:', value)
+
+                break;
+            
+            default :
+                break;
+
+        }
+
+            //  console.log('sections[0].text0.reference.style.opacity:', sections[0].text0.reference.style.opacity)
+    }
+
+
+    const setImages = function()
+    {   let count = sections[0].images.count;
+        let images =sections[0].images.references;
+
+
+        let imageElement;
+
+        for(let i = 0; i < count; i++)
+        {
+            imageElement = new Image();
+            imageElement.src = `image/apple_${i}.png`;
+
+        
+        }
+    }
+    
+
+
+    // 이벤트리스너 ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ
+
+    window.addEventListener('load', ()=>{
+
+        
+        setSectionHeight();
+        setSectionBottomTopScrollY();
+
+        console.log('window.innerHeight: ',window.innerHeight)
+        console.log('document.body.scrollHeight:', document.body.scrollHeight)
+        
+    });
+
+    // 스크롤 할 때 마다
+    window.addEventListener('scroll', ()=>{
+        
+        
+        //현재 섹션 위치 갱신함.
+        currentSection = getCurrentSection();
+        
+        //섹션 위치에 따라 바디 ID를 바꿈.
+        setBodyID();
+
+        //sectionScrollY 갱신함.
+        setSectionScrollY();
+
+        //스크롤값과 상호작용하여 애니메이션 동작함. 
+        playAnimation();
+        
+
+
+                                // console.log('sectionScrollY', sectionScrollY)
+
+                                // console.log('window.scrollY:', window.scrollY);
+
+                                // console.log('currentSection', currentSection)
+
+    });
+
+
+})();
+
+                           
+
+
+
+
+    </script>
+
+
+
+</body>
+</html>
