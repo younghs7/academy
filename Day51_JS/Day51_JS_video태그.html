@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    
+    <video src="C:\Users\101-12\Documents\project\HTML_CSS_JS\appleVideo.mp4" autoplay muted loop controls></video> 
+    <!-- 사운드에 대한 보안? 정책? 때문에 muted가 있어야 재생된다고 함. -->
+
+    <script>
+        let value = 1;
+        const videoElem = document.querySelector('video');
+
+        let tid = setInterval(()=>{
+
+            videoElem.style.opacity = value;
+            
+            value = value - 0.01;
+
+            if ( value <= 0.01)
+            {
+                videoElem.style.opacity = 1;
+                clearInterval(tid);
+            }
+
+        }, 30);
+
+
+    </script>
+
+
+</body>
+</html>

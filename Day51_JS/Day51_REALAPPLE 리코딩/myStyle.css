@@ -1,0 +1,160 @@
+@charset 'utf-8';
+
+
+/* 
+    선택자 배치 순서: 
+    제일 상단 tag, 그 아래에 있는 class, id는 문서 순서 배치와 동일한 위치에 위치시킴.
+*/
+
+
+
+/* width, heigth, 좌표같은 것은 케스케이딩 되지 않는다. */
+
+
+html {
+    
+    font-size: 16px;
+    font-family: 'Noto Sans KR', sans-serif;
+
+}
+
+body {
+    position: relative;
+
+}
+
+
+a {
+    text-decoration: none;
+
+}
+
+
+
+
+
+/* Home History Store Contact ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ */
+
+.nav0 {
+    position: absolute;   /* 이유는 모르겠는데 absolute랑 flex 같은 곳에 쓰면 정상작동 안 한다. 그래서 div로 내림 */
+    width: 100%;          /* 곰곰히 생각해보니 flex는 바로 하위 태그들을 하나하나의 덩어리로 보기 때문이였다.  */
+                          /* 그니까. nav0에 flex 선언하면 아래 하위 div 하나만 flex-items이 되기 때문에 정렬이 안 됬던것 */
+                          /* 결론은 flex는 정렬하고픈 것 바로 위에서 선언해야한다. */
+
+    /* background-color: antiquewhite; */
+
+  
+
+   
+
+}
+
+
+.nav0-div {
+
+
+    display: flex;
+    justify-content: space-between;
+  
+    max-width: 1000px;
+    margin: auto;
+   
+
+   
+    
+}
+
+
+/* Real Apple Pro Overview Compare Buy  ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ */
+
+.nav1{
+    position: absolute;
+    width: 100%;
+   
+    /* background-color: aqua; */
+
+    top: 24px;
+}
+
+.nav1-div {
+    display: flex;
+    justify-content: right;
+    margin: auto;
+    max-width: 1000px;
+} 
+
+.nav1-div-product {
+    
+    margin-right: auto;
+
+}
+
+.nav1-div-links {
+    margin-left: 1em;
+}
+
+/* section0  ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ */
+
+.stickyElement {
+    position : fixed; 
+    display: none;
+    opacity: 0;
+   
+}
+
+#show-section0 .stickyElement {
+    display: block;
+}
+
+
+
+
+.section0 {
+
+    /* section0 영역에 nav 영역이 가려져서 a링크 안 눌려지더라. */
+    
+}
+
+.section0 > .stickyElement {
+
+    width: 100%;
+    text-align: center;
+
+}
+
+.textA {
+    
+    /* opacity: 0;   */
+    /* .stickyElement 에 씹힐까?  이건 진짜 모르겠다.*/
+}
+
+
+/* section1  ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ */
+
+
+.section1 {
+    /* display: none; */
+    background-color: aliceblue;
+}
+
+
+
+/* footer  ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ */
+
+
+.copyleft {
+    position: absolute;  /* 상위가 다 static 포지션이면 창 테두리 기준으로 top, bottom, left, right가 정해지더라. */
+    
+    display: flex;
+    bottom: 0;
+    background-color: darkgray;
+    width: 100%;
+    height: 3.5em;    
+    
+    justify-content: center;     /* 행 정렬 */
+    align-items: center;         /* 수직 정렬 */
+  
+    
+}
+
+
