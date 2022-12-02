@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+<style>
+
+    body {
+
+        height: 5000px;
+    }
+
+    .videoDiv {
+        position: fixed;
+        z-index: -1;
+    
+    }
+    
+    p {
+        color: white;
+        width: 20px;
+    }
+
+    
+
+</style>
+
+</head> 
+
+    
+
+
+
+<body>
+    <div class="videoDiv">
+        <video src="../video/appleVideo.mp4" autoplay muted loop controls></video>
+
+    </div>
+
+    <div class="stickyElement text text0">
+        <h1 class="textA2">버그 너무 터진다</h1>
+        <p>asdsadas</p>
+        <p>asdsad</p>
+    </div>
+
+    <div class="stickyElement text text1">
+        <p class="textB2">구조 잘못 잡은 거 같애</p>
+    </div>
+
+    <script>
+
+        const a = {
+
+            aa: 1,
+
+            ab : {
+                c: 1,
+                d: function() {
+                 return this.c
+                },
+                e: this   // window가 나온다. 
+
+
+
+            },
+
+            ac: this.aa
+        }
+
+        console.log(a.ab.d());
+        console.log(a.aa);
+        console.log(a.ab.e)
+
+        // 함수 안에서만 this가 작동하네. 필드에 this 쓰면 window가 나오고.
+
+        
+
+
+    </script>
+
+
+</body>
+</html>
