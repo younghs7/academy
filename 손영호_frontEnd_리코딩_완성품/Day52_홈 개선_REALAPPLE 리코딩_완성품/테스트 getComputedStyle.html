@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <style>
+        p {
+
+        }
+
+    </style>
+    
+    <p class="pp">
+
+        asdsaddadsad
+    </p>
+
+
+    <script>
+        const pElem = document.querySelector('.pp');
+        const pstyle = getComputedStyle(pElem);
+        console.log('getComputedStyle', getComputedStyle(pElem));
+        console.log( pstyle.height, pstyle.width, pstyle.lineHeight)
+        // 20px, 714px 등으로 나옴. element.style 이랑 다를 게 없음.
+        // 이거는 자동완성이 나옴.
+
+
+        const elem = document.querySelector('.pp');
+        // elem.style
+        // 이렇게 하면 자동 완성이 안 나옴.
+
+    </script>
+
+
+
+</body>
+</html>

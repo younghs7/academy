@@ -1,0 +1,374 @@
+@charset 'utf-8';
+
+
+/* 
+    선택자 배치 순서: 
+    제일 상단 tag 
+    그 외의 선택자는 문서에서의 등장 순서와 동일한 순서로 배치함.
+*/
+
+
+
+/* width, heigth, 좌표같은 것은 케스케이딩 되지 않는다. */
+
+
+html {
+    
+    font-size: 16px;
+    font-family: 'Noto Sans KR', sans-serif;
+    color: white;
+}
+
+body {
+    position: relative;
+    
+    background-color: black;
+
+
+}
+
+
+a {
+    text-decoration: none;
+    color: white;
+    
+}
+
+video {
+
+    z-index: -3;
+
+    /* object-fit: contain;  안 되네 */
+}
+
+/* canvas {
+    object-fit: contain; 
+} */
+
+
+
+
+
+
+
+/*  처음에는 아래같이 짰는데 나중되니까. 개판 났다. 뭐가 뭔지 몰라. 
+    정리하고 깨달은 건데. 같은 엘리먼트를 선택하는 것임에도 불구하고 여기저기 다른 선택자형태로 중복 설정하고 있더라.
+    이러니까. 논리적으로는 맞는데 이해할 수 없는 증상이 생기니 계속 이유를 파악하는데 시간을 엄청 쓴다.
+    버그 잡는데 한참 걸렸다. 조급하게 만드니깐. 시간이 배로 든다.
+
+    체감 후에는 왠만하면 무조건 > 자식선택자로 경로 적었고, class명에도 경로를 적었다.
+    이렇게 하니 머리속에 완전히 구조화가 되긴 하더라. 근데 이것도 좀 찝찝하다. 
+    몇천줄, 몇만줄 이렇게 되면 이런 방식가지고는 안 될 거 같은데
+    
+    .stickyElement {  
+    position : fixed;  
+    display: none;
+    opacity: 0;
+
+    width: 100%;
+    text-align: center;
+   
+} */
+
+
+
+/* nav0 (첫번째 메뉴) ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ */
+
+.nav0 {
+    position: absolute;   /* 이유는 모르겠는데 absolute랑 flex 같은 곳에 쓰면 정상작동 안 한다. 그래서 div로 내림 */
+                          /* 곰곰히 생각해보니 flex는 바로 하위 태그들을 하나하나의 덩어리로 보기 때문이였다.  */
+                          /* 그니까. nav0에 flex 선언하면 아래 하위 div 하나만 flex-items이 되기 때문에 정렬이 안 됬던것 */
+                          /* 결론은 flex는 정렬하고픈 것 바로 위에서 선언해야한다. */
+    width: 100%;                       
+    height: 3em;
+    top: 0;
+    left: 0;
+    
+
+    background-color: darkgray;
+    border-bottom: 1px solid gray ;
+    
+
+
+
+}
+
+.nav0 > .nav0-div {
+
+    display: flex;
+
+    height: 100%;
+    width: 100%;
+    max-width: 1000px;
+    
+    justify-content: space-between;
+    align-items: center;
+  
+    margin: auto;
+   
+    
+   
+    
+}
+
+
+
+
+
+
+/* nav1 (두번째 메뉴)  ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ */
+
+.nav1{
+    position: absolute;
+    width: 100%;
+    height: 3em;
+    top: 0;
+    left: 0;
+    
+    top: 3em;       /* 이렇게 해도 되나? */
+    border-bottom: 1px solid gray ;
+
+}
+
+/* HTML에 없는 class 
+   JS에서 컨트롤함. 스크롤 내리면 nav1 속성에 해당 클래스 추가됨.
+
+    기능: 특정 스크롤 구간에서 nav1 메뉴바를 상단에 붙힘.  */
+.nav1_makeNav1Fixed {
+    position: fixed;
+    top: 0;
+    left: 0;
+
+}
+
+.nav1 > .nav1-div {
+    display: flex;
+    height: 100%;
+    width: 100%;
+    max-width: 1000px;
+
+    align-items: center;
+    justify-content: right;
+
+    margin: auto;
+} 
+
+.nav1 > .nav1-div > .nav1-div-productA {
+    margin-right: auto;
+
+}
+
+.nav1 > .nav1-div > .nav1-div-a {
+    margin-left: 1em;
+
+}
+
+
+
+
+
+
+
+
+
+/* section0  ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ */
+
+.section0 {
+
+    height: 3000px;
+
+    /* section0 영역에 nav 영역이 가려져서 a링크 안 눌려지더라. */
+    
+}
+
+
+
+
+.section0 > .section0-canvasDiv {
+                      
+    position : fixed;               /* 아 fixed의 % 기준은 브라우저창이네. 좌표도 브라우저창 기준이니까. */
+    width: 100%;                    /* absolute는 상위 중에 static이 아닌 얘를 기준으로 하지만, */
+    height: 100%;                   /*fixed는 브라우저창을 기준으로 한다. */  
+    top: 0;
+    left: 0;
+
+    /* display: none; */
+
+    z-index: -5;
+    /* opacity: 1; */
+   
+}
+
+
+.section0 > .section0-canvasDiv > .section0-canvasDiv-canvas {
+    /* object-fit: contain; */
+    width: 100%;
+    height: 100%;
+
+}
+
+
+.section0 > .section0-textDivs {
+    position : fixed;  
+    width: 100%;
+    top: 0;
+    left: 0;
+
+    display: none;
+    opacity: 0;
+
+    text-align: center;
+    font-size: 3rem;
+    
+   
+}
+
+
+/* #show-section0는 body태그에 붙음. JS에서 컨트롤함. 
+   스크롤이 section0에 있을 때만 화면에 block이고 section0 이외에서는 none됨. */
+#show_section0 .section0-canvasDiv{
+    display: block;
+}
+
+#show_section0 .section0-textDivs{
+    display: block;
+}
+
+
+
+.section0 > section0-textDivs > .textA {
+    
+    /* opacity: 1;   */
+    /* 
+        왜.stickyElement에 씹힐까? .stickyElement가 우선순위가 더 높기 때문으로 추측되는데  
+        이건 진짜 모르겠다.
+
+        HTML [nav - div - p] 순서에서 
+        div에 class="textA"를 선언하면 씹히지 않는다
+        p에 class="textA"를 선언하면 씹힌다. 
+
+        생각해보니깐. 상위 태그가 opacity = 0 이면, 
+        당연히 하위태그는 기본값 1일텐데
+        사라지는 걸 보니. 상위태그 opacity에 지배 받는 게 당연하네.
+
+        결론 : 하위태그 opacity는 상위태그 opacity에 지배받는다.
+    */
+}
+
+
+/* section1  ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ */
+
+
+
+.section1 {
+    /* display: none; */
+    /* background-color: aliceblue; */
+}
+
+
+.section1 > .seciont1-videoDiv {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    
+    display: none;
+    /* opacity: 0; */ /* 왜 안 되나 했더니 div는 opacity = 0인데, video 태그 opacity만 위아래로 움직이더라 */
+    z-index: -1;
+}
+
+
+
+
+/* 미사용 : 여백 안 생기게 하면서 창 크기에 맞춰서 크기조절하는 방법을 CSS로는 못 찾아서 JS로 컨트롤 하기로 결정함. */
+.section1 > .seciont1-videoDiv > .seciont1-videoDiv-video {
+
+    /* object-fit: cover; */
+
+    /* height: 100%; */             /* heigth: 100%  동영상 비율은 유지하는데, height 크기에 맞춰서 가로가 짤리거나 공백으로 남음  */
+    /* width: 100%; */              /* width: 100%  동영상 비율은 유지하는데, width 크기에 맞춰서 가로가 짤리거나 공백으로 남음  */
+    
+                                    /* 둘 다 하면 width, height 중에 더 큰 쪽에 맞춰짐.*/
+    
+
+    
+    
+  
+}
+
+
+
+.section1 > .section1-pDiv {
+    height: 100%;
+
+    max-width: 1000px;
+    margin: 0 auto;
+
+    /* align-content: center; */
+    
+    
+}
+
+
+
+.section1 > .section1-pDiv > .section1-pDiv-p{
+    position: relative;
+    width: 95%;
+    margin: 0 auto;
+
+    
+    
+    top: 50%;
+
+    font-size: 2rem;
+    line-height: 3em;
+    
+}
+
+
+
+
+
+/* #show-section1는 body태그에 붙음. JS에서 컨트롤함. 
+    위와 마찬가지 기능을 수행함. */
+#show_section1 .seciont1-videoDiv {
+    display: block;
+    
+}
+
+/* p태그가 section1 영역 벗어나서 section1 외의 영역에서도 비디오가 보여야됨. 
+    그래서 아래와 선택자로 처리함. */
+
+    /* 주의 section마이너스1. section1 아님*/
+    #show_section-1 .seciont1-videoDiv {
+        display: block;
+        opacity: 1;
+     
+    /* 근데 여기서 이렇게 처리할 문제가 아닌데. 근데 왜 section 영역은 innerHeiht 배수로 결정한거지?
+    결국에 폰트 사이즈는 창 해상도에 따라 사이즈 조정이 되어야 하고, 배치도 바뀌어야하는 건데
+    음.. 잘 모르겠다.
+
+    section height값을 고정으로 처리해서 생기는 문제점을 잡다가 든 의문  */
+    }
+
+
+/* footer  ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ */
+
+
+.copyleft {
+    position: absolute;  /* 상위가 다 static 포지션이면 창 테두리 기준으로 top, bottom, left, right가 정해지더라. */
+    
+    display: flex;
+    bottom: 0;
+    background-color: darkgray;
+    width: 100%;
+    height: 3.5em;    
+    
+    justify-content: center;     /* 행 정렬 */
+    align-items: center;         /* 수직 정렬 */
+  
+    
+}
+
+
