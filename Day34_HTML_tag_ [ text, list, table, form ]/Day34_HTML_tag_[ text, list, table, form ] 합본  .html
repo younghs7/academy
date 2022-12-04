@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+<!-- 택스트_tag(h1, p), hr, a  ------------------------------------------------------------------------ -->
+
+
+    <!-- 문제1 -->
+   <h1>세상은요지경</h1>
+   <hr>
+   <p>인생이란 황금그릇에 채워질 수도 있고, 질그릇의 담겨질 수도 있는 것이다.<br>
+   그것이 황금 그릇에 담겨져 있다고 해서 더욱 가치가 있는 것도 아니며 
+   질그릇에 담겨져 있다고 해서 보잘것 없는 것도 아니다.<br>
+   잘난사람은 잘난대로 살고 못난사람은 못난대로 산다.</p>
+
+    <a>네이버</a>
+    <a href="https://www.naver.com">네이버</a>
+
+
+<!-- 리스트(list)_tag(ul, ol, li), br ------------------------------------------------------------------------ -->
+    
+    <br>
+    <br>
+    <hr>
+
+    <ul>
+        <li>짬뽕</li>
+        <li>짜장</li>
+        <li>우동</li>
+    </ul>
+
+    <ol>
+        <li>개회사</li>
+        <li>사장님 말씀</li>
+        <li>행사진행</li>
+        <li>폐회사</li>
+    </ol>
+<!-- 문제2 -->
+    <ul>
+         <li>HTML
+            <ol>
+                <li>tag</li>
+                <li>contents</li>
+                <li>Element</li>
+            </ol>
+        </li>
+
+         <li>CSS
+            <ol>
+                <li>Animation</li>
+                <li>Vector</li>
+            </ol>
+        </li>
+    </ul>
+
+
+
+
+
+    
+    <br>
+    <br>
+    <hr>
+
+<!-- 테이블(table)_tag(thead, tbody tfooter / tr, th, td )------------------------------------------------------------------------ -->
+
+    <table border="1">
+        <caption>성적표</caption>
+        <thead>
+        <tr>
+            <th>이름</th>
+            <th>과목</th>
+            <th>1학기</th>
+            <th>2학기</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        <tr>
+            <td rowspan="3">홍길동</td>
+            <td>국어</td>
+            <td>45</td>
+            <td>78</td>
+        </tr>
+
+        <tr>
+            <td>영어</td>
+            <td>55</td>
+            <td>87</td>
+        </tr>
+
+        <tr>
+            <td>수학</td>
+            <td>37</td>
+            <td>69</td>
+        </tr>
+        </tbody>
+
+
+
+
+    </table>
+
+
+
+    
+    <br>
+    <br>
+    <hr>
+
+
+    
+        <!-- 문제3.  -->
+
+        <table border = "7">
+
+            <thead>
+                <tr>
+                    <th colspan = "4" > title </th>
+                </tr>
+
+                <tr>
+                    <th colspan = "2" >subtitle</th>
+                    <th colspan = "2" >subtitle</th>
+               </tr>
+            </thead>
+
+            <tbody>
+                <tr>
+                    <td style="width:100px;">1 item</td>
+                    <td style="width:100px; text-align:center">123</td>
+                    <td style="width:100px;">1 item</td>
+                    <td style="width:100px; text-align:center">123</td>
+                </tr>
+    
+                <tr>
+                    <td>1 item</td>
+                    <td style="width:100px; text-align:center">123</td>
+                    <td>1 item</td>
+                    <td style="width:100px; text-align:center">123</td>
+                </tr>
+    
+                <tr>
+                    <td>1 item</td>
+                    <td style="width:100px; text-align:center">123</td>
+                    <td>1 item</td>
+                    <td style="width:100px; text-align:center">123</td>
+                </tr>
+
+            </tbody>
+                 
+
+
+
+            <tfoot>
+                <tr>
+                    <th colspan = "2">sub subtitle</th>
+                    <th colspan = "2">sub subtitle</th>
+                </tr>
+            </tfoot>
+
+
+
+        </table>
+
+
+<!-- 형식 입력(form) tag[input, textarea, se ------------------------------------------------------------------------ -->
+        <!-- 
+            form 태그 : 사용자에게 입력을 받을 수 있는 다양한 컴포넌트를 만듬
+        -->
+
+
+        
+        <br>
+        <br>
+        <hr>
+
+
+
+    <!-- <body id ="a1"></body>     -->
+        <form id ="a1" action="GET">
+            
+            <label for="id_user-id">아이디</label>
+            <input id="id_user-id" type="email" name="user-id"> 
+            <br>
+            
+            패스워드<input type="password" name= "user-pw"> 
+            <br>
+            
+            <textarea name="" id="" cols="30" rows="10"></textarea>
+            
+            <select name="" id="" multiple>
+
+                <option value="">떡볶이</option>
+                <option value="">오뎅</option>
+                <option value="">야끼만두</option>
+                <option value="">쫄면</option>
+                <option value="">군만두</option>
+
+            </select>
+            
+            <input type="submit" value="전송">
+            
+
+        </form>
+
+        <!-- 모든 태그에 아이디를 부여할 수 있다 -->
+
+
+        <br>
+        <br>
+        <hr>
+
+        <!-- 문제4. -->
+        
+        <form action="GET">
+            
+            <label for="id_name">이름: </label> 
+            <input id="id_name" type="text" name="name" >
+            <br>
+            
+            <label for="id_pass">비밀번호: </label> 
+            <input id="id_pass" type="password" name="pass" >
+            <br>
+
+            성별 <br>
+            <label for="id_male">남자<input type="radio" name="sex" id="id_male"></label>
+            <!-- <input id = "id_male" type="checkbox"> -->
+            
+            
+            <label for="id_female">여자<input type="radio" name="sex" id="id_female"></label>
+            <!-- <input id = "id_female" type="checkbox"> -->
+            
+            <br>
+
+            <input type="submit" value="제출">
+            
+
+
+
+        </form>
+
+
+
+
+
+
+    
+        
+        <!-- 
+        1. head는 화면에 안 나오는 정보, body는 화면에 나오는 정보라고 일단 퉁치자.
+        2. 여기에 있는 코드는 서버가 준 정보라고 생각해야 된다. 
+        3. h 태그 크기는 웹브라우저에서 지정된 것이지 html이 지정하는 것이 아니다.
+        4. li*3
+        
+        -->
+
+
+
+
+</body>
+
+</html>
+
+

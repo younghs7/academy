@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+</head>
+<body>
+    
+    <!-- 선택자 종류 -------------------------------------------------- -->
+    <style>
+        /*
+        전체 선택자 :        *
+        태그 선택자 :        tag
+        id 선택자 :          #
+        클래스 선택자 :       .
+        속성 선택자 :      선택자[속성="값"] ex) input[type=“text”]  
+        후손 선택자 :      (스페이스)
+        자손 선택자 :       >
+        구조 선택자 :      ex) li:nth-child(2n), li:first-child, li:last-child 등
+        */
+
+
+        /* 자손, 후손 선택자------------------------------------------------ */
+
+        #header > h1, #section > h1  {
+            color: red;
+        }
+
+
+        /* 구조 선택자 ------------------------------------------------ */
+        
+
+        li:nth-child(2n+1) {
+            color: red;
+        }
+        li:first-child {
+            color:blue;
+        }
+
+        /* --속성 선택자--------------------------------------------- */
+
+         input[type="text"] {
+            background-color: aliceblue;
+        }
+
+        
+        img[src= "test.png"] { 
+            border: 6px solid darkblue;
+        }
+        
+        /* img [src= "test.png"] 처럼 띄어쓰기 하면 안 되네. img[ 이렇게 딱 붙여야함. */
+
+
+
+    </style>
+
+
+    <img src="test.png" alt="떴냐"> <!-- ./test.png 이라고 하면 border 설정 오류나네. 이유는 모름 
+    
+    정리하다가 깨달음. -> 속성 선택자를 img[scr = "test.png"] {} 라고 해놨으니까 그러지.
+    -->
+    
+
+
+</body>
+</html>
