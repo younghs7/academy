@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+</head>
+<body>
+    
+    <script>
+
+        // 배열, push(), indexOf(), array[array.length] 시 undefined 뜸. 오류 안 뜸. ------------------------------------------
+
+        const ar = [11, 22, 33 ,44 ,55];
+        let k = undefined;
+
+        console.log(ar[0]);     // 11
+        console.log(ar[1]);     // 22
+        console.log(ar[2]);     // 33
+        console.log(ar[3]);     // 44
+        console.log(ar[4]);     // 55
+        console.log(ar[5]);     // undefined    --> 오류 뜨지 않는다.
+        console.log(k);         // undefined    --> undefined는 데이터타입이다.
+        // console.log(g);      // ReferenceError: g is not defined
+
+        console.log(ar[ar.length]); // undefined 
+
+        console.log(ar.length); // 5
+        
+        ar[0] = 0;
+        ar.push('abc');     
+        console.log(ar);                // (6) [0, 22, 33, 44, 55, 'abc']
+        console.log(ar.indexOf(33));    // 2
+
+
+
+    </script>
+    
+
+
+</body>
+</html>

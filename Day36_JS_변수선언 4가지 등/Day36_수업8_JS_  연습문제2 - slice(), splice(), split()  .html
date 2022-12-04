@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+</head>
+<body>
+
+
+    <script>
+
+
+        // 연습 문제 2. -----------------------------
+        // 1) MDN에서 splice 함수를 찾고 splice의 8개의 예제를 실행해 봅시다.
+        // 2) “동해물과 백두산이 마르고 닯도록“에서 백두산을 제거하시오
+
+     
+
+
+        // 2) “동해물과 백두산이 마르고 닯도록“에서 백두산을 제거하시오
+         
+            // 1번 버전 string  ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ
+
+                 let sing = "동해물과 백두 백두 백두산이 백두 마르고 닳도록 백두산";
+                 let 백두산index = sing.indexOf("백두산");
+                
+                 while(백두산index !== -1)
+                 {
+                    sing = sing.slice(0, 백두산index) + sing.slice(백두산index+3, sing.length);
+
+                    백두산index = sing.indexOf("백두산");
+                 }
+
+                    console.log(sing);
+
+
+             //  2번째 버젼 스프레드 연산자 이용 ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ
+
+                let sing2 = "동해물과 백두 백두 백두산이 백두 마르고 닳도록 백두산";
+                let arr = [...sing2];
+                // let arr = Array.from(sing2);
+                
+
+                for(let i = 0; i < arr.length; i++)
+                {
+                    if (arr[i] == "백"   &
+                        arr[i+1] == "두" &
+                        arr[i+2] == "산"
+                       )
+                     {
+                        arr.splice(i, 3);
+                     }
+                }
+
+                //배열을 문자열로 변환함.
+                
+                let temp = "";
+                for(let i = 0; i < arr.length; i++)
+                {
+                     temp = temp + arr[i]; 
+                }
+
+                console.log(temp)
+
+            
+
+
+        // 강사님 풀이 ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ
+
+        const str = "동해물과 백두 백두 백두산이 백두 마르고 닳도록 백두산";
+
+        const ar = str.split("백두산");
+        
+        let result = "";
+        
+        for(let i = 0; i < ar.length; i++)
+        {
+            result = result + ar[i];
+        }
+
+        console.log(result);
+
+
+
+
+
+
+
+
+    </script>
+    
+    
+
+
+</body>
+</html>

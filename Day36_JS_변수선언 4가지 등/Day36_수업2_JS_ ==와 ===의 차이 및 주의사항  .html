@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+</head>
+<body>
+    
+    <script>
+
+        // [ ==(ES5) ===(ES6) 차이, 주의사항) -------------------------------------------------
+
+        var a = 10;
+        var b = 20;
+
+
+        // 주의 사항 ---------------
+
+        // 내부적으로 a를 문자열 10으로 변환한다.
+        if(a == "10")
+        {
+            console.log("a는 10입니다.")
+        }
+
+        // 숫자형을 문자열형으로 바꾼다.
+        var c = "30";
+        var d = 40;
+        console.log(c+d);
+
+        // 어떻게든 에러라고 생각하지 않고, 
+        // 결과를 출력하려고하는 철학을 가지고 있다.
+        // --> 클라이언트단이기 때문
+        // 단점: 오타를 발견할 수 없다.
+
+        
+        // ES5까지는 참았으나 ES6에서 === 추가됨.
+        if( a === "10")
+        {
+            console.log("a는 10입니다");
+        }
+        else
+        {
+            console.log("a는 10이 아닙니다.");
+        }
+        // 자바스크립트에서는 하위호환을 강조하는 철학을 가지기 때문에
+        // ==을 바꾸지 않고, 새로운 기능을 넣는다.
+
+
+
+
+    </script>
+    
+
+
+</body>
+</html>

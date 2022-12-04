@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+</head>
+<body>
+    
+    <script>
+
+        // 연습 문제1. ------------------------------------
+        // 1) cm를 입력받아 inch를 출력하는 코드를 작성하시오
+        // 2) 원의 반지름을 입력받아 원의 넓이를 구하는 코드를 작성하시오
+        // 3) 사과, 복숭아, 딸기 를 unordered list로 출력하는 element를 자바스크립트로 출력하는 코드를 작성하시오
+
+        //  1) cm를 입력받아 inch를 출력하는 코드를 작성하시오
+            let cm = prompt("cm를 입력하세요.");
+                console.log('cm', typeof(cm));      // string
+                console.log('cm+1', typeof(cm+1))   // string
+                console.log('cm*1', typeof(cm*1))   // number
+            
+            let inch = cm  * 0.393701;      // <--- 이런 헛짓거리 하지마라. 문자열*숫자는 숫자로 리턴되어서 문제가 없기는 하다만 형변환 제대로 해야지. 누가 이런 것까지 외우고 프로그래밍 짜겠냐
+                console.log(typeof(inch)); // number 
+
+            console.log(inch+10);
+            alert(inch);
+
+
+        // 2) 원의 반지름을 입력받아 원의 넓이를 구하는 코드를 작성하시오
+            let r = prompt("원의 반지름을 입력하시오");
+            console.log('r^2:', r^2)    // 검색해보니 ^는 비트 XOR 연산자 (비트 배타적 논리합 이라는 연산자라고 한다.)
+            console.log('r**2', r**2)   // 제곱은 ** 이다.
+            let width = Math.PI * r^2;  // 틀림.
+
+            console.log('원 width:', width);
+            alert(width);
+
+    
+
+
+        // 3) 사과, 복숭아, 딸기 를 unordered list로 출력하는 element를 자바스크립트로 출력하는 코드를 작성하시오
+        
+            let ulElement =
+            "<ul>  \
+                <li>딸기</li> \
+                <li>사과</li> \
+                <li>바나나</li> \
+            </ul>";
+
+            document.body.innerHTML = ulElement;
+
+
+
+    </script>
+    
+
+
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+</head>
+<body>
+    
+    <script>
+
+        (()=>{
+
+            { let block = 1;   console.log(block); }  // 잘 뜬다.
+
+            console.log(block); // ReferenceError: block is not defined
+
+            //★ 블록 레벨은 for문이나 if문이랑 상관없이 {} 에서만 유효하다.  
+
+        })();
+
+
+    </script>
+
+
+
+</body>
+</html>
