@@ -4,7 +4,9 @@
 /* 
     선택자 배치 순서: 
     제일 상단 tag 
+
     그 외의 선택자는 문서에서의 등장 순서와 동일한 순서로 배치함.
+    객체지향적으로 디자인함. 해당 영역에서만 영향받음.
 */
 
 
@@ -175,11 +177,15 @@ video {
 
 .section0 {
 
-    height: 3000px;
+    height: 3000px;              /* 이유는 모르겠는데, 새로고침 하면 찰나 동안 section1 영역의 p태그 내용이 뜨더라. 그 방지. 
+                                    JS쪽 문제인 거 같은데... window load 후에 높이 설정을 하는 게 문제가 아닐까 싶다.*/
 
     /* section0 영역에 nav 영역이 가려져서 a링크 안 눌려지더라. */
     
 }
+
+
+
 
 
 
@@ -192,7 +198,7 @@ video {
     top: 0;
     left: 0;
 
-    /* display: none; */
+    display: none;
 
     z-index: -5;
     /* opacity: 1; */
@@ -200,12 +206,18 @@ video {
 }
 
 
+
+
+
+
+
 .section0 > .section0-canvasDiv > .section0-canvasDiv-canvas {
     /* object-fit: contain; */
-    width: 100%;
+    width: 100%;                /*높이, 너비 설정 안하면 비디오 기본 크기에 맞춰진다. 1920x1080이면 영역에 상관없이 1920x1080로 설정됨.*/
     height: 100%;
 
 }
+
 
 
 .section0 > .section0-textDivs {
@@ -226,13 +238,30 @@ video {
 
 /* #show-section0는 body태그에 붙음. JS에서 컨트롤함. 
    스크롤이 section0에 있을 때만 화면에 block이고 section0 이외에서는 none됨. */
-#show_section0 .section0-canvasDiv{
+   #show_section0  .section0-canvasDiv{
     display: block;
 }
 
 #show_section0 .section0-textDivs{
     display: block;
 }
+
+/* 인라인 > id > 클래스 순으로 우선순위를 가지기는 하는데 뭔가 이상해서 이것저것 테스트해보니 
+    [ㅁ > .클래스 선택자]가 [.클래스 선택자]보다 우선순위를 가지더라. 
+    [#id > .클래스 선택자]가 [.클래스 > .클래스 선택자]보다 우선순위를 가지더라. 
+    동일한 모양이면, 나중에 선언된 것이 적용된다.
+
+    http://www.devdic.com/css/refer/documents/document:1806/%EC%84%A0%ED%83%9D%EC%9E%90(Selector)%EC%9D%98-%EC%9A%B0%EC%84%A0-%EC%88%9C%EC%9C%84
+    https://iridescent-zeal.tistory.com/90
+    검색해보니 : 결합 관계(복합 선택자 패턴)의 경우는 결합되는 선택자 방식의 정해진 점수를 합산하여 우선 순위를 정한다.
+    라는 게 있었다. 태그 1점, 클래스 10점, id 100점
+
+    결론: 태그, 클래스, id 조합하면 조합할수록 우선순위가 높아진다.  
+    ex) [태그 > 클래스 > id 선택자]는 = 111점. 
+    동일한 점수면 뒤에 선언된 것이 적용된다.
+
+    */
+
 
 
 
@@ -247,11 +276,11 @@ video {
         div에 class="textA"를 선언하면 씹히지 않는다
         p에 class="textA"를 선언하면 씹힌다. 
 
-        생각해보니깐. 상위 태그가 opacity = 0 이면, 
-        당연히 하위태그는 기본값 1일텐데
-        사라지는 걸 보니. 상위태그 opacity에 지배 받는 게 당연하네.
+        생각해보니깐. 바깥 영역이 opacity = 0 이더라도, 
+        당연히 안쪽 영역는 기본값은 1일텐데
+        사라지는 걸 보니. 바깥 쪽 opacity에 지배 받는 게 당연하네.
 
-        결론 : 하위태그 opacity는 상위태그 opacity에 지배받는다.
+        결론 : 안쪽 opacity는 바깥쪽 opacity에 지배받는다.
     */
 }
 
@@ -274,7 +303,7 @@ video {
     left: 0;
     
     display: none;
-    /* opacity: 0; */ /* 왜 안 되나 했더니 div는 opacity = 0인데, video 태그 opacity만 위아래로 움직이더라 */
+    /* opacity: 0; */ /* 왜 안 되나 했더니 div는 opacity = 0인데, video 태그 opacity만 위아래로 움직이더라. 바깥쪽이 opacity=0인데 보일리가 */
     z-index: -1;
 }
 
@@ -289,7 +318,7 @@ video {
     /* height: 100%; */             /* heigth: 100%  동영상 비율은 유지하는데, height 크기에 맞춰서 가로가 짤리거나 공백으로 남음  */
     /* width: 100%; */              /* width: 100%  동영상 비율은 유지하는데, width 크기에 맞춰서 가로가 짤리거나 공백으로 남음  */
     
-                                    /* 둘 다 하면 width, height 중에 더 큰 쪽에 맞춰짐.*/
+                                    /* 둘 다 하면 비디오가 더 커질 수 있는 쪽(width or height)이 적용됨. */
     
 
     
