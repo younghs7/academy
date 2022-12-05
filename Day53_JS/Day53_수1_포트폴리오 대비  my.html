@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    
+    <style>
+
+        h1 {
+            font-size: 5rem;
+        }
+
+        div {
+            position: relative;
+            top : 300px
+        }
+
+    </style>
+
+
+</head>
+<body>
+
+    <div>
+        <h1>HELLO</h1>
+    
+        <input id ="fade-in-btn" type="button" value="fade in">
+        <input id ="fade-out-btn" type="button" value="fade out">
+
+
+    </div>
+
+
+    <script>
+
+        let h1Elem = document.body.querySelector('h1');
+        let fadeInBtn = document.body.querySelector('#fade-in-btn')
+        let fadeOutBtn = document.body.querySelector('#fade-out-btn')
+        
+        console.log('h1Elem:', h1Elem);    
+        console.log('fadeInBtn', fadeInBtn);    
+        console.log('fadeOutBtn', fadeOutBtn);    
+
+
+
+
+        const calcValueBySecond = function(firstValue, EndValue, ms)
+        {
+            
+
+        } 
+        
+
+        // calcValueBySecond(0, 2, 10);
+
+        
+        fadeInBtn.addEventListener('click', ()=>{
+            
+            
+            
+            let count = 0;
+            const totalTime = 1500;
+            const cycleTime = 30;
+            const callCount = Math.floor( totalTime / cycleTime );
+                console.log('callCount:', callCount)
+            const tid1 =
+            setInterval(() => {
+                count++;
+
+                console.log('count:', count)
+                
+            
+                if(count === callCount)
+                {
+
+                    clearInterval(tid1)
+                }
+            
+
+            }, cycleTime);
+
+        
+        
+
+        });
+
+        
+
+        fadeOutBtn.addEventListener('click', ()=>{
+
+     
+
+            let opacityValue = 0;
+            let translateValue = 0;
+            let count = 0;
+            const tid2 =
+            setInterval(() => {
+                count++;
+
+
+                opacityValue = opacityValue + 0.02;
+                translateValue = translateValue - 0.8;
+                h1Elem.style.opacity = opacityValue;
+                h1Elem.style.transform = `translateY(${translateValue}%)`
+                
+            
+                if(count === 50)
+                {
+                    clearInterval(tid2)
+                    h1Elem.style.opacity = '';
+                    h1Elem.style.transform = '';
+                }
+            
+
+            }, 30);
+            
+
+            
+});
+    
+
+
+    </script>
+
+
+
+
+</body>
+</html>

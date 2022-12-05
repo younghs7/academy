@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+
+        h1 {
+            font-size: 4rem;
+        }
+
+    </style>
+
+</head>
+<body>
+    
+    <h1>HELLO</h1>
+    
+    <input id ="fade-in" type="button" value="fade in">
+    <input id ="fade-out" type="button" value="fade out">
+
+
+    <script>
+
+        (()=>{
+
+            const h1Message = document.querySelector('h1')
+            const btnFadeIn = document.querySelector('#fade-in')
+            const btnFadeOut = document.querySelector('#fade-out')
+            let bRun = false;
+
+            btnFadeIn.addEventListener('click', ()=>{
+
+                if(bRun === true)
+                {   
+                    console.log('강제 종료~')
+                    return false;
+                }
+                bRun = true;
+                console.log('버튼 실행 중~~')
+
+                let tid;       // interval id;
+                let count = 0;
+                let opacityValue = 1;
+                let translateValue = 0;
+                
+                tid =
+                setInterval(() => {
+                    h1Message.style.opacity = opacityValue;  
+                    
+                    if(opacityValue <= 0)
+                    {
+                        opacityValue = 0;
+                        
+                    }
+                    else
+                    {
+                        opacityValue = opacityValue - 0.014
+                    }
+
+
+                    translateValue = translateValue - 1.875;
+                    h1Message.style.transform = `translateY(${translateValue}%)`;
+                    
+                    count++;
+                        if(count === 75)
+                        {
+                            clearInterval(tid)
+                            h1Message.style.transform = '';
+                            h1Message.style.opacity = '';
+
+                            bRun = false;
+                        }
+                }, 20);
+
+                console.log('a')
+            });
+
+
+            btnFadeOut.addEventListener('click', ()=>{
+                
+                if(bRun === true)
+                {   
+                    console.log('강제 종료~')
+                    return false;
+                }
+                bRun = true;
+                console.log('버튼 실행 중~~')
+
+                let tid2;       // interval id;
+                let count = 0;
+                let opacityValue = 0;
+                let translateValue = 0;
+                
+                tid2 =
+                setInterval(() => {
+                    h1Message.style.opacity = opacityValue;  
+                    
+                    if(opacityValue < 0)
+                    {
+                        opacityValue = 0;
+                        
+                    }
+                    else
+                    {
+                        opacityValue = opacityValue + 0.014
+                    }
+
+
+                    translateValue = translateValue - 1.875;
+                    h1Message.style.transform = `translateY(${translateValue}%)`;
+                    
+                    count++;
+                        if(count === 75)
+                        {
+                            clearInterval(tid2)
+                            h1Message.style.transform = '';
+                            h1Message.style.opacity = '';
+
+                            bRun = false;
+                        }
+                }, 20);
+
+
+
+
+                console.log('b')
+            });
+
+
+
+        })();
+
+
+
+    </script>
+
+
+
+
+</body>
+</html>
