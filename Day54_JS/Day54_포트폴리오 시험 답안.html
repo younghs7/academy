@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+
+    <style>
+        #main-title {
+            position: relative;
+            left: 300px;
+            top: 300px;
+            font-size: 4rem;
+        }
+
+    </style>
+
+</head>
+<body>
+    
+    <h1 id = "main-title">Hello</h1>
+    <button id="btn-fade">Fade</button>
+    <button id="btn-fademove">Fade-Move</button>
+
+
+    <script>
+
+
+
+        // 전역변수 설정
+
+        const h1Elem = document.querySelector('#main-title')
+        const btnFade = document.querySelector('#btn-fade');
+        const btnFadeMove = document.querySelector('#btn-fademove');
+        let bRun = false;
+
+
+
+
+
+        // fade-in 버튼 클릭 이벤트
+        btnFade.addEventListener('click',()=>{
+            
+            console.log('누름')
+            if(true === bRun)
+            {
+                return;
+            }
+            
+            bRun = true;
+
+            const CALL_COUNT =  50;             // 총 함수콜 횟수
+            let runCount = 0;                   // 실행 번수
+            const START_OPACITY = 0;
+            let opacityValue = START_OPACITY;
+
+            // 일정 시간 동안 서서히 흐려짐.
+            const itvID_fade = setInterval(() => {
+                
+                console.log('run1')
+
+                runCount++;
+                
+                // 투명도 조절
+                opacityValue = opacityValue + 0.02;
+                h1Elem.style.opacity = opacityValue;
+
+
+                // 횟수를 만족하면 중단
+                if(runCount === CALL_COUNT)
+                {
+
+                    clearInterval(itvID_fade);
+                    bRun = false;
+                }
+
+
+            }, 30);
+
+
+
+
+
+
+        });
+
+
+
+
+        // fade-out + 위로 상승 버튼 클릭 이벤트
+        btnFadeMove.addEventListener('click',()=>{
+
+            console.log('누름')
+
+            if(bRun === true)
+            {
+                return;
+            }
+
+            bRun = true;
+
+            const CALL_COUNT = 50;
+            let runCount = 0;
+            const START_OPACITY = 1;
+            const START_TRANSLATE_Y = 0;
+            let opacityValue = START_OPACITY;
+            let translateYValue = START_TRANSLATE_Y;
+
+
+            
+            const itvID_fadeMove = setInterval(() => {
+                
+                console.log('run2')
+
+                runCount++;
+
+                opacityValue = opacityValue - 0.02;
+                h1Elem.style.opacity = opacityValue;
+
+                translateYValue = translateYValue - 0.6;
+                h1Elem.style.transform = `translateY(${translateYValue}%)`
+
+
+                // 횟수를 만족하면 중단
+                if(runCount === CALL_COUNT)
+                {
+                    clearInterval(itvID_fadeMove)
+                    h1Elem.style.opacity = 1;
+                    h1Elem.style.transform = '';
+                    bRun = false;
+                }
+
+
+
+            }, 30);
+
+
+            
+
+
+
+            
+        });
+
+
+
+
+    </script>
+
+
+
+
+
+
+
+
+</body>
+</html>

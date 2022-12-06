@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+
+    <style>
+        #main-title {
+            position: relative;
+            left: 300px;
+            top: 300px;
+            font-size: 4rem;
+        }
+
+    </style>
+
+</head>
+<body>
+    
+    <h1 id = "main-title">Hello</h1>
+    <button id="btn-fade">Fade</button>
+    <button id="btn-fademove">Fade-Move</button>
+
+
+    <script>
+
+        const h1Elem = document.querySelector('#main-title')
+        const btnFade = document.querySelector('#btn-fade');
+        const btnFadeMove = document.querySelector('#btn-fademove');
+
+
+        btnFade.addEventListener('click',()=>{
+
+
+            const CALL_COUNT =  50;
+            let runCount = 0;
+            const START_OPACITY = 0;
+            let opacityValue = START_OPACITY;
+            const itvID_fade = setInterval(() => {
+                runCount++;
+                opacityValue = opacityValue + 0.02;
+                                                        console.log('opaityValue:', opacityValue)
+                h1Elem.style.opacity = opacityValue;
+
+                
+
+
+                if(runCount === CALL_COUNT)
+                {
+
+                    clearInterval(itvID_fade);
+                }
+
+
+            }, 30);
+            
+
+
+        });
+
+
+        // 소수점 계산이 왜 안 되나 했더니 소수점은 2^(-n) 으로 컴퓨터가 저장하기 때문이였다.
+        // ex) 2^(-3)은 0.125로 계산됨
+
+
+
+    </script>
+
+
+
+
+
+
+
+
+</body>
+</html>

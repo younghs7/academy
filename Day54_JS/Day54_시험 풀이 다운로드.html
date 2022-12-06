@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        #main-title {
+            position: relative;
+            left: 300px;
+            top : 300px;
+            font-size: 4rem;
+
+        }
+    </style>
+</head>
+<body>
+    <h1 id="main-title">Hello</h1>
+    <button id="btn-fade">Fade</button>
+    <button id="btn-fademove">Fade-move</button>
+    
+    <script>
+    (()=>{
+
+        const mainTitle = document.querySelector('#main-title');
+        const btnFade = document.querySelector('#btn-fade');
+        const btnFadeMove = document.querySelector('#btn-fademove');
+
+        let tid;
+        let opacityValue = 0;
+        let yOffset = 0;
+        let bRun = false;
+
+        const fadeIn = function()
+        {
+            mainTitle.style.opacity = opacityValue;           
+            opacityValue = opacityValue + 0.01;
+
+            if (opacityValue >= 1)
+            {
+                mainTitle.style.opacity = 1;
+                
+                clearInterval(tid);
+                bRun = false;
+            }
+
+        }
+
+        const fadeMove = function()
+        {
+            mainTitle.style.opacity = opacityValue;           
+            opacityValue = opacityValue - 0.01;
+
+            yOffset = -30 * (1 - opacityValue);
+            mainTitle.style.transform = `translateY(${yOffset}%)`;
+
+            if (opacityValue <= 0)
+            {
+                mainTitle.style.opacity = 1;
+                mainTitle.style.transform = 'translateY(0%)';
+
+
+                clearInterval(tid);
+                bRun = false;
+            }
+
+        }
+
+
+        btnFade.addEventListener('click', ()=>{
+            if (bRun === true)
+            {                
+                return;
+            }
+
+            opacityValue = 0;
+
+            bRun = true;
+            tid = setInterval(fadeIn, 30);            
+
+        });
+        
+
+        btnFadeMove.addEventListener('click', ()=>{
+            if (bRun === true)
+            {
+                console.log("EXIT!!")
+                return;
+            }
+            
+            opacityValue = 1;
+            yOffset = 0;
+
+            bRun = true;
+            tid = setInterval(fadeMove, 20);            
+            
+        });
+
+    })();
+    </script>
+</body>
+</html>
