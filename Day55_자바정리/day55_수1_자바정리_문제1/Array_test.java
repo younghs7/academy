@@ -20,6 +20,36 @@ public class Array_test {
 		
 		
 		
+		// 이렇게도 되네!
+		
+		int[][] arr = new int[3][];     // 이렇게도 되네!
+		
+		int[] arr1 = {11, 12, 33};
+		int[] arr2 = {11, 22};
+		int[] arr3 = {11};
+		
+		arr[0] = arr1;
+		arr[1] = arr2;
+		arr[2] = arr3;
+		
+
+				
+		
+		for(int i = 0; i < arr.length; i++)
+		{	
+			System.out.println("ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ");
+			System.out.println("arr["+i+"]: " + arr[i]);
+			
+			for(int elem : arr[i])
+			{
+				System.out.println(elem);
+				
+			}
+		}
+		
+		
+		
+		
 
 	}
 
