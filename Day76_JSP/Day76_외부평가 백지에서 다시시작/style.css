@@ -1,0 +1,90 @@
+@charset "UTF-8";
+
+html, body, div, h1, h2, h3, p {
+            margin: 0;
+            padding: 0;
+            border: 0;
+            
+        }
+
+        a {
+            text-decoration: none;
+           
+        }
+
+        html {
+            font-size: 16px;
+
+
+              /* html의 컨테이닝 블록은 처음에 웹 브라우저 켰을 때, 바로 나오는 영역만 포함한다. 스크롤 아랫부분은 미포함.
+                width: 100%로 할 시에 내용물을 포함 안 함.
+              */
+        }
+
+        body {
+            position: relative;
+            top: 0;
+            left: 0;
+            height: 100%;
+
+        
+        }
+
+        
+        header > div {
+            background-color: skyblue;
+            height: 3rem;
+            text-align: center;
+
+        }
+
+        nav {
+            width: 100%;
+            
+        }
+
+        nav > div {
+            display: flex;
+            background-color: blueviolet;
+            height: 3rem;
+            align-items: center;
+            
+        }
+
+        nav > div > a {
+            color: white;
+            margin: 0 1rem 0 0;
+            
+
+        }
+
+        
+        footer {
+            width: 100%;
+            height: 3rem;
+            position: fixed;
+            bottom: 0;
+            
+
+            text-align: center;
+        
+        }
+
+        footer > div {
+            display: flex;
+            height: 100%;
+            width: 100%;
+            background-color: seashell;
+            align-items: center;
+            /* flex 있는 곳에서 align-item, justify-content 하는 것이다. 대상에서 하는 게 아니라
+            	상식적으로 생각하면 컨테이너에서 설정하는 게 당연한 거 아니냐.
+            	전체적인 규칙인데 하나의 대상에만 정렬하는 게 말이 되는 소리인가
+             */
+        }
+
+        footer > div > p {
+            width: 100%;
+            :
+            
+        
+        }
