@@ -1,0 +1,77 @@
+@charset "UTF-8";
+
+	
+	
+	html, h1, h2, h3, p, div, body {
+		margin: 0;
+		padding: 0;
+	
+	}
+	
+	html {
+		font-size: 16px;
+		height: 100%;
+	}
+	
+	body {
+		min-height: 100%;
+		/* 부모가 min-height 받으면, 아랫자식이 그대로 받아서 height 100% 하는 게  안 되더라. */
+	}
+	
+	header {
+		height: 3em;
+	
+		background-color: lightblue;
+		text-align: center;
+	}
+	
+	nav {
+		height: 3em;
+	
+		background-color: purple;
+		color: white;	
+			
+	}
+	nav > div {
+		display: flex;
+		width: 100%;
+		height: 100%;
+		
+		align-items: center;
+	
+	}
+	nav > div > a {
+		text-decoration: none;
+		margin-left: 10px;
+		
+		color: white;
+		
+		
+	}
+	
+	footer{
+		position: absolute;
+		width: 100%;
+		height: 3em;
+		bottom: 0;
+	
+		background-color: lightgray;
+		text-align: center;
+		
+		/* 한 곳에 flex abolute까지 되네 */
+	}
+	footer > div {
+		display: flex;
+		width: 100%;
+		height: 100%;
+		
+		align-items: center;		/* 수직축  */
+		justify-content: center;	/* 수평축  */
+
+		/* 프로그래밍 및 인쇄 계열에서는 justify는 행(가로)를 맞추다(정렬하다)라는 뜻으로 통용된다 하더라. */
+
+		/*	나중에 수정해야겠다. footer 제대로 하단고정 안 되네(문서 길이에 상관없이 안 됨) */
+		
+	}
+
+
