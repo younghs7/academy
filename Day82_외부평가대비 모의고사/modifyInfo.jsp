@@ -189,17 +189,17 @@
 			
 			res = checkDataExistance();
 			
-			if(res != true)
+			if(res !== true)
 				return;
 			
 			res = checkDataSize();
 			
-			if(res != true)
+			if(res !== true)
 				return;
 			
 			res = checkDataType();
 			
-			if(res != true)
+			if(res !== true)
 				return;
 			
 			if(res === true)
@@ -268,7 +268,7 @@
 			if(isNaN(city.ref.value) === true )
 			{
 				alert(city.invalidMsg);
-				city.focus();
+				city.ref.focus();
 				return false;
 			}
 	
@@ -281,7 +281,7 @@
 				
 				default : 
 					alert(grade.invalidMsg);
-					grade.focus();
+					grade.ref.focus();
 					return false;
 			}
 			
@@ -302,7 +302,7 @@
 			else
 			{
 				alert(joindate.invalidMsg);
-				joindate.focus();
+				joindate.ref.focus();
 				return false;
 			}
 				

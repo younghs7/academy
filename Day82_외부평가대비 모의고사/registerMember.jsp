@@ -110,8 +110,7 @@
 				<tr>
 					<td colspan="2">
 						<input type="button" id="btn_reg" value="등록" >
-						<input type="button" id="btn_inq" value="조회" >				
-						<input type="button" id="test" value="테스트"  >				
+						<input type="button" id="btn_inq" value="조회" >								
 					</td>
 				</tr>
 			
@@ -127,10 +126,12 @@
 	<%@ include file ="footer.jsp"  %>
 
 	
-		<script>
+	<script>
 	(()=>{
 		
-		const custno	= {ref: document.querySelector("#custno"), 		nodataMsg: "회원번호가 없습니다.", size: 6	, 	sizeMsg: "회원번호 길이 오류  "};
+		const form = document.querySelector("#form");
+		
+		const custno	= {ref: document.querySelector("#custno"), 		nodataMsg: "회원번호가 없습니다.", size: 6		, 	sizeMsg: "회원번호 길이 오류  "};
 		const custname 	= {ref: document.querySelector("#custname"), 	nodataMsg: "회원성명이 없습니다.", size: 20 	,	sizeMsg: "회원성명 길이 오류  "};
 		const phone 	= {ref: document.querySelector("#phone"), 		nodataMsg: "회원전화가 없습니다.", size: 13 	,	sizeMsg: "회원전화 길이 오류  "};
 		const address 	= {ref: document.querySelector("#address"), 	nodataMsg: "회원주소가 없습니다.", size: 60 	,	sizeMsg: "회원주소 길이 오류  "};
@@ -152,36 +153,16 @@
 
 		const btn_reg = document.querySelector("#btn_reg");
 		const btn_inq = document.querySelector("#btn_inq");
-		const form = document.querySelector("#form");
 		
-		const test = document.querySelector("#test");
+		//	for(const elem of objs)
+		//	{
+		//		console.log(elem.ref);
+		//	}
 		
+		// const test = document.querySelector("#test");
 		
-		// 조회		
-		test.addEventListener("click", ()=>{
-			
-			// 숫자 형태인지 확인
-			let s1 	= joindate.ref.value.replaceAll("-", "");
-			let s2 	= joindate.ref.value.replaceAll("/", "");
-			let s3 	= joindate.ref.value.replaceAll(".", "");
-			
-			if
-			( isNaN(s1) == false ||
-			  isNaN(s2) == false ||
-			  isNaN(s3) == false
-			)
-			{
-				
-			}
-			else
-			{
-				alert(joindate.invalidMsg);
-				joindate.focus();
-				return false;
-			}
+	
 
-		});
-		
 		
 		
 		// 조회		
@@ -199,8 +180,21 @@
 			
 			res = checkDataExistance();
 			
-			if(res != true)
-				return;
+			console.log(res);
+			
+			// if(1 == true)
+			// alert("진짜 이렇게 된다고?");  // 이게 이렇게 실행되네?
+			
+						
+						
+			if(res !== true) 	// != 로 하니까. res=1 임에도 불구하고 res=true로 기어들어가더라.. 이유가 뭐지?
+			{
+				return;				
+			}
+			else
+			{
+				alert("왜 건너뛰는데");	
+			}
 			
 			res = checkDataSize();
 			
@@ -226,8 +220,7 @@
 		
 		});
 		
-		
-		
+
 		const checkDataExistance = function()
 		{
 			for(let i = 0; i < objs.length; i++)
@@ -243,6 +236,9 @@
 
 			return true;
 		}
+		
+		
+		
 		
 		const checkDataSize = function()
 		{
@@ -267,13 +263,18 @@
 			return true;
 		}
 		
+		
+		
+		
+		
+		
 		const checkDataType = function()
 		{	
 			// 도시코드 숫자인지 아닌지
 			if(isNaN(city.ref.value) === true )
 			{
 				alert(city.invalidMsg);
-				city.focus();
+				city.ref.focus();
 				return false;
 			}
 	
@@ -286,7 +287,7 @@
 				
 				default : 
 					alert(grade.invalidMsg);
-					grade.focus();
+					grade.ref.focus();
 					return false;
 			}
 			
@@ -307,31 +308,22 @@
 			else
 			{
 				alert(joindate.invalidMsg);
-				joindate.focus();
+				joindate.ref.focus();
 				return false;
 			}
 				
 			return true;
 		}
-
-		
-		
-		
-		
-
 		
 		
 		
 		
 		
-			
-			
-	
 		
-	
-	
 	})();
 	</script>
+	
+	
 
 	
 
