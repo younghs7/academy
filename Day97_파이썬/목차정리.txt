@@ -1,0 +1,73 @@
+목차
+
+1. 파이썬 변수 선언
+2. 파이썬 함수 선언
+	- def
+3. 기본적인 함수
+	-print()	▶디폴트 CR
+		- print(i, end='')
+	-input()
+	-eval()
+
+4. 반복문
+	- for i in <리스트>
+	- range(시작, 끝(미포함), index++)
+
+5. 연산자
+	- **
+	- /
+	- //
+	- %
+6. 형변환
+	- int -> float
+	- float -> int
+
+7. 리스트
+	- 양수 인덱싱
+	- 음수 인덱싱
+	- 슬라이싱 인덱싱
+		- [first:end:index++]
+		- index++ : 기본값 1
+		- ex)
+			- list[0:3:2]
+			- list[:3:2]
+			- list[::2]
+			- list[::]
+			- list[0:3]
+			- list[:3]
+			- list[0:]
+			- list[:]
+
+8. 리스트 연산
+	ex) 	[1, 2] + [3, 4]
+	    	[1, 2] * 3
+		
+9. 리스트 관련 함수
+	- len(list)
+	- min(list) max(list)
+	- list.append(element)
+	- list.remove(element)
+	- list.pop(index)
+
+10. 문자열
+	- "" or ''
+	- + 연산
+	- 인덱스 연산 가능
+		- 인덱스 연산으로 문자열 못 바꿈. read only
+	- 슬라이싱 연산
+	
+11. 문자열 관련 함수들
+	- count( )
+	- lower( )
+	- upper( )
+	- lstrip( ), rstrip( )
+	- replace( )
+	- split( )
+	- find( )
+
+12. 조건문
+	- and or not
+	- Ture, False ( 첫글자 대문자 )
+	- 0 = False, 나머지는 모두 True
+	
+
