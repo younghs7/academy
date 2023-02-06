@@ -1,0 +1,49 @@
+@charset "UTF-8";
+
+	
+	html, body, header, nav, footer, p, h1, h2{
+		margin: 0;
+		padding: 0;
+	}
+
+
+	html {
+		font-size: 16px;
+	}
+	body {
+	
+	}
+	
+	header{
+		text-align: center;
+		background-color: lightblue;
+	}
+	
+	nav {
+		background-color: purple;
+	}
+	nav > a {
+		text-decoration: none;
+		color: white;
+	}
+	
+	section{
+		margin: 3em 0;
+	}
+	section > h1{
+		text-align: center;
+		margin: 3em 0;
+	}
+	
+	
+	footer{
+		position: fixed;
+		width: 100%;
+		bottom: 0;
+		
+		text-align: center;
+		
+		background-color: lightblue;
+		
+	}
+	
