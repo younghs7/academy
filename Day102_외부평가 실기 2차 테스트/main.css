@@ -1,0 +1,55 @@
+@charset "UTF-8";
+
+
+	html, body, header, footer, h1, h2, p {
+		margin: 0;
+		padding: 0;
+		
+	}
+
+	html {
+		font-size: 16px;
+	}
+	
+	header {
+		background-color: lightblue;
+		text-align: center;
+	}
+	
+	nav {
+		
+		background-color: purple;
+		color: white;
+	}
+	
+	nav > a {
+		color: white;
+		text-decoration: none;
+	}
+	
+	section {
+		margin: 3em 0;
+	}
+	
+	section > h1 {
+		text-align: center;
+		margin: 3em 0;
+	
+	}
+	
+	section table {
+	
+		margin: 3em auto;
+	}
+	
+	iframe {
+		display: none;
+	}
+
+	footer {
+		position: fixed;
+		width: 100%;
+		bottom: 0;
+		background-color: lightblue;
+		text-align: center;
+	}
